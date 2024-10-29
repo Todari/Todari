@@ -12,7 +12,10 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-
 <a href="https://github.com/devxb/gitanimals">
-  <img src="https://render.gitanimals.org/farms/Todari"/>
+<img
+  src="https://render.gitanimals.org/farms/Todari"
+  width="900"
+  height="450"
+/>
 </a>
