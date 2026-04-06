@@ -14,8 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           USERNAME: Todari
           BRANCH_NAME: output
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           UTC_OFFSET: 9
