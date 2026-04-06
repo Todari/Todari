@@ -46,17 +46,10 @@
 <div align="center">
 
 <a href="https://github.com/Todari">
-  <img src="https://raw.githubusercontent.com/Todari/Todari/output/profile-summary-card-output/github_dark/0-profile-details.svg" width="100%" />
+  <img height="170" src="https://github-readme-stats-todaris-projects.vercel.app/api?username=Todari&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&count_private=true&include_all_commits=true" />
 </a>
-
 <a href="https://github.com/Todari">
-  <img src="https://raw.githubusercontent.com/Todari/Todari/output/profile-summary-card-output/github_dark/1-repos-per-language.svg" width="49%" />
-  <img src="https://raw.githubusercontent.com/Todari/Todari/output/profile-summary-card-output/github_dark/2-most-commit-language.svg" width="49%" />
-</a>
-
-<a href="https://github.com/Todari">
-  <img src="https://raw.githubusercontent.com/Todari/Todari/output/profile-summary-card-output/github_dark/3-stats.svg" width="49%" />
-  <img src="https://raw.githubusercontent.com/Todari/Todari/output/profile-summary-card-output/github_dark/4-productive-time.svg" width="49%" />
+  <img height="170" src="https://github-readme-stats-todaris-projects.vercel.app/api/top-langs/?username=Todari&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=6" />
 </a>
 
 </div>
