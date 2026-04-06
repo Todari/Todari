@@ -47,10 +47,6 @@
 
 [![Streak](https://streak-stats.demolab.com?user=Todari&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff&sideLabels=8b949e&dates=8b949e)](https://github.com/Todari)
 
-<br/>
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Todari&bg_color=0d1117&color=58a6ff&line=58a6ff&point=8b949e&area=true&area_color=1a1a2e&hide_border=true)](https://github.com/Todari)
-
 </div>
 
 <br/>

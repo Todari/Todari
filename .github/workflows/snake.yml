@@ -15,6 +15,7 @@ jobs:
       - uses: Platane/snk@v3
         with:
           github_user_name: Todari
+          github_token: ${{ secrets.GH_TOKEN }}
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
