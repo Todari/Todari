@@ -15,65 +15,23 @@
 
 <br/>
 
-## :rocket: Services
+## Services
 
-<table>
-<tr>
-<td align="center" width="14%">
-<a href="https://forcreator.co.kr">
-<img width="48" src="https://img.shields.io/badge/-3b82f6?style=for-the-badge" /><br/>
-<b>Forcletter</b><br/>
-<sub>AI 크리에이터 분석</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://haengdong.pro">
-<img width="48" src="https://img.shields.io/badge/-a855f7?style=for-the-badge" /><br/>
-<b>행동대장</b><br/>
-<sub>모임 정산</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://react-pixel-ui.vercel.app">
-<img width="48" src="https://img.shields.io/badge/-ec4899?style=for-the-badge" /><br/>
-<b>Pixel UI</b><br/>
-<sub>React UI 라이브러리</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://trade-tower.vercel.app">
-<img width="48" src="https://img.shields.io/badge/-06b6d4?style=for-the-badge" /><br/>
-<b>Trade Tower</b><br/>
-<sub>AI 자동매매</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://metronomdeul.site">
-<img width="48" src="https://img.shields.io/badge/-f97316?style=for-the-badge" /><br/>
-<b>메트로놈들</b><br/>
-<sub>실시간 협업</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://bir-th-day.site">
-<img width="48" src="https://img.shields.io/badge/-22c55e?style=for-the-badge" /><br/>
-<b>Bir-th-day</b><br/>
-<sub>온라인 생일파티</sub>
-</a>
-</td>
-<td align="center" width="14%">
-<a href="https://lvti.me">
-<img width="48" src="https://img.shields.io/badge/-ef4444?style=for-the-badge" /><br/>
-<b>LVTI</b><br/>
-<sub>연애 유형 테스트</sub>
-</a>
-</td>
-</tr>
-</table>
+<div align="center">
+
+[![Forcletter](https://img.shields.io/badge/📊_Forcletter-AI_크리에이터_분석-3b82f6?style=for-the-badge&labelColor=0d1117)](https://forcreator.co.kr)
+[![행동대장](https://img.shields.io/badge/💰_행동대장-모임_정산-a855f7?style=for-the-badge&labelColor=0d1117)](https://haengdong.pro)
+[![React Pixel UI](https://img.shields.io/badge/🎮_React_Pixel_UI-UI_라이브러리-ec4899?style=for-the-badge&labelColor=0d1117)](https://react-pixel-ui.vercel.app)
+[![Trade Tower](https://img.shields.io/badge/📈_Trade_Tower-AI_자동매매-06b6d4?style=for-the-badge&labelColor=0d1117)](https://trade-tower.vercel.app)
+[![메트로놈들](https://img.shields.io/badge/🎵_메트로놈들-실시간_협업-f97316?style=for-the-badge&labelColor=0d1117)](https://metronomdeul.site)
+[![Bir-th-day](https://img.shields.io/badge/🎂_Bir--th--day-온라인_생일파티-22c55e?style=for-the-badge&labelColor=0d1117)](https://bir-th-day.site)
+[![LVTI](https://img.shields.io/badge/💕_LVTI-연애_유형_테스트-ef4444?style=for-the-badge&labelColor=0d1117)](https://lvti.me)
+
+</div>
 
 <br/>
 
-## :wrench: Tech Stack
+## Tech Stack
 
 <div align="center">
 
@@ -83,7 +41,7 @@
 
 <br/>
 
-## :chart_with_upwards_trend: Stats
+## Stats
 
 <div align="center">
 
