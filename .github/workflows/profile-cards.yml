@@ -26,7 +26,7 @@ jobs:
 
       - uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: output
           publish_dir: ./profile-summary-card-output
           keep_files: true
