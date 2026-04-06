@@ -1,0 +1,20 @@
+name: Profile Summary Cards
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        with:
+          USERNAME: Todari
+          BRANCH_NAME: output
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          UTC_OFFSET: 9
