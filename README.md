@@ -1,97 +1,110 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=200&section=header&text=Taehun%20Lee&fontSize=42&fontColor=e0e0e0&fontAlignY=35&desc=Building%20things%20that%20solve%20real%20problems&descSize=16&descColor=a0a0b8&descAlignY=55" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:1a1a2e&height=180&section=header" width="100%" />
 
-[![Portfolio](https://img.shields.io/badge/todari.dev-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://todari.dev)
+<a href="https://todari.dev">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=80&lines=Hey%2C+I'm+Taehun+%F0%9F%91%8B;I+build+things+that+solve+problems" alt="Typing SVG" />
+</a>
+
+<br/>
+
+[![Portfolio](https://img.shields.io/badge/todari.dev-0d1117?style=for-the-badge&logo=vercel&logoColor=white)](https://todari.dev)
+[![GitHub](https://img.shields.io/badge/Todari-0d1117?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Todari)
 
 </div>
 
-## Services
+<br/>
+
+## :rocket: Services
 
 <table>
 <tr>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://forcreator.co.kr">
-<img src="https://img.shields.io/badge/Forcletter-3b82f6?style=for-the-badge&logoColor=white" /><br/>
-<sub>AI Creator Analytics</sub>
+<img width="48" src="https://img.shields.io/badge/-3b82f6?style=for-the-badge" /><br/>
+<b>Forcletter</b><br/>
+<sub>AI 크리에이터 분석</sub>
 </a>
 </td>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://haengdong.pro">
-<img src="https://img.shields.io/badge/행동대장-a855f7?style=for-the-badge&logoColor=white" /><br/>
-<sub>Group Bill Splitting</sub>
+<img width="48" src="https://img.shields.io/badge/-a855f7?style=for-the-badge" /><br/>
+<b>행동대장</b><br/>
+<sub>모임 정산</sub>
 </a>
 </td>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://react-pixel-ui.vercel.app">
-<img src="https://img.shields.io/badge/Pixel%20UI-ec4899?style=for-the-badge&logoColor=white" /><br/>
-<sub>React UI Library</sub>
+<img width="48" src="https://img.shields.io/badge/-ec4899?style=for-the-badge" /><br/>
+<b>Pixel UI</b><br/>
+<sub>React UI 라이브러리</sub>
 </a>
 </td>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://trade-tower.vercel.app">
-<img src="https://img.shields.io/badge/Trade%20Tower-06b6d4?style=for-the-badge&logoColor=white" /><br/>
-<sub>AI Auto Trading</sub>
+<img width="48" src="https://img.shields.io/badge/-06b6d4?style=for-the-badge" /><br/>
+<b>Trade Tower</b><br/>
+<sub>AI 자동매매</sub>
 </a>
 </td>
-</tr>
-<tr>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://metronomdeul.site">
-<img src="https://img.shields.io/badge/메트로놈들-f97316?style=for-the-badge&logoColor=white" /><br/>
-<sub>Sync Metronome</sub>
+<img width="48" src="https://img.shields.io/badge/-f97316?style=for-the-badge" /><br/>
+<b>메트로놈들</b><br/>
+<sub>실시간 협업</sub>
 </a>
 </td>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://bir-th-day.site">
-<img src="https://img.shields.io/badge/Bir--th--day-22c55e?style=for-the-badge&logoColor=white" /><br/>
-<sub>Online Birthday Party</sub>
+<img width="48" src="https://img.shields.io/badge/-22c55e?style=for-the-badge" /><br/>
+<b>Bir-th-day</b><br/>
+<sub>온라인 생일파티</sub>
 </a>
 </td>
-<td align="center" width="140">
+<td align="center" width="14%">
 <a href="https://lvti.me">
-<img src="https://img.shields.io/badge/LVTI-ef4444?style=for-the-badge&logoColor=white" /><br/>
-<sub>Love Type Test</sub>
+<img width="48" src="https://img.shields.io/badge/-ef4444?style=for-the-badge" /><br/>
+<b>LVTI</b><br/>
+<sub>연애 유형 테스트</sub>
 </a>
-</td>
-<td align="center" width="140">
 </td>
 </tr>
 </table>
 
-## Tech
+<br/>
 
-<div>
+## :wrench: Tech Stack
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white)
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonaws&logoColor=white)
+<div align="center">
+
+[![My Skills](https://skillicons.dev/icons?i=ts,react,nextjs,threejs,nestjs,spring,go,docker,aws,github&theme=dark)](https://skillicons.dev)
 
 </div>
 
-## Stats
+<br/>
+
+## :chart_with_upwards_trend: Stats
+
+<div align="center">
+
+[![Streak](https://streak-stats.demolab.com?user=Todari&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff&sideLabels=8b949e&dates=8b949e)](https://github.com/Todari)
+
+<br/>
+
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Todari&bg_color=0d1117&color=58a6ff&line=58a6ff&point=8b949e&area=true&area_color=1a1a2e&hide_border=true)](https://github.com/Todari)
+
+</div>
+
+<br/>
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Todari&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&count_private=true&include_all_commits=true" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Todari&show_icons=true&hide_border=true&count_private=true&include_all_commits=true" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Todari/Todari/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Todari/Todari/output/github-snake.svg" />
+  <img alt="snake eating contributions" src="https://raw.githubusercontent.com/Todari/Todari/output/github-snake-dark.svg" width="100%" />
 </picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Todari&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&langs_count=6" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Todari&layout=compact&hide_border=true&langs_count=6" />
-</picture>
-
-<br/>
-
-[![Streak](https://streak-stats.demolab.com?user=Todari&theme=github-dark-blue&hide_border=true&background=0d1117)](https://github.com/Todari)
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=100&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:1a1a2e&height=100&section=footer" width="100%" />
