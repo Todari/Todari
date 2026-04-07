@@ -5,6 +5,7 @@ import { useRef, useMemo, useState, useEffect, useCallback } from "react";
 import * as THREE from "three";
 import { motion, AnimatePresence } from "framer-motion";
 import { services } from "@/data/services";
+import { trackEvent } from "@/lib/analytics";
 
 // ── Questions for typing hero ───────────────────────────────
 const questions = [
@@ -686,6 +687,7 @@ function ServiceOverlay({ scrollProgress }: { scrollProgress: number }) {
                 href={service.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('click_service_link', { service_id: service.id, service_title: service.title, service_url: service.url })}
                 className="inline-flex items-center px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:scale-105"
                 style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}bb)`, boxShadow: `0 0 30px ${service.color}44` }}
               >
@@ -709,23 +711,17 @@ function Legend({
   onSelect: (i: number) => void;
 }) {
   return (
-    <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-20">
+    <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
       {services.map((service, i) => {
         const active = activeIndex === i;
         return (
           <button
             key={service.id}
             onClick={() => onSelect(i)}
-            className="flex items-center gap-2.5 group cursor-pointer"
+            className="cursor-pointer"
           >
-            <span
-              className="text-[11px] font-medium transition-all duration-300"
-              style={{ color: service.color, opacity: active ? 1 : 0, transform: active ? "translateX(0)" : "translateX(8px)" }}
-            >
-              {service.title}
-            </span>
             <div
-              className="w-2.5 h-2.5 rounded-full transition-all duration-300 group-hover:scale-150"
+              className="w-2.5 h-2.5 rounded-full transition-all duration-300 hover:scale-150"
               style={{
                 backgroundColor: active ? service.color : "rgba(255,255,255,0.15)",
                 boxShadow: active ? `0 0 12px ${service.color}` : "none",
@@ -769,6 +765,23 @@ export default function SolarSystem() {
     const idx = Math.round(section - 1);
     return Math.max(0, Math.min(idx, services.length - 1));
   }, [scrollProgress, scrollRange]);
+
+  // Section visibility tracking (fire once per section per page load)
+  const viewedSectionsRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (activeIndex === -1) {
+      if (!viewedSectionsRef.current.has('hero')) {
+        viewedSectionsRef.current.add('hero');
+        trackEvent('view_section', { section_name: 'hero' });
+      }
+      return;
+    }
+    const sectionName = services[activeIndex]?.id;
+    if (sectionName && !viewedSectionsRef.current.has(sectionName)) {
+      viewedSectionsRef.current.add(sectionName);
+      trackEvent('view_section', { section_name: sectionName });
+    }
+  }, [activeIndex]);
 
   // Click legend → scroll to snap section
   const scrollToIndex = useCallback((i: number) => {
