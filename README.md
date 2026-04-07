@@ -25,7 +25,7 @@
 [![Trade Tower](https://img.shields.io/badge/📈_Trade_Tower-AI_자동매매-06b6d4?style=for-the-badge&labelColor=0d1117)](https://trade-tower.vercel.app)
 [![메트로놈들](https://img.shields.io/badge/🎵_메트로놈들-실시간_협업-f97316?style=for-the-badge&labelColor=0d1117)](https://metronomdeul.site)
 [![Bir-th-day](https://img.shields.io/badge/🎂_Bir--th--day-온라인_생일파티-22c55e?style=for-the-badge&labelColor=0d1117)](https://bir-th-day.site)
-[![LVTI](https://img.shields.io/badge/💕_LVTI-연애_유형_테스트-ef4444?style=for-the-badge&labelColor=0d1117)](https://lvti.me)
+[![LVTI](https://img.shields.io/badge/💕_LVTI-연애_유형_테스트-ef4444?style=for-the-badge&labelColor=0d1117)](https://lvti.my)
 
 </div>
 

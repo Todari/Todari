@@ -71,7 +71,7 @@ export const services: Service[] = [
     subtitle: "연애 성격 유형 테스트",
     description:
       "32개 질문으로 알아보는 16가지 연애 유형. 나의 연애 성격을 4가지 차원으로 분석해 드립니다.",
-    url: "https://lvti.me",
+    url: "https://lvti.my",
     color: "#ef4444",
     gradient: "from-red-500 to-rose-600",
     icon: "💕",
