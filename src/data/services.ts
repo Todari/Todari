@@ -66,17 +66,6 @@ export const services: Service[] = [
     icon: "🎵",
   },
   {
-    id: "hbd2me",
-    title: "Bir-th-day",
-    subtitle: "온라인 생일파티",
-    description:
-      "멀리 있어도 함께 축하할 수 있는 온라인 생일파티 서비스. 친구들과 특별한 생일을 만들어보세요.",
-    url: "https://bir-th-day.site",
-    color: "#22c55e",
-    gradient: "from-green-500 to-emerald-600",
-    icon: "🎂",
-  },
-  {
     id: "lovetype",
     title: "LVTI",
     subtitle: "연애 성격 유형 테스트",
@@ -86,5 +75,16 @@ export const services: Service[] = [
     color: "#ef4444",
     gradient: "from-red-500 to-rose-600",
     icon: "💕",
+  },
+  {
+    id: "hbd2me",
+    title: "Bir-th-day",
+    subtitle: "온라인 생일파티",
+    description:
+      "멀리 있어도 함께 축하할 수 있는 온라인 생일파티 서비스. 친구들과 특별한 생일을 만들어보세요.",
+    url: "https://bir-th-day.site",
+    color: "#22c55e",
+    gradient: "from-green-500 to-emerald-600",
+    icon: "🎂",
   },
 ];

@@ -14,8 +14,8 @@ const questions = [
   { text: "UI를 픽셀 아트로 만들 수 있다면?", color: "#ec4899" },
   { text: "주식, AI한테 맡기면 어떨까?", color: "#06b6d4" },
   { text: "합주할 때 박자가 안 맞으면?", color: "#f97316" },
-  { text: "친구 생일, 온라인으로 축하할 수 있다면?", color: "#22c55e" },
   { text: "내 연애 유형이 궁금하다면?", color: "#ef4444" },
+  { text: "친구 생일, 온라인으로 축하할 수 있다면?", color: "#22c55e" },
 ];
 
 // ── Planet configs ──────────────────────────────────────────
@@ -27,8 +27,8 @@ const PLANETS = [
   { orbit: 15,   size: 0.6,  speed: 0.18, startAngle: 2.5, tilt: 0.2, hasRing: false, feature: "pixel" as PlanetFeature },
   { orbit: 18.5, size: 0.75, speed: 0.08, startAngle: 3.8, tilt: 0.4, hasRing: false, feature: "multi-ring" as PlanetFeature },
   { orbit: 22,   size: 0.6,  speed: 0.12, startAngle: 5.0, tilt: 0.3, hasRing: false, feature: "pulse" as PlanetFeature },
-  { orbit: 25.5, size: 0.65, speed: 0.09, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "sparkle" as PlanetFeature },
-  { orbit: 29,   size: 0.55, speed: 0.15, startAngle: 4.2, tilt: 0.15, hasRing: false, feature: "twin" as PlanetFeature },
+  { orbit: 25.5, size: 0.55, speed: 0.15, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "twin" as PlanetFeature },
+  { orbit: 29,   size: 0.65, speed: 0.09, startAngle: 4.2, tilt: 0.15, hasRing: false, feature: "sparkle" as PlanetFeature },
 ];
 
 // ── Textures ────────────────────────────────────────────────
