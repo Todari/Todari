@@ -667,22 +667,22 @@ function ServiceOverlay({ scrollProgress }: { scrollProgress: number }) {
         return (
           <div
             key={service.id}
-            className={`absolute inset-0 flex items-center pointer-events-none ${side === "left" ? "justify-start pl-[5%]" : "justify-end pr-[5%]"}`}
+            className={`absolute inset-0 flex pointer-events-none items-end pb-[8%] justify-center md:items-center md:pb-0 ${side === "left" ? "md:justify-start md:pl-[5%]" : "md:justify-end md:pr-[5%]"}`}
             style={{ opacity }}
           >
             <div
-              className="max-w-md pointer-events-auto rounded-2xl p-8"
+              className="max-w-[90vw] md:max-w-md pointer-events-auto rounded-2xl p-6 md:p-8"
               style={{
                 transform: `translateX(${tx}px)`,
                 textAlign: side === "right" ? "right" : "left",
-                background: "rgba(6,6,20,0.75)",
+                background: "rgba(6,6,20,0.85)",
                 border: `1px solid ${service.color}22`,
               }}
             >
-              <span className="text-5xl block mb-4">{service.icon}</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">{service.title}</h2>
-              <p className="text-lg font-medium mb-4" style={{ color: service.color }}>{service.subtitle}</p>
-              <p className="text-[var(--text-secondary)] text-base leading-relaxed mb-8">{service.description}</p>
+              <span className="text-4xl md:text-5xl block mb-3 md:mb-4">{service.icon}</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">{service.title}</h2>
+              <p className="text-base md:text-lg font-medium mb-2 md:mb-4" style={{ color: service.color }}>{service.subtitle}</p>
+              <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed mb-5 md:mb-8">{service.description}</p>
               <a
                 href={service.url}
                 target="_blank"
