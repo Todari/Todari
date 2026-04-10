@@ -2,6 +2,7 @@
 
 import AnimatedSection from "./AnimatedSection";
 import { socialLinks } from "@/data/projects";
+import { trackEvent } from "@/lib/analytics";
 
 function GithubIcon() {
   return (
@@ -58,6 +59,7 @@ export default function Contact() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_contact_link', { link_type: link.icon })}
                   className="neu-btn p-5 text-[var(--text-secondary)] hover:text-[var(--accent-purple)] transition-colors"
                   aria-label={link.name}
                 >

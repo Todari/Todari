@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, type MouseEvent } from "react";
 import type { Service } from "@/data/services";
+import { trackEvent } from "@/lib/analytics";
 import ServiceMockup from "./mockups";
 
 function ArrowIcon() {
@@ -119,6 +120,7 @@ export default function ServiceCard({
               href={service.url}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click_service_link', { service_id: service.id, service_title: service.title, service_url: service.url })}
               className="group inline-flex items-center px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
               style={{
                 background: `linear-gradient(135deg, ${service.color}, ${service.color}cc)`,

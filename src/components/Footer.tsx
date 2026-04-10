@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
   return (
@@ -18,12 +19,14 @@ export default function Footer() {
               href="https://github.com/Todari"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click_contact_link', { link_type: 'github' })}
               className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm"
             >
               GitHub
             </a>
             <a
               href="mailto:todari.dev@gmail.com"
+              onClick={() => trackEvent('click_contact_link', { link_type: 'email' })}
               className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm"
             >
               Contact

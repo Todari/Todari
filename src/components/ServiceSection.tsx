@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { Service } from "@/data/services";
+import { trackEvent } from "@/lib/analytics";
 import ChartAccent from "./accents/ChartAccent";
 import SplitAccent from "./accents/SplitAccent";
 import PulseAccent from "./accents/PulseAccent";
@@ -98,6 +99,7 @@ export default function ServiceSection({
                 href={service.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('click_service_link', { service_id: service.id, service_title: service.title, service_url: service.url })}
                 className="group inline-flex items-center px-7 py-3.5 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{
                   background: `linear-gradient(135deg, ${service.color}, ${service.color}bb)`,
