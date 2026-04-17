@@ -1,0 +1,24 @@
+# Todari
+
+> Todari(토다리)가 만든 웹 서비스 포트폴리오 사이트입니다. 인터랙티브 3D 태양계 비주얼로 각 서비스를 행성처럼 탐험할 수 있습니다.
+
+## 운영 중인 서비스
+
+- **행동대장 (Haengdong)** — https://haengdong.pro — 가입 없이 바로 시작하는 모임/여행 비용 정산 서비스. 구성원 변동에도 자동 재계산.
+- **LVTI** — https://lvti.my — 32개 질문으로 알아보는 16가지 연애 성격 유형 테스트.
+- **메트로놈들 (Metronomdeul)** — https://metronomdeul.site — 여러 연주자가 네트워크로 동일 박자에 동기화되는 실시간 협업 메트로놈.
+- **React Pixel UI** — https://react-pixel-ui.vercel.app — 순수 CSS 기반 픽셀 아트 React 컴포넌트 라이브러리. SSR 호환.
+- **Bir-th-day** — https://bir-th-day.site — 멀리 있어도 함께 축하하는 온라인 생일파티 서비스.
+- **Trade Tower** — https://trade-tower.vercel.app — 8개 AI 에이전트가 합의 기반으로 의사결정하는 한국 주식 자동매매 플랫폼.
+- **Forcletter** — https://forcreator.co.kr — 인스타그램 크리에이터를 위한 AI 분석 플랫폼.
+
+## 운영자
+
+- 이름: Todari (이태훈)
+- GitHub: https://github.com/Todari
+- 사이트: https://todari.dev
+
+## 사이트 구조
+
+- 홈(`/`)에서 3D 태양계 인터랙션으로 서비스를 둘러볼 수 있고, 각 행성을 클릭하면 해당 서비스의 외부 링크로 이동합니다.
+- 모바일에서는 카드 리스트 형태로 노출됩니다.
