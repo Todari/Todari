@@ -33,6 +33,17 @@ export const services: Service[] = [
     icon: "💰",
   },
   {
+    id: "dakbal",
+    title: "닭발 헌터",
+    subtitle: "엽떡 닭발 재고 파인더",
+    description:
+      "동대문엽기떡볶이 전국 지점 중 지금 닭발을 파는 곳을 지도로 확인. 4가지 닭발 메뉴의 실시간 품절 여부를 카카오맵 요기요 메뉴 API로 추적합니다.",
+    url: "https://dakbal.pro",
+    color: "#e11d48",
+    gradient: "from-rose-600 to-red-700",
+    icon: "🍗",
+  },
+  {
     id: "react-pixel-ui",
     title: "React Pixel UI",
     subtitle: "픽셀 아트 UI 라이브러리",
@@ -42,17 +53,6 @@ export const services: Service[] = [
     color: "#ec4899",
     gradient: "from-pink-500 to-rose-600",
     icon: "🎮",
-  },
-  {
-    id: "trade-tower",
-    title: "Trade Tower",
-    subtitle: "AI 자동매매 플랫폼",
-    description:
-      "8개 AI 에이전트가 합의 기반으로 매매 결정을 내리는 한국 주식 자동매매 플랫폼.",
-    url: "https://trade-tower.vercel.app",
-    color: "#06b6d4",
-    gradient: "from-cyan-500 to-teal-600",
-    icon: "📈",
   },
   {
     id: "metronomdeul",
@@ -66,6 +66,17 @@ export const services: Service[] = [
     icon: "🎵",
   },
   {
+    id: "trade-tower",
+    title: "Trade Tower",
+    subtitle: "AI 자동매매 플랫폼",
+    description:
+      "8개 AI 에이전트가 합의 기반으로 매매 결정을 내리는 한국 주식 자동매매 플랫폼.",
+    url: "https://trade-tower.vercel.app",
+    color: "#06b6d4",
+    gradient: "from-cyan-500 to-teal-600",
+    icon: "📈",
+  },
+  {
     id: "lovetype",
     title: "LVTI",
     subtitle: "연애 성격 유형 테스트",
@@ -75,16 +86,5 @@ export const services: Service[] = [
     color: "#ef4444",
     gradient: "from-red-500 to-rose-600",
     icon: "💕",
-  },
-  {
-    id: "hbd2me",
-    title: "Bir-th-day",
-    subtitle: "온라인 생일파티",
-    description:
-      "멀리 있어도 함께 축하할 수 있는 온라인 생일파티 서비스. 친구들과 특별한 생일을 만들어보세요.",
-    url: "https://bir-th-day.site",
-    color: "#22c55e",
-    gradient: "from-green-500 to-emerald-600",
-    icon: "🎂",
   },
 ];

@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "Todari가 만든 웹 서비스 모음. 행동대장(모임 정산), LVTI(연애 유형 테스트), 메트로놈들(실시간 협업 메트로놈), React Pixel UI, Bir-th-day 등을 한곳에서 만나보세요.";
+  "Todari가 만든 웹 서비스 모음. 행동대장(모임 정산), LVTI(연애 유형 테스트), 메트로놈들(실시간 협업 메트로놈), React Pixel UI, 닭발 헌터 등을 한곳에서 만나보세요.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "LVTI",
     "메트로놈들",
     "React Pixel UI",
-    "Bir-th-day",
+    "닭발 헌터",
     "Forcletter",
   ],
   authors: [{ name: "Todari", url: SITE_URL }],
@@ -100,7 +100,7 @@ const jsonLd = {
         "https://lvti.my",
         "https://metronomdeul.site",
         "https://react-pixel-ui.vercel.app",
-        "https://bir-th-day.site",
+        "https://dakbal.pro",
       ],
     },
     {

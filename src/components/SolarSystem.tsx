@@ -11,11 +11,11 @@ import { trackEvent } from "@/lib/analytics";
 const questions = [
   { text: "내 인스타, AI가 분석해준다면?", color: "#3b82f6" },
   { text: "모임 정산, 아직도 계산기 쓰세요?", color: "#a855f7" },
+  { text: "엽떡 갔는데 닭발이 품절이라면?", color: "#e11d48" },
   { text: "UI를 픽셀 아트로 만들 수 있다면?", color: "#ec4899" },
-  { text: "주식, AI한테 맡기면 어떨까?", color: "#06b6d4" },
   { text: "합주할 때 박자가 안 맞으면?", color: "#f97316" },
+  { text: "주식, AI한테 맡기면 어떨까?", color: "#06b6d4" },
   { text: "내 연애 유형이 궁금하다면?", color: "#ef4444" },
-  { text: "친구 생일, 온라인으로 축하할 수 있다면?", color: "#22c55e" },
 ];
 
 // ── Planet configs ──────────────────────────────────────────
@@ -299,7 +299,7 @@ function Planet({
   const pulseRef = useRef(0);
   const circleMap = useCircleTexture();
 
-  // Sparkle particle positions for Bir-th-day
+  // Sparkle particle positions for 닭발 헌터
   const sparklePositions = useMemo(() => {
     if (config.feature !== "sparkle") return new Float32Array(0);
     const count = 80;
@@ -453,7 +453,7 @@ function Planet({
         </>
       )}
 
-      {/* ── Feature: sparkle (Bir-th-day) ── */}
+      {/* ── Feature: sparkle (닭발 헌터) ── */}
       {config.feature === "sparkle" && (
         <group ref={featureRef}>
           <points frustumCulled={false}>
@@ -517,10 +517,10 @@ function CameraController({
       const CAMERA_OFFSETS: [number, number, number][] = [
         [0, 1, 6],       // Forcletter: 정면
         [6, 3, 1],       // 행동대장: 오른쪽 위
-        [-5, 0, 4],      // React Pixel UI: 왼쪽
-        [0, 6, 2],       // Trade Tower: 위에서
+        [-5, 0, 4],      // 닭발 헌터: 왼쪽
+        [0, 6, 2],       // React Pixel UI: 위에서
         [4, -2, 4],      // 메트로놈들: 오른쪽 아래
-        [-4, 3, 4],      // Bir-th-day: 왼쪽 위
+        [-4, 3, 4],      // Trade Tower: 왼쪽 위
         [5, 2, -3],      // LVTI: 오른쪽 뒤
       ];
 

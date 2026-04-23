@@ -8,10 +8,10 @@ import { services } from "@/data/services";
 const questions = [
   { text: "내 인스타, AI가 분석해준다면?", color: "#f59e0b" },
   { text: "모임 정산, 아직도 계산기 쓰세요?", color: "#3b82f6" },
+  { text: "엽떡 갔는데 닭발이 품절이라면?", color: "#e11d48" },
   { text: "UI를 픽셀 아트로 만들 수 있다면?", color: "#10b981" },
-  { text: "주식, AI한테 맡기면 어떨까?", color: "#06b6d4" },
   { text: "합주할 때 박자가 안 맞으면?", color: "#a855f7" },
-  { text: "친구 생일, 온라인으로 축하할 수 있다면?", color: "#ec4899" },
+  { text: "주식, AI한테 맡기면 어떨까?", color: "#06b6d4" },
 ];
 
 const STATION_SPACING = 50;
@@ -262,28 +262,28 @@ const cameraKeyframes = [
   // ----- rise ABOVE -----
   { at: 0.37, cam: [0, 14, 2],    look: [0, 0, -2] },
 
-  // ===== Section 3 (메트로놈들): from above =====
+  // ===== Section 3 (닭발 헌터): from above =====
   { at: 0.40, cam: [0, 14, 2],    look: [0, 0, -2] },
   { at: 0.46, cam: [0, 14, 2],    look: [0, 0, -2] },
 
   // ----- swing to LEFT -----
   { at: 0.53, cam: [-14, -1, 0],  look: [0, 0, -2] },
 
-  // ===== Section 4 (Bir-th-day): from left =====
+  // ===== Section 4 (React Pixel UI): from left =====
   { at: 0.56, cam: [-14, -1, 0],  look: [0, 0, -2] },
   { at: 0.61, cam: [-14, -1, 0],  look: [0, 0, -2] },
 
   // ----- back behind, low angle -----
   { at: 0.68, cam: [0, -2, 14],   look: [0, 0, -15] },
 
-  // ===== Section 5 (Trade Tower): forward, low angle =====
+  // ===== Section 5 (메트로놈들): forward, low angle =====
   { at: 0.71, cam: [0, -2, 14],   look: [0, 0, -15] },
   { at: 0.76, cam: [0, -2, 14],   look: [0, 0, -15] },
 
   // ----- swing to RIGHT-UP diagonal -----
   { at: 0.83, cam: [10, 10, 2],   look: [0, 0, -2] },
 
-  // ===== Section 6 (React Pixel UI): diagonal view =====
+  // ===== Section 6 (Trade Tower): diagonal view =====
   { at: 0.86, cam: [10, 10, 2],   look: [0, 0, -2] },
   { at: 0.91, cam: [10, 10, 2],   look: [0, 0, -2] },
 

@@ -8,7 +8,7 @@
 - **LVTI** — https://lvti.my — 32개 질문으로 알아보는 16가지 연애 성격 유형 테스트.
 - **메트로놈들 (Metronomdeul)** — https://metronomdeul.site — 여러 연주자가 네트워크로 동일 박자에 동기화되는 실시간 협업 메트로놈.
 - **React Pixel UI** — https://react-pixel-ui.vercel.app — 순수 CSS 기반 픽셀 아트 React 컴포넌트 라이브러리. SSR 호환.
-- **Bir-th-day** — https://bir-th-day.site — 멀리 있어도 함께 축하하는 온라인 생일파티 서비스.
+- **닭발 헌터 (Dakbal Hunter)** — https://dakbal.pro — 동대문엽기떡볶이 전국 지점의 닭발 메뉴 실시간 재고를 카카오맵 요기요 API로 추적해 지도로 보여주는 서비스.
 - **Trade Tower** — https://trade-tower.vercel.app — 8개 AI 에이전트가 합의 기반으로 의사결정하는 한국 주식 자동매매 플랫폼.
 - **Forcletter** — https://forcreator.co.kr — 인스타그램 크리에이터를 위한 AI 분석 플랫폼.
 
