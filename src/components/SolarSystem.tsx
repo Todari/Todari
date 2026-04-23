@@ -19,16 +19,16 @@ const questions = [
 ];
 
 // ── Planet configs ──────────────────────────────────────────
-type PlanetFeature = "data-ring" | "moons" | "pixel" | "multi-ring" | "pulse" | "sparkle" | "twin";
+type PlanetFeature = "data-ring" | "moons" | "pixel" | "multi-ring" | "pulse" | "twin" | "ember";
 
 const PLANETS = [
-  { orbit: 8,    size: 0.7,  speed: 0.14, startAngle: 0.0, tilt: 0.3, hasRing: false, feature: "data-ring" as PlanetFeature },
-  { orbit: 11.5, size: 0.9,  speed: 0.10, startAngle: 1.2, tilt: 0.5, hasRing: false, feature: "moons" as PlanetFeature },
-  { orbit: 15,   size: 0.6,  speed: 0.18, startAngle: 2.5, tilt: 0.2, hasRing: false, feature: "pixel" as PlanetFeature },
-  { orbit: 18.5, size: 0.75, speed: 0.08, startAngle: 3.8, tilt: 0.4, hasRing: false, feature: "multi-ring" as PlanetFeature },
-  { orbit: 22,   size: 0.6,  speed: 0.12, startAngle: 5.0, tilt: 0.3, hasRing: false, feature: "pulse" as PlanetFeature },
-  { orbit: 25.5, size: 0.55, speed: 0.15, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "twin" as PlanetFeature },
-  { orbit: 29,   size: 0.65, speed: 0.09, startAngle: 4.2, tilt: 0.15, hasRing: false, feature: "sparkle" as PlanetFeature },
+  { orbit: 8,    size: 0.7,  speed: 0.14, startAngle: 0.0, tilt: 0.3, hasRing: false, feature: "data-ring" as PlanetFeature },  // Forcletter
+  { orbit: 11.5, size: 0.9,  speed: 0.10, startAngle: 1.2, tilt: 0.5, hasRing: false, feature: "moons" as PlanetFeature },      // 행동대장
+  { orbit: 15,   size: 0.6,  speed: 0.18, startAngle: 2.5, tilt: 0.2, hasRing: false, feature: "ember" as PlanetFeature },      // 닭발 헌터
+  { orbit: 18.5, size: 0.75, speed: 0.08, startAngle: 3.8, tilt: 0.4, hasRing: false, feature: "pixel" as PlanetFeature },      // React Pixel UI
+  { orbit: 22,   size: 0.6,  speed: 0.12, startAngle: 5.0, tilt: 0.3, hasRing: false, feature: "pulse" as PlanetFeature },      // 메트로놈들
+  { orbit: 25.5, size: 0.55, speed: 0.15, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "multi-ring" as PlanetFeature }, // Trade Tower
+  { orbit: 29,   size: 0.65, speed: 0.09, startAngle: 4.2, tilt: 0.15, hasRing: false, feature: "twin" as PlanetFeature },      // LVTI
 ];
 
 // ── Textures ────────────────────────────────────────────────
@@ -299,21 +299,23 @@ function Planet({
   const pulseRef = useRef(0);
   const circleMap = useCircleTexture();
 
-  // Sparkle particle positions for 닭발 헌터
-  const sparklePositions = useMemo(() => {
-    if (config.feature !== "sparkle") return new Float32Array(0);
-    const count = 80;
+  // Ember column for 닭발 헌터 — swirling flame particles above planet
+  const emberPositions = useMemo(() => {
+    if (config.feature !== "ember") return new Float32Array(0);
+    const count = 48;
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = config.size * (1.5 + Math.random() * 2);
-      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      pos[i * 3 + 2] = r * Math.cos(phi);
+      const t = seededRand(index, i + 2000);                                   // 0..1 height along flame
+      const height = config.size * (0.75 + t * 2.6);                           // base just above planet → up
+      const taper = 1 - t * 0.65;                                              // narrow toward top
+      const radius = config.size * 0.55 * taper * (0.3 + seededRand(index, i + 2100) * 0.7);
+      const angle = seededRand(index, i + 2200) * Math.PI * 2;
+      pos[i * 3] = Math.cos(angle) * radius;
+      pos[i * 3 + 1] = height;
+      pos[i * 3 + 2] = Math.sin(angle) * radius;
     }
     return pos;
-  }, [config.feature, config.size]);
+  }, [config.feature, config.size, index]);
 
   // Data ring positions for Forcletter
   const dataRingPositions = useMemo(() => {
@@ -359,9 +361,10 @@ function Planet({
         featureRef.current.rotation.x = 0.5;
       } else if (config.feature === "moons") {
         featureRef.current.rotation.y = clock.elapsedTime * 0.4;
-      } else if (config.feature === "sparkle") {
-        featureRef.current.rotation.y = clock.elapsedTime * 0.15;
-        featureRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.3) * 0.2;
+      } else if (config.feature === "ember") {
+        featureRef.current.rotation.y = clock.elapsedTime * 1.4;                          // fast swirl
+        const flicker = 1 + Math.sin(clock.elapsedTime * 9) * 0.08 + Math.sin(clock.elapsedTime * 17) * 0.04;
+        featureRef.current.scale.setScalar(flicker);
       } else if (config.feature === "twin") {
         featureRef.current.rotation.y = clock.elapsedTime * 0.6;
       }
@@ -453,15 +456,24 @@ function Planet({
         </>
       )}
 
-      {/* ── Feature: sparkle (닭발 헌터) ── */}
-      {config.feature === "sparkle" && (
+      {/* ── Feature: ember (닭발 헌터) — 매운 열기를 뿜는 불꽃 기둥 ── */}
+      {config.feature === "ember" && (
         <group ref={featureRef}>
           <points frustumCulled={false}>
             <bufferGeometry>
-              <bufferAttribute attach="attributes-position" args={[sparklePositions, 3]} count={80} itemSize={3} />
+              <bufferAttribute attach="attributes-position" args={[emberPositions, 3]} count={48} itemSize={3} />
             </bufferGeometry>
-            <pointsMaterial size={0.12} color={service.color} transparent opacity={0.8} sizeAttenuation map={circleMap} alphaMap={circleMap} depthWrite={false} blending={THREE.AdditiveBlending} />
+            <pointsMaterial size={0.18} color={service.color} transparent opacity={0.95} sizeAttenuation map={circleMap} alphaMap={circleMap} depthWrite={false} blending={THREE.AdditiveBlending} />
           </points>
+          {/* Flame tip glow */}
+          <sprite position={[0, config.size * 2.4, 0]} scale={[config.size * 2.3, config.size * 2.3, 1]}>
+            <spriteMaterial map={glowMap} transparent opacity={0.55} depthWrite={false} blending={THREE.AdditiveBlending} />
+          </sprite>
+          {/* Base heat ring */}
+          <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, config.size * 0.6, 0]}>
+            <torusGeometry args={[config.size * 0.55, 0.03, 4, 48]} />
+            <meshBasicMaterial color={service.color} transparent opacity={0.6} blending={THREE.AdditiveBlending} />
+          </mesh>
         </group>
       )}
 
