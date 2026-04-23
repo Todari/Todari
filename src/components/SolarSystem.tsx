@@ -21,14 +21,23 @@ const questions = [
 // ── Planet configs ──────────────────────────────────────────
 type PlanetFeature = "data-ring" | "moons" | "pixel" | "multi-ring" | "pulse" | "twin" | "ember";
 
+// Each slot keeps the ORIGINAL size/speed/startAngle/tilt/feature for its service.
+// Only `orbit` is index-based (ascending) so the solar system stays visually sorted.
 const PLANETS = [
-  { orbit: 8,    size: 0.7,  speed: 0.14, startAngle: 0.0, tilt: 0.3, hasRing: false, feature: "data-ring" as PlanetFeature },  // Forcletter
-  { orbit: 11.5, size: 0.9,  speed: 0.10, startAngle: 1.2, tilt: 0.5, hasRing: false, feature: "moons" as PlanetFeature },      // 행동대장
-  { orbit: 15,   size: 0.6,  speed: 0.18, startAngle: 2.5, tilt: 0.2, hasRing: false, feature: "ember" as PlanetFeature },      // 닭발 헌터
-  { orbit: 18.5, size: 0.75, speed: 0.08, startAngle: 3.8, tilt: 0.4, hasRing: false, feature: "pixel" as PlanetFeature },      // React Pixel UI
-  { orbit: 22,   size: 0.6,  speed: 0.12, startAngle: 5.0, tilt: 0.3, hasRing: false, feature: "pulse" as PlanetFeature },      // 메트로놈들
-  { orbit: 25.5, size: 0.55, speed: 0.15, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "multi-ring" as PlanetFeature }, // Trade Tower
-  { orbit: 29,   size: 0.65, speed: 0.09, startAngle: 4.2, tilt: 0.15, hasRing: false, feature: "twin" as PlanetFeature },      // LVTI
+  // Forcletter — unchanged
+  { orbit: 8,    size: 0.7,  speed: 0.14, startAngle: 0.0, tilt: 0.3,  hasRing: false, feature: "data-ring"  as PlanetFeature },
+  // 행동대장 — unchanged
+  { orbit: 11.5, size: 0.9,  speed: 0.10, startAngle: 1.2, tilt: 0.5,  hasRing: false, feature: "moons"      as PlanetFeature },
+  // 닭발 헌터 (new)
+  { orbit: 15,   size: 0.65, speed: 0.16, startAngle: 4.2, tilt: 0.25, hasRing: false, feature: "ember"      as PlanetFeature },
+  // React Pixel UI — preserve size/speed/tilt/startAngle from original slot
+  { orbit: 18.5, size: 0.6,  speed: 0.18, startAngle: 2.5, tilt: 0.2,  hasRing: false, feature: "pixel"      as PlanetFeature },
+  // 메트로놈들 — unchanged
+  { orbit: 22,   size: 0.6,  speed: 0.12, startAngle: 5.0, tilt: 0.3,  hasRing: false, feature: "pulse"      as PlanetFeature },
+  // Trade Tower — preserve size/speed/tilt/startAngle from original slot
+  { orbit: 25.5, size: 0.75, speed: 0.08, startAngle: 3.8, tilt: 0.4,  hasRing: false, feature: "multi-ring" as PlanetFeature },
+  // LVTI — preserve size/speed/tilt/startAngle from original slot
+  { orbit: 29,   size: 0.55, speed: 0.15, startAngle: 0.8, tilt: 0.35, hasRing: false, feature: "twin"       as PlanetFeature },
 ];
 
 // ── Textures ────────────────────────────────────────────────
