@@ -3,7 +3,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo, useState, useEffect, useCallback } from "react";
 import * as THREE from "three";
-import { motion, AnimatePresence } from "framer-motion";
 import { services } from "@/data/services";
 import { trackEvent } from "@/lib/analytics";
 
@@ -168,9 +167,9 @@ function Stars() {
   const far = useMemo(() => {
     const pos = new Float32Array(6000 * 3);
     for (let i = 0; i < 6000; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = 80 + Math.random() * 140;
+      const phi = Math.acos(2 * seededRand(13, i) - 1);
+      const theta = seededRand(29, i) * Math.PI * 2;
+      const r = 80 + seededRand(47, i) * 140;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
@@ -181,9 +180,9 @@ function Stars() {
   const near = useMemo(() => {
     const pos = new Float32Array(1500 * 3);
     for (let i = 0; i < 1500; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = 40 + Math.random() * 50;
+      const phi = Math.acos(2 * seededRand(61, i) - 1);
+      const theta = seededRand(79, i) * Math.PI * 2;
+      const r = 40 + seededRand(97, i) * 50;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
@@ -621,7 +620,7 @@ function Scene({
 function TypingHero() {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const [phase, setPhase] = useState<"typing" | "pause" | "deleting">("typing");
+  const [phase, setPhase] = useState<"typing" | "deleting">("typing");
 
   useEffect(() => {
     const current = questions[index].text;
@@ -630,25 +629,28 @@ function TypingHero() {
         const t = setTimeout(() => setDisplayText(current.slice(0, displayText.length + 1)), 50);
         return () => clearTimeout(t);
       }
-      const t = setTimeout(() => setPhase("pause"), 2000);
+      const t = setTimeout(() => setPhase("deleting"), 2000);
       return () => clearTimeout(t);
-    }
-    if (phase === "pause") {
-      setPhase("deleting");
     }
     if (phase === "deleting") {
       if (displayText.length > 0) {
         const t = setTimeout(() => setDisplayText(displayText.slice(0, -1)), 25);
         return () => clearTimeout(t);
       }
-      setIndex((p) => (p + 1) % questions.length);
-      setPhase("typing");
+      const t = setTimeout(() => {
+        setIndex((p) => (p + 1) % questions.length);
+        setPhase("typing");
+      }, 150);
+      return () => clearTimeout(t);
     }
   }, [displayText, phase, index]);
 
   return (
-    <div className="h-14 md:h-16 flex items-center justify-center">
-      <span className="text-2xl md:text-4xl font-semibold">
+    <div
+      className="flex h-10 items-center justify-center md:h-12"
+      aria-label={questions[index].text}
+    >
+      <span className="text-lg font-medium md:text-2xl">
         <span style={{ color: questions[index].color }}>{displayText}</span>
         <span
           className="inline-block w-[3px] h-[1.1em] ml-1 align-middle rounded-full animate-pulse"
@@ -700,10 +702,26 @@ function ServiceOverlay({ scrollProgress }: { scrollProgress: number }) {
                 border: `1px solid ${service.color}22`,
               }}
             >
+              <div
+                className={`mb-4 flex flex-wrap gap-2 ${side === "right" ? "md:justify-end" : "md:justify-start"}`}
+              >
+                <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/70">
+                  {service.status}
+                </span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] text-white/50">
+                  {service.period}
+                </span>
+              </div>
               <span className="text-4xl md:text-5xl block mb-3 md:mb-4">{service.icon}</span>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">{service.title}</h2>
               <p className="text-base md:text-lg font-medium mb-2 md:mb-4" style={{ color: service.color }}>{service.subtitle}</p>
+              <p className="mb-3 text-sm font-medium leading-relaxed text-white/85 md:text-base">
+                “{service.question}”
+              </p>
               <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed mb-5 md:mb-8">{service.description}</p>
+              <p className="mb-5 font-mono text-[10px] tracking-wide text-white/40 md:mb-7">
+                ROLE · {service.role}
+              </p>
               <a
                 href={service.url}
                 target="_blank"
@@ -712,7 +730,7 @@ function ServiceOverlay({ scrollProgress }: { scrollProgress: number }) {
                 className="inline-flex items-center px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:scale-105"
                 style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}bb)`, boxShadow: `0 0 30px ${service.color}44` }}
               >
-                방문하기
+                {service.linkLabel ?? "서비스 보기"}
                 <ArrowIcon />
               </a>
             </div>
@@ -738,11 +756,15 @@ function Legend({
         return (
           <button
             key={service.id}
+            type="button"
             onClick={() => onSelect(i)}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
+            aria-label={`${service.title}로 이동`}
+            title={`${service.title}로 이동`}
           >
-            <div
-              className="w-2.5 h-2.5 rounded-full transition-all duration-300 hover:scale-150"
+            <span
+              aria-hidden="true"
+              className="block h-2.5 w-2.5 rounded-full transition-all duration-300 hover:scale-150"
               style={{
                 backgroundColor: active ? service.color : "rgba(255,255,255,0.15)",
                 boxShadow: active ? `0 0 12px ${service.color}` : "none",
@@ -769,8 +791,10 @@ export default function SolarSystem() {
       if (!containerRef.current) return;
       const scrollable = containerRef.current.scrollHeight - window.innerHeight;
       if (scrollable <= 0) return;
-      setScrollProgress(Math.min(1, Math.max(0, window.scrollY / scrollable)));
+      const localScroll = window.scrollY - containerRef.current.offsetTop;
+      setScrollProgress(Math.min(1, Math.max(0, localScroll / scrollable)));
     }
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -806,7 +830,11 @@ export default function SolarSystem() {
 
   // Click legend → scroll to snap section
   const scrollToIndex = useCallback((i: number) => {
-    window.scrollTo({ top: (i + 1) * window.innerHeight, behavior: "smooth" });
+    const containerTop = containerRef.current?.offsetTop ?? 0;
+    window.scrollTo({
+      top: containerTop + (i + 1) * window.innerHeight,
+      behavior: "smooth",
+    });
   }, []);
 
   // Click planet in 3D → scroll to it
@@ -823,15 +851,11 @@ export default function SolarSystem() {
   const heroOpacity = Math.max(0, 1 - heroSection * 2);
 
   return (
-    <div ref={containerRef}>
-      {/* Snap target sections — create scroll height + snap points */}
-      <div style={{ height: "100vh", scrollSnapAlign: "start" }} />
-      {services.map((s) => (
-        <div key={s.id} style={{ height: "100vh", scrollSnapAlign: "start" }} />
-      ))}
-      <div style={{ height: "50vh" }} />
-
-      <div className="fixed inset-0" onMouseMove={handleMouseMove}>
+    <div id="space-journey" ref={containerRef} className="relative">
+      <div
+        className="sticky top-0 z-10 h-screen overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
         <Canvas
           camera={{ position: [0, 28, 52], fov: 55, near: 0.1, far: 500 }}
           gl={{ antialias: true, alpha: false }}
@@ -846,14 +870,34 @@ export default function SolarSystem() {
         </Canvas>
 
         {/* Hero */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ opacity: heroOpacity }}>
-          <h1 className="text-5xl md:text-7xl font-bold gradient-text mb-10">Todari</h1>
-          <TypingHero />
-          <p className="text-[var(--text-secondary)] text-sm mt-10 mb-6">그래서 직접 만들었습니다</p>
-          <div className="animate-bounce">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[var(--text-secondary)]">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-5 text-center" style={{ opacity: heroOpacity }}>
+          <p className="mb-5 font-mono text-[10px] tracking-[0.3em] text-white/45 md:text-xs">
+            TAEHUN LEE&apos;S SERVICE LAB
+          </p>
+          <h1 className="gradient-text mb-6 text-6xl font-bold tracking-[-0.06em] md:text-8xl">
+            Todari
+          </h1>
+          <p className="max-w-2xl text-balance text-xl font-semibold leading-snug text-white md:text-3xl">
+            궁금한 것을 직접 만들고,
+            <br className="sm:hidden" /> 실제로 운영합니다.
+          </p>
+          <div className="mt-6">
+            <TypingHero />
+          </div>
+          <div className="pointer-events-auto mt-8 flex flex-wrap justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollToIndex(0)}
+              className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#090914] transition-transform hover:-translate-y-0.5"
+            >
+              우주 여행 시작 ↓
+            </button>
+            <a
+              href="#works"
+              className="rounded-xl border border-white/15 bg-black/20 px-5 py-3 text-sm font-medium text-white/75 backdrop-blur-md transition-colors hover:border-white/30 hover:text-white"
+            >
+              전체 작업 보기
+            </a>
           </div>
         </div>
 
@@ -867,6 +911,18 @@ export default function SolarSystem() {
         <div className="absolute top-0 left-0 right-0 h-[2px] z-50">
           <div className="h-full" style={{ width: `${scrollProgress * 100}%`, background: "linear-gradient(90deg, #a855f7, #3b82f6, #06b6d4)" }} />
         </div>
+      </div>
+
+      {/* Snap target sections — create scroll height + snap points */}
+      <div className="-mt-[100vh] pointer-events-none" aria-hidden="true">
+        <div style={{ height: "100vh", scrollSnapAlign: "start" }} />
+        {services.map((service) => (
+          <div
+            key={service.id}
+            style={{ height: "100vh", scrollSnapAlign: "start" }}
+          />
+        ))}
+        <div style={{ height: "50vh" }} />
       </div>
     </div>
   );

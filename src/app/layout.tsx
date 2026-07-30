@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "Todari가 만든 웹 서비스 모음. 행동대장(모임 정산), LVTI(연애 유형 테스트), 메트로놈들(실시간 협업 메트로놈), React Pixel UI, 닭발 헌터 등을 한곳에서 만나보세요.";
+  "궁금한 것을 직접 만들어 운영하는 Todari의 서비스 실험실. AI 크리에이터 분석, 모임 정산, 실시간 협업 도구, UI 라이브러리 등 질문에서 시작한 작업을 모았습니다.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Todari | 만든 서비스 모음",
+    default: "Todari | 직접 만들어 운영하는 서비스 실험실",
     template: "%s | Todari",
   },
   description: DESCRIPTION,
@@ -47,13 +47,22 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Todari | 만든 서비스 모음",
+    title: "Todari | 직접 만들어 운영하는 서비스 실험실",
     description: DESCRIPTION,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Todari — 궁금한 것을 직접 만들어 운영하는 서비스 실험실",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Todari | 만든 서비스 모음",
+    title: "Todari | 직접 만들어 운영하는 서비스 실험실",
     description: DESCRIPTION,
+    images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -92,11 +101,12 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
-      name: "Todari",
+      name: "Taehun Lee",
+      alternateName: "Todari",
       url: SITE_URL,
       sameAs: [
         "https://github.com/Todari",
-        "https://haengdong.pro",
+        "https://forcreator.co.kr",
         "https://lvti.my",
         "https://metronomdeul.site",
         "https://react-pixel-ui.vercel.app",
