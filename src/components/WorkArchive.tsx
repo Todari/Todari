@@ -31,14 +31,14 @@ export default function WorkArchive() {
             id="works-heading"
             className="text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] text-white md:text-6xl"
           >
-            궁금한 것을 직접 만들고,
+            질문을 제품으로 바꾸고,
             <br />
-            가능한 만큼 오래 운영합니다.
+            운영하며 다음 답을 찾습니다.
           </h2>
           <p className="mt-7 max-w-2xl text-base leading-7 text-[var(--text-secondary)] md:text-lg">
             Todari는 완성된 결과만 진열하는 포트폴리오보다, 질문이 실제
-            서비스가 되고 운영을 통해 다음 답을 찾아가는 작업 아카이브에
-            가깝습니다.
+            서비스가 되는 과정과 낯선 기술을 배워 해결한 흔적을 함께 모은
+            작업 아카이브에 가깝습니다.
           </p>
         </div>
 
@@ -154,17 +154,15 @@ export default function WorkArchive() {
               CONTINUE EXPLORING
             </p>
             <p className="mt-4 max-w-xl text-2xl font-medium leading-snug text-white md:text-3xl">
-              코드와 시행착오, 다음 실험은 GitHub에 계속 쌓입니다.
+              더 궁금한 문제와 함께 만들 제품이 있다면 이야기해 주세요.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://github.com/Todari"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:rhymint@gmail.com?subject=Todari를%20보고%20연락드립니다"
               className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#090914] transition-transform hover:-translate-y-0.5"
             >
-              GitHub 둘러보기 ↗
+              이메일 보내기 ↗
             </a>
             <a
               href="#space-journey"

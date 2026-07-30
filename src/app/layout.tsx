@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "궁금한 것을 직접 만들어 운영하는 Todari의 서비스 실험실. AI 크리에이터 분석, 모임 정산, 실시간 협업 도구, UI 라이브러리 등 질문에서 시작한 작업을 모았습니다.";
+  "서비스 기획에서 시작해 UI/UX와 프론트엔드를 익히고, AI로 학습과 실행의 폭을 넓혀 문제를 제품으로 해결하는 프로덕트 엔지니어 이태훈입니다.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Todari | 직접 만들어 운영하는 서비스 실험실",
+    default: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
     template: "%s | Todari",
   },
   description: DESCRIPTION,
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "React Pixel UI",
     "닭발 헌터",
     "Forcletter",
+    "프로덕트 엔지니어",
+    "프론트엔드 개발자",
+    "AI 활용",
   ],
   authors: [{ name: "Todari", url: SITE_URL }],
   creator: "Todari",
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Todari | 직접 만들어 운영하는 서비스 실험실",
+    title: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
     description: DESCRIPTION,
     images: [
       {
@@ -60,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Todari | 직접 만들어 운영하는 서비스 실험실",
+    title: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
     description: DESCRIPTION,
     images: ["/og.png"],
   },
@@ -103,7 +106,17 @@ const jsonLd = {
       "@id": `${SITE_URL}/#person`,
       name: "Taehun Lee",
       alternateName: "Todari",
+      jobTitle: "Product Engineer",
+      description: DESCRIPTION,
+      email: "mailto:rhymint@gmail.com",
       url: SITE_URL,
+      knowsAbout: [
+        "Service Planning",
+        "UI/UX Design",
+        "Frontend Development",
+        "AI-assisted Software Development",
+        "Product Operations",
+      ],
       sameAs: [
         "https://github.com/Todari",
         "https://forcreator.co.kr",

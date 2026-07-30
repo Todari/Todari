@@ -872,14 +872,17 @@ export default function SolarSystem() {
         {/* Hero */}
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-5 text-center" style={{ opacity: heroOpacity }}>
           <p className="mb-5 font-mono text-[10px] tracking-[0.3em] text-white/45 md:text-xs">
-            TAEHUN LEE&apos;S SERVICE LAB
+            TAEHUN LEE · PRODUCT ENGINEER
           </p>
           <h1 className="gradient-text mb-6 text-6xl font-bold tracking-[-0.06em] md:text-8xl">
             Todari
           </h1>
-          <p className="max-w-2xl text-balance text-xl font-semibold leading-snug text-white md:text-3xl">
-            궁금한 것을 직접 만들고,
-            <br className="sm:hidden" /> 실제로 운영합니다.
+          <p className="max-w-3xl text-balance text-xl font-semibold leading-snug text-white md:text-3xl">
+            기획에서 시작해 필요한 기술을 배우며,
+            <br /> 문제를 제품으로 해결합니다.
+          </p>
+          <p className="mt-4 font-mono text-[10px] tracking-[0.15em] text-white/40 md:text-xs">
+            SERVICE PLANNING · UI/UX · FRONTEND · AI
           </p>
           <div className="mt-6">
             <TypingHero />
@@ -893,10 +896,10 @@ export default function SolarSystem() {
               우주 여행 시작 ↓
             </button>
             <a
-              href="#works"
+              href="#about"
               className="rounded-xl border border-white/15 bg-black/20 px-5 py-3 text-sm font-medium text-white/75 backdrop-blur-md transition-colors hover:border-white/30 hover:text-white"
             >
-              전체 작업 보기
+              사람과 강점 보기
             </a>
           </div>
         </div>
