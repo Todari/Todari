@@ -34,7 +34,7 @@ Web Audio와 Socket.IO를 익혀 여러 기기의 메트로놈을 동기화했�
 ### 행동대장 — 기획과 UI에서 운영 문제까지
 
 가입 없이 정산하는 제품 흐름과 프론트엔드를 만드는 데서 시작해, 이후 인증·분석·배포와 데이터 무결성 문제까지 책임 범위를 넓혔습니다.<br />
-[Code](https://github.com/Todari/2024-haeng-dong)
+[Service](https://haengdong.todari.dev) · [Code](https://github.com/Todari/2024-haeng-dong)
 
 ### Todari Ops — AI를 코드 생성기가 아닌 운영 시스템으로
 
@@ -50,7 +50,7 @@ Web Audio와 Socket.IO를 익혀 여러 기기의 메트로놈을 동기화했�
 | **메트로놈들** | 멀리 떨어진 연주자들이 같은 박자를 들을 수 있을까? | 🟢 운영 중 | 기획 · 프론트엔드 · 실시간 시스템 | [서비스 ↗](https://metronomdeul.site) · [코드](https://github.com/Todari/metro-nomedeul) |
 | **Trade Tower** | 여러 AI가 토론하면 더 나은 매매 결정을 내릴까? | 🔵 개선 중 | 제품 설계 · 프론트엔드 · AI 협업 | [서비스 ↗](https://trade-tower.vercel.app) · [코드](https://github.com/yeouido-penthouse-cattower/trade-tower) |
 | **LVTI** | 연애할 때 드러나는 나만의 성격 유형은 무엇일까? | 🟢 운영 중 | 서비스 기획 · UI/UX · 프론트엔드 | [서비스 ↗](https://lvti.my) · [코드](https://github.com/Todari/lovetype) |
-| **행동대장** | 사람이 계속 바뀌는 모임도 가입 없이 정산할 수 있을까? | 🟡 점검 중 | 서비스 기획 · UI/UX · 프론트엔드 | [코드](https://github.com/Todari/2024-haeng-dong) |
+| **행동대장** | 사람이 계속 바뀌는 모임도 가입 없이 정산할 수 있을까? | 🟢 운영 중 | 서비스 기획 · UI/UX · 프론트엔드 | [서비스 ↗](https://haengdong.todari.dev) · [코드](https://github.com/Todari/2024-haeng-dong) |
 
 ## Contact
 

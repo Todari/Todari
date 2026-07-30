@@ -40,9 +40,9 @@ export const services: Service[] = [
     question: "사람이 계속 바뀌는 모임도 가입 없이 정산할 수 있을까?",
     description:
       "여행·모임 비용을 쉽게 정산하세요. 가입 없이 바로 시작, 구성원 변동에도 자동 재계산.",
-    url: "https://github.com/Todari/2024-haeng-dong",
-    linkLabel: "코드 보기",
-    status: "점검 중",
+    url: "https://haengdong.todari.dev",
+    repository: "https://github.com/Todari/2024-haeng-dong",
+    status: "운영 중",
     period: "2024",
     role: "서비스 기획 · UI/UX · 프론트엔드",
     tags: ["React", "TypeScript", "PWA"],
