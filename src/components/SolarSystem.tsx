@@ -872,7 +872,7 @@ export default function SolarSystem() {
         {/* Hero */}
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-5 text-center" style={{ opacity: heroOpacity }}>
           <p className="mb-5 font-mono text-[10px] tracking-[0.3em] text-white/45 md:text-xs">
-            TAEHUN LEE · PRODUCT ENGINEER
+            PRODUCT ENGINEER · SERVICE BUILDER
           </p>
           <h1 className="gradient-text mb-6 text-6xl font-bold tracking-[-0.06em] md:text-8xl">
             Todari

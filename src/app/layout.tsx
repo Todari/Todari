@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "서비스 기획에서 시작해 UI/UX와 프론트엔드를 익히고, AI로 학습과 실행의 폭을 넓혀 문제를 제품으로 해결하는 프로덕트 엔지니어 이태훈입니다.";
+  "서비스 기획에서 시작해 UI/UX와 프론트엔드를 익히고, AI로 학습과 실행의 폭을 넓혀 문제를 제품으로 해결하는 프로덕트 엔지니어 Todari입니다.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,8 +104,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
-      name: "Taehun Lee",
-      alternateName: "Todari",
+      name: SITE_NAME,
       jobTitle: "Product Engineer",
       description: DESCRIPTION,
       email: "mailto:rhymint@gmail.com",

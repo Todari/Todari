@@ -14,7 +14,7 @@
 
 ## 운영자
 
-- 이름: Todari (이태훈)
+- 이름: Todari
 - GitHub: https://github.com/Todari
 - 사이트: https://todari.dev
 

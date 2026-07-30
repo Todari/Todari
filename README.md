@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:070711,50:15112b,100:071b25&height=150&section=header&text=Todari&fontColor=ffffff&fontSize=52&fontAlignY=38&desc=TAEHUN%20LEE%20%C2%B7%20PRODUCT%20ENGINEER&descAlignY=62&descSize=13" width="100%" alt="" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:070711,50:15112b,100:071b25&height=150&section=header&text=Todari&fontColor=ffffff&fontSize=52&fontAlignY=38&desc=PRODUCT%20ENGINEER%20%C2%B7%20SERVICE%20BUILDER&descAlignY=62&descSize=13" width="100%" alt="" />
 
 ### 기획에서 시작해, 필요한 기술을 배우며 문제를 제품으로 해결합니다.
 

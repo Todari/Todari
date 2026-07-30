@@ -101,7 +101,7 @@ export default function MakerProfile() {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
           <div>
             <p className="mb-5 font-mono text-xs tracking-[0.28em] text-cyan-300">
-              ABOUT TAEHUN
+              ABOUT TODARI
             </p>
             <h2
               id="about-heading"
@@ -118,7 +118,7 @@ export default function MakerProfile() {
           <div className="self-end">
             <p className="text-lg font-medium leading-8 text-white/85 md:text-xl">
               안녕하세요. 서비스 기획자로 첫 커리어를 시작해 디자인과
-              프론트엔드를 익혀 개발자가 된 이태훈입니다.
+              프론트엔드를 익혀 개발자가 된 Todari입니다.
             </p>
             <p className="mt-5 text-base leading-7 text-[var(--text-secondary)]">
               서로 다른 분야의 지식을 빠르게 연결하고, 낯선 문제에도 필요한
