@@ -25,7 +25,7 @@ export default function Footer() {
               GitHub
             </a>
             <a
-              href="mailto:todari.dev@gmail.com"
+              href="mailto:hello@todari.dev"
               onClick={() => trackEvent('click_contact_link', { link_type: 'email' })}
               className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm"
             >

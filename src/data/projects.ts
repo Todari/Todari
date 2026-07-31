@@ -205,5 +205,5 @@ export const skills = [
 export const socialLinks = [
   { name: "GitHub", url: "https://github.com", icon: "github" },
   { name: "LinkedIn", url: "https://linkedin.com", icon: "linkedin" },
-  { name: "Email", url: "mailto:hello@example.com", icon: "email" },
+  { name: "Email", url: "mailto:hello@todari.dev", icon: "email" },
 ];

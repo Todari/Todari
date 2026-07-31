@@ -1,16 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0a0a1a;
-  --bg-secondary: #12122a;
+  --bg-primary: #17151c;
+  --bg-secondary: #252130;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.3);
-  --accent-purple: #a855f7;
-  --accent-blue: #3b82f6;
-  --accent-cyan: #06b6d4;
-  --text-primary: #f0f0f0;
-  --text-secondary: #a0a0b8;
+  --accent-purple: #a78bfa;
+  --accent-blue: #60a5fa;
+  --accent-cyan: #67e8f9;
+  --accent-pink: #ff79bd;
+  --accent-lime: #dfff4f;
+  --paper: #fffaf0;
+  --paper-muted: #efe7d8;
+  --ink: #17151c;
+  --text-primary: #fffaf0;
+  --text-secondary: #c6becf;
   --neu-light: rgba(255, 255, 255, 0.07);
   --neu-dark: rgba(0, 0, 0, 0.5);
 }
@@ -27,7 +32,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -35,6 +39,87 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans, system-ui, sans-serif);
   overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-lime);
+  color: var(--ink);
+}
+
+/* Todari's playful neo-brutalist visual system */
+.paper-grid {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(23, 21, 28, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 21, 28, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.ink-dots {
+  background-color: var(--ink);
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 250, 240, 0.17) 1.2px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+}
+
+.halftone {
+  background-image: radial-gradient(var(--ink) 1.4px, transparent 1.4px);
+  background-size: 12px 12px;
+}
+
+.neo-card {
+  border: 3px solid var(--ink);
+  border-radius: 1.25rem;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.neo-card-light {
+  border: 3px solid var(--paper);
+  border-radius: 1.25rem;
+  box-shadow: 8px 8px 0 rgba(255, 250, 240, 0.28);
+}
+
+.neo-button {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.neo-button:hover {
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.neo-button:active {
+  box-shadow: 0 0 0 var(--ink);
+  transform: translate(4px, 4px);
+}
+
+.neo-label {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.sticker-float {
+  animation: sticker-float 4s ease-in-out infinite;
+}
+
+@keyframes sticker-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
 }
 
 /* Glass Card */
@@ -94,10 +179,11 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue), var(--accent-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--paper);
+  -webkit-text-stroke: 3px var(--ink);
+  text-shadow:
+    6px 6px 0 var(--accent-purple),
+    9px 9px 0 var(--ink);
 }
 
 /* Animated gradient blobs */

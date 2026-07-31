@@ -37,6 +37,10 @@ export const metadata: Metadata = {
     "React Pixel UI",
     "닭발 헌터",
     "Forcletter",
+    "이정표",
+    "GEO Dashboard",
+    "톡사이",
+    "핀투게더",
     "프로덕트 엔지니어",
     "프론트엔드 개발자",
     "AI 활용",
@@ -79,7 +83,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
   },
 };
 
@@ -107,7 +112,7 @@ const jsonLd = {
       name: SITE_NAME,
       jobTitle: "Product Engineer",
       description: DESCRIPTION,
-      email: "mailto:rhymint@gmail.com",
+      email: "mailto:hello@todari.dev",
       url: SITE_URL,
       knowsAbout: [
         "Service Planning",
@@ -123,6 +128,9 @@ const jsonLd = {
         "https://metronomdeul.site",
         "https://react-pixel-ui.vercel.app",
         "https://dakbal.pro",
+        "https://jeongpyo.com",
+        "https://toksai.todari.dev",
+        "https://pintogather.todari.dev",
       ],
     },
     {
@@ -132,10 +140,10 @@ const jsonLd = {
       name: "Todari Services",
       description: "Todari가 만든 웹 서비스 목록",
       hasPart: services.map((s) => ({
-        "@type": "WebSite",
+        "@type": "SoftwareApplication",
         name: s.title,
         description: s.description,
-        url: s.url,
+        ...(s.url ? { url: s.url } : {}),
       })),
     },
   ],
