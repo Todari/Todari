@@ -266,7 +266,7 @@ function SceneCamera({
     const goalPosition = compact
       ? new THREE.Vector3(
           pointer.current.x * 0.32 * pointerScale,
-          4.8 + pointer.current.y * 0.2 * pointerScale,
+          4.5 + pointer.current.y * 0.2 * pointerScale,
           17.8,
         )
       : new THREE.Vector3(
@@ -275,7 +275,7 @@ function SceneCamera({
           14.8,
         );
     const goalLookAt = compact
-      ? new THREE.Vector3(0, 1.2, 0)
+      ? new THREE.Vector3(0, 0.45, 0)
       : new THREE.Vector3(0, 0.25, 0);
     const smoothing = reducedMotion ? 12 : 5;
 
@@ -548,6 +548,150 @@ function ProjectCard({
   );
 }
 
+function MobileProjectCard({
+  service,
+  activeIndex,
+  onPrevious,
+  onNext,
+}: {
+  service: Service;
+  activeIndex: number;
+  onPrevious: () => void;
+  onNext: () => void;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const evidenceRows = service.evidence.map((item, index) => ({
+    ...item,
+    color: [PINK, CYAN, LIME][index],
+  }));
+
+  return (
+    <article
+      key={service.id}
+      aria-live="polite"
+      className={`w-full rounded-[1.15rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-3 text-[#17151c] shadow-[6px_6px_0_#17151c] transition-[max-height] duration-300 ${
+        expanded
+          ? "max-h-[calc(100svh-8.5rem)] overflow-y-auto"
+          : "h-[10.25rem] overflow-hidden"
+      }`}
+      style={{ boxShadow: `6px 6px 0 ${service.color}` }}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="inline-flex rounded-full border-2 border-[#17151c] bg-[#efe7d8] px-2.5 py-1 font-mono text-[8px] font-black tracking-[0.12em]">
+          PROJECT {String(activeIndex + 1).padStart(2, "0")} /{" "}
+          {String(PROJECT_COUNT).padStart(2, "0")}
+        </span>
+        <button
+          type="button"
+          onClick={() => setExpanded((current) => !current)}
+          aria-expanded={expanded}
+          className="rounded-full border-2 border-[#17151c] bg-white px-2.5 py-1 font-mono text-[8px] font-black tracking-[0.08em]"
+        >
+          {expanded ? "3D로 돌아가기 ↓" : "상세 보기 ↑"}
+        </button>
+      </div>
+
+      <div className="mt-2 min-w-0">
+        <div className="flex items-center gap-2">
+          <h2 className="min-w-0 whitespace-nowrap text-[clamp(1.45rem,7.2vw,2rem)] font-black leading-none tracking-[-0.055em]">
+            {service.title}
+          </h2>
+          <span className="shrink-0 rounded-full border border-[#17151c]/30 bg-white px-2 py-0.5 font-mono text-[7px] font-black tracking-[0.08em]">
+            {service.period}
+          </span>
+        </div>
+        <p
+          className="mt-1 line-clamp-1 text-[11px] font-black"
+          style={{ color: service.color }}
+        >
+          {service.subtitle}
+        </p>
+      </div>
+
+      {expanded ? (
+        <>
+          <dl className="mt-3 divide-y-2 divide-[#17151c]/10 border-y-2 border-[#17151c]/15">
+            {evidenceRows.map((row) => (
+              <div
+                key={row.label}
+                className="grid grid-cols-[4.5rem_1fr] items-start gap-2.5 py-3"
+              >
+                <dt
+                  className="whitespace-nowrap rounded-md border border-[#17151c] px-1.5 py-1 text-center font-mono text-[8px] font-black tracking-[0.06em]"
+                  style={{ backgroundColor: row.color }}
+                >
+                  {row.label}
+                </dt>
+                <dd className="text-[11px] font-medium leading-[1.55] text-[#463f4c]">
+                  {row.text}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {service.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-md border border-[#17151c]/20 bg-[#efe7d8] px-2 py-1 font-mono text-[8px] font-bold text-[#544c5c]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      <div className={`${expanded ? "mt-4" : "mt-3"} flex items-center justify-between gap-3`}>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={onPrevious}
+            disabled={activeIndex === 0}
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-xl border-2 border-[#17151c] bg-white text-base font-black shadow-[3px_3px_0_#17151c] disabled:cursor-default disabled:opacity-30"
+            aria-label="이전 프로젝트"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={onNext}
+            disabled={activeIndex === PROJECT_COUNT - 1}
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-xl border-2 border-[#17151c] bg-white text-base font-black shadow-[3px_3px_0_#17151c] disabled:cursor-default disabled:opacity-30"
+            aria-label="다음 프로젝트"
+          >
+            →
+          </button>
+        </div>
+
+        {service.url ? (
+          <a
+            href={service.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("click_service_link", {
+                service_id: service.id,
+                service_title: service.title,
+                service_url: service.url ?? "private",
+              })
+            }
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-[#17151c] px-3.5 py-2 text-[11px] font-black text-[#17151c] shadow-[3px_3px_0_#17151c]"
+            style={{ backgroundColor: service.color }}
+          >
+            {service.linkLabel ?? "서비스 보기"}
+            <ArrowIcon />
+          </a>
+        ) : (
+          <span className="inline-flex items-center rounded-xl border-2 border-[#17151c] bg-[#17151c] px-3 py-2 font-mono text-[8px] font-black tracking-[0.08em] text-[#fffaf0]">
+            PRIVATE WORK
+          </span>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export default function ProjectDispenser() {
   const [activeIndex, setActiveIndex] = useState(() => {
     if (typeof window === "undefined") return 0;
@@ -630,7 +774,7 @@ export default function ProjectDispenser() {
       id="space-journey"
       ref={sectionRef}
       aria-label="3D 프로젝트 디스펜서"
-      className="relative h-[100svh] min-h-[44rem] overflow-hidden bg-[#272138] text-[#fffaf0]"
+      className="relative h-[100svh] min-h-0 overflow-hidden bg-[#272138] text-[#fffaf0] lg:min-h-[44rem]"
       onPointerMove={(event) => {
         pointerRef.current.x = (event.clientX / window.innerWidth - 0.5) * 2;
         pointerRef.current.y = (event.clientY / window.innerHeight - 0.5) * 2;
@@ -732,7 +876,17 @@ export default function ProjectDispenser() {
         />
       </nav>
 
-      <div className="pointer-events-auto absolute bottom-4 left-3 right-3 z-10 lg:bottom-auto lg:left-auto lg:right-6 lg:top-1/2 lg:w-[24rem] lg:-translate-y-1/2">
+      <div className="pointer-events-auto absolute bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-3 right-3 z-10 lg:hidden">
+        <MobileProjectCard
+          key={activeService.id}
+          service={activeService}
+          activeIndex={activeIndex}
+          onPrevious={() => selectProject(activeIndex - 1)}
+          onNext={() => selectProject(activeIndex + 1)}
+        />
+      </div>
+
+      <div className="pointer-events-auto absolute right-6 top-1/2 z-10 hidden w-[24rem] -translate-y-1/2 lg:block">
         <ProjectCard
           service={activeService}
           activeIndex={activeIndex}

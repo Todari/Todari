@@ -1,34 +1,99 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:272138,50:a78bfa,100:67e8f9&height=150&section=header&text=Todari&fontColor=fffaf0&fontSize=52&fontAlignY=38&desc=PRODUCT%20ENGINEER%20%C2%B7%20SERVICE%20BUILDER&descAlignY=62&descSize=13" width="100%" alt="" />
+<a href="https://todari.dev">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:dfff4f,35:67e8f9,70:ff79bd,100:a78bfa&height=190&section=header&text=Todari&fontColor=17151c&fontSize=54&fontAlignY=38&desc=PRODUCT%20ENGINEER%20%C2%B7%20SERVICE%20BUILDER&descAlignY=61&descSize=13" width="100%" alt="Todari — Product Engineer · Service Builder" />
+</a>
 
-### 문제를 제품으로 만들고, 운영 가능한 시스템으로 완성합니다.
+### 기술적으로 깊게, 제품으로 끝까지.
 
-`Product Architecture` · `Frontend Systems` · `Realtime & Data` · `Operations`
+문제를 이해하고 시스템을 설계해, 실제로 쓰이고 운영되는 제품으로 검증합니다.
 
-[![Website](https://img.shields.io/badge/todari.dev-17151c?style=flat-square&logo=vercel&logoColor=white)](https://todari.dev)
-[![Email](https://img.shields.io/badge/hello%40todari.dev-17151c?style=flat-square&logo=gmail&logoColor=white)](mailto:hello@todari.dev)
+[![Portfolio](https://img.shields.io/badge/ENTER_TODARI.DEV-dfff4f?style=for-the-badge&labelColor=17151c&logo=vercel&logoColor=fffaf0)](https://todari.dev)
+[![Email](https://img.shields.io/badge/HELLO%40TODARI.DEV-ff79bd?style=for-the-badge&labelColor=17151c&logo=gmail&logoColor=fffaf0)](mailto:hello@todari.dev)
+
+<br />
+
+[![Product Architecture](https://img.shields.io/badge/PRODUCT_ARCHITECTURE-67e8f9?style=flat-square&labelColor=272138)](https://todari.dev)
+[![Frontend Systems](https://img.shields.io/badge/FRONTEND_SYSTEMS-dfff4f?style=flat-square&labelColor=272138)](https://todari.dev)
+[![Realtime & Data](https://img.shields.io/badge/REALTIME_%26_DATA-ff79bd?style=flat-square&labelColor=272138)](https://todari.dev)
+[![Operations](https://img.shields.io/badge/OPERATIONS_%26_RECOVERY-a78bfa?style=flat-square&labelColor=272138)](https://todari.dev)
 
 </div>
 
-## Projects
-
-|  | Project | What it is | Focus |
-|---:|---|---|---|
-| 01 | **[Forcletter](https://forcreator.co.kr)** | 인스타그램 인플루언서 올인원 운영 도구 | 외부 플랫폼 · 자동화 · AI 실행 경계 |
-| 02 | **[이정표](https://jeongpyo.com)** · [code](https://github.com/Todari/jeongpyo) | KBO 티켓 팬투팬 정가 양도 | 정가 산정 · 거래 상태 · 결제 원장 |
-| 03 | **GEO Dashboard** · `private` | 검색·AI 답변 브랜드 가시성 대시보드 | 지표 정규화 · 일별 집계 · 진단 규칙 |
-| 04 | **[닭발 헌터](https://dakbal.pro)** | 엽떡 닭발 판매 지점 지도 | 데이터 수집 · 메뉴 정규화 · 지도 탐색 |
-| 05 | **[행동대장](https://haengdong.todari.dev)** · [code](https://github.com/Todari/2024-haeng-dong) | 가입 없는 모임 정산 | 정산 불변식 · 구성원 변경 · 자동 재계산 |
-| 06 | **[메트로놈들](https://metronomdeul.site)** · [code](https://github.com/Todari/metro-nomedeul) | 여러 기기가 함께 듣는 실시간 메트로놈 | 시계 보정 · Web Audio · 재접속 복구 |
-| 07 | **[핀투게더](https://pintogather.todari.dev)** · [code](https://github.com/Todari/pin-to-gather) | 함께 장소를 정하는 실시간 지도 보드 | WebSocket · presence · 재연결 정합성 |
-| 08 | **[React Pixel UI](https://react-pixel-ui.vercel.app)** · [code](https://github.com/Todari/react-pixel-ui) · [npm](https://www.npmjs.com/package/@react-pixel-ui/react) | 어떤 CSS든 픽셀 아트로 바꾸는 React 라이브러리 | CSS 변환 계층 · SSR · 회귀 테스트 |
-| 09 | **[Trade Tower](https://trade-tower.vercel.app)** · [code](https://github.com/yeouido-penthouse-cattower/trade-tower) | 틱 기반 자동매매 운영 시스템 | 실시간 틱 · 리스크 게이트 · 주문 실행 |
-| 10 | **[톡사이](https://toksai.todari.dev)** · [code](https://github.com/Todari/toksai) | 카카오톡 관계 신호 분석 | 파일 파싱 · 문맥 샘플링 · 비동기 AI |
-| 11 | **[LVTI](https://lvti.my)** · [code](https://github.com/Todari/lovetype) | 16가지 연애 성격 유형 테스트 | 결정론적 점수 · 프라이버시 · 분석 |
+## Project deck
 
 <div align="center">
 
-[todari.dev](https://todari.dev) · [hello@todari.dev](mailto:hello@todari.dev)
+<a href="https://forcreator.co.kr"><img src="https://img.shields.io/badge/01_FORCLETTER-CREATOR_OPS-ff79bd?style=for-the-badge&labelColor=17151c" alt="01 Forcletter — Creator Operations" /></a>
+<a href="https://jeongpyo.com"><img src="https://img.shields.io/badge/02_이정표-KBO_TICKET-67e8f9?style=for-the-badge&labelColor=17151c" alt="02 이정표 — KBO Ticket Exchange" /></a>
+<a href="https://todari.dev/#geo"><img src="https://img.shields.io/badge/03_GEO_DASHBOARD-PRIVATE-dfff4f?style=for-the-badge&labelColor=17151c" alt="03 GEO Dashboard — Private Work" /></a>
+<a href="https://dakbal.pro"><img src="https://img.shields.io/badge/04_닭발_헌터-MENU_MAP-a78bfa?style=for-the-badge&labelColor=17151c" alt="04 닭발 헌터 — Local Menu Map" /></a>
+<a href="https://haengdong.todari.dev"><img src="https://img.shields.io/badge/05_행동대장-GROUP_SETTLEMENT-ff79bd?style=for-the-badge&labelColor=17151c" alt="05 행동대장 — Group Settlement" /></a>
+<a href="https://metronomdeul.site"><img src="https://img.shields.io/badge/06_메트로놈들-REALTIME_AUDIO-67e8f9?style=for-the-badge&labelColor=17151c" alt="06 메트로놈들 — Realtime Audio" /></a>
+<a href="https://pintogather.todari.dev"><img src="https://img.shields.io/badge/07_핀투게더-SHARED_MAP-dfff4f?style=for-the-badge&labelColor=17151c" alt="07 핀투게더 — Shared Map Board" /></a>
+<a href="https://react-pixel-ui.vercel.app"><img src="https://img.shields.io/badge/08_REACT_PIXEL_UI-UI_LIBRARY-a78bfa?style=for-the-badge&labelColor=17151c" alt="08 React Pixel UI — UI Library" /></a>
+<a href="https://trade-tower.vercel.app"><img src="https://img.shields.io/badge/09_TRADE_TOWER-TRADING_SYSTEM-ff79bd?style=for-the-badge&labelColor=17151c" alt="09 Trade Tower — Trading System" /></a>
+<a href="https://toksai.todari.dev"><img src="https://img.shields.io/badge/10_톡사이-CHAT_SIGNALS-67e8f9?style=for-the-badge&labelColor=17151c" alt="10 톡사이 — Chat Signal Analysis" /></a>
+<a href="https://lvti.my"><img src="https://img.shields.io/badge/11_LVTI-LOVE_TYPE-dfff4f?style=for-the-badge&labelColor=17151c" alt="11 LVTI — Love Type Test" /></a>
+
+<br /><br />
+
+<sub>제품을 누르면 바로 서비스 또는 상세 프로젝트로 이동합니다.</sub>
+
+</div>
+
+## Code you can inspect
+
+<div align="center">
+
+<a href="https://github.com/Todari/jeongpyo">
+  <img width="48%" src="https://github-readme-stats-todaris-projects.vercel.app/api/pin/?username=Todari&repo=jeongpyo&bg_color=272138&title_color=dfff4f&text_color=fffaf0&icon_color=ff79bd&hide_border=true&border_radius=14" alt="이정표 repository" />
+</a>
+<a href="https://github.com/Todari/2024-haeng-dong">
+  <img width="48%" src="https://github-readme-stats-todaris-projects.vercel.app/api/pin/?username=Todari&repo=2024-haeng-dong&bg_color=272138&title_color=67e8f9&text_color=fffaf0&icon_color=ff79bd&hide_border=true&border_radius=14" alt="행동대장 repository" />
+</a>
+<a href="https://github.com/Todari/metro-nomedeul">
+  <img width="48%" src="https://github-readme-stats-todaris-projects.vercel.app/api/pin/?username=Todari&repo=metro-nomedeul&bg_color=272138&title_color=ff79bd&text_color=fffaf0&icon_color=dfff4f&hide_border=true&border_radius=14" alt="메트로놈들 repository" />
+</a>
+<a href="https://github.com/Todari/react-pixel-ui">
+  <img width="48%" src="https://github-readme-stats-todaris-projects.vercel.app/api/pin/?username=Todari&repo=react-pixel-ui&bg_color=272138&title_color=a78bfa&text_color=fffaf0&icon_color=67e8f9&hide_border=true&border_radius=14" alt="React Pixel UI repository" />
+</a>
+
+</div>
+
+## Build kit
+
+<div align="center">
+
+[![Core tools](https://skillicons.dev/icons?i=ts,react,nextjs,threejs,nestjs,postgres,docker,aws,vercel,githubactions&theme=dark)](https://skillicons.dev)
+
+</div>
+
+## Signals
+
+<div align="center">
+
+<a href="https://github.com/Todari">
+  <img height="170" src="https://github-readme-stats-todaris-projects.vercel.app/api?username=Todari&show_icons=true&count_private=true&include_all_commits=true&bg_color=272138&title_color=dfff4f&text_color=fffaf0&icon_color=ff79bd&hide_border=true&border_radius=14" alt="Todari GitHub stats" />
+</a>
+<a href="https://github.com/Todari">
+  <img height="170" src="https://github-readme-stats-todaris-projects.vercel.app/api/top-langs/?username=Todari&layout=compact&langs_count=8&bg_color=272138&title_color=67e8f9&text_color=fffaf0&hide_border=true&border_radius=14" alt="Todari top languages" />
+</a>
+
+<br /><br />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Todari/Todari/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Todari/Todari/output/github-snake.svg" />
+  <img alt="Todari contribution snake" src="https://raw.githubusercontent.com/Todari/Todari/output/github-snake-dark.svg" width="100%" />
+</picture>
+
+<br />
+
+<a href="https://todari.dev">TODARI.DEV</a>
+&nbsp;·&nbsp;
+<a href="mailto:hello@todari.dev">HELLO@TODARI.DEV</a>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:a78bfa,35:ff79bd,70:67e8f9,100:dfff4f&height=100&section=footer" width="100%" alt="" />
 
 </div>
