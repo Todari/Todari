@@ -12,7 +12,8 @@ export interface Service {
   evidence: [ServiceEvidence, ServiceEvidence, ServiceEvidence];
   url?: string;
   linkLabel?: string;
-  repository?: string;
+  /** Only add repositories that anonymous visitors can open. */
+  publicRepository?: string;
   status: "운영 중" | "개선 중" | "개발 중" | "점검 중";
   period: string;
   role: string;
@@ -75,7 +76,6 @@ export const services: Service[] = [
       },
     ],
     url: "https://jeongpyo.com",
-    repository: "https://github.com/Todari/jeongpyo",
     status: "개발 중",
     period: "2026 — NOW",
     role: "제품 설계 · 풀스택 · 거래 운영",
@@ -162,7 +162,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://haengdong.todari.dev",
-    repository: "https://github.com/Todari/2024-haeng-dong",
+    publicRepository: "https://github.com/Todari/2024-haeng-dong",
     status: "운영 중",
     period: "2024",
     role: "서비스 기획 · UI/UX · 프론트엔드",
@@ -192,7 +192,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://metronomdeul.site",
-    repository: "https://github.com/Todari/metro-nomedeul",
+    publicRepository: "https://github.com/Todari/metro-nomedeul",
     status: "운영 중",
     period: "2025 — NOW",
     role: "기획 · 프론트엔드 · 실시간 시스템",
@@ -222,7 +222,6 @@ export const services: Service[] = [
       },
     ],
     url: "https://pintogather.todari.dev",
-    repository: "https://github.com/Todari/pin-to-gather",
     status: "개발 중",
     period: "2026 — NOW",
     role: "제품 설계 · 풀스택 · 실시간 협업",
@@ -252,7 +251,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://react-pixel-ui.vercel.app",
-    repository: "https://github.com/Todari/react-pixel-ui",
+    publicRepository: "https://github.com/Todari/react-pixel-ui",
     status: "개선 중",
     period: "2024 — NOW",
     role: "UI 시스템 · 프론트엔드",
@@ -282,7 +281,6 @@ export const services: Service[] = [
       },
     ],
     url: "https://trade-tower.vercel.app",
-    repository: "https://github.com/yeouido-penthouse-cattower/trade-tower",
     status: "개선 중",
     period: "2025 — NOW",
     role: "제품 설계 · 풀스택 · 데이터 운영",
@@ -312,7 +310,6 @@ export const services: Service[] = [
       },
     ],
     url: "https://toksai.todari.dev",
-    repository: "https://github.com/Todari/toksai",
     status: "개발 중",
     period: "2026 — NOW",
     role: "제품 설계 · 풀스택 · AI 분석 파이프라인",
@@ -342,7 +339,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://lvti.my",
-    repository: "https://github.com/Todari/lovetype",
+    publicRepository: "https://github.com/Todari/lovetype",
     status: "운영 중",
     period: "2024 — NOW",
     role: "서비스 기획 · UI/UX · 프론트엔드",

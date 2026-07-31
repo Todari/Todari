@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const questions = [
@@ -31,7 +31,8 @@ export default function HeroSection() {
     }
 
     if (phase === "pause") {
-      setPhase("deleting");
+      const timer = setTimeout(() => setPhase("deleting"), 0);
+      return () => clearTimeout(timer);
     }
 
     if (phase === "deleting") {
@@ -42,8 +43,11 @@ export default function HeroSection() {
         );
         return () => clearTimeout(timer);
       }
-      setIndex((prev) => (prev + 1) % questions.length);
-      setPhase("typing");
+      const timer = setTimeout(() => {
+        setIndex((prev) => (prev + 1) % questions.length);
+        setPhase("typing");
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [displayText, phase, index]);
 

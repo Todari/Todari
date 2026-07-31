@@ -2,9 +2,10 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Stars, Html } from "@react-three/drei";
-import { useRef, useState, useMemo, useCallback } from "react";
+import { useRef, useState, useMemo, useCallback, useEffect } from "react";
 import * as THREE from "three";
 import { services, type Service } from "@/data/services";
+import { seededRandom } from "@/lib/seededRandom";
 
 const GLOBE_RADIUS = 2.2;
 
@@ -29,7 +30,7 @@ function latLngToVec3(lat: number, lng: number, radius: number): THREE.Vector3 {
 function GlobeWireframe() {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.001;
     }
@@ -81,8 +82,8 @@ function DotSurface() {
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * seededRandom(i + 1) - 1);
+      const theta = seededRandom(i + count) * Math.PI * 2;
       const r = GLOBE_RADIUS * 1.001;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.cos(phi);
@@ -213,17 +214,20 @@ function CameraController({ selected }: { selected: Service | null }) {
     camera.lookAt(0, 0, 0);
   });
 
-  // Reset to default when nothing selected
-  if (!selected) {
-    targetPos.current.set(0, 0.5, 6);
-  } else {
-    const idx = services.findIndex((s) => s.id === selected.id);
-    if (idx >= 0) {
-      const [lat, lng] = markerPositions[idx];
-      const dir = latLngToVec3(lat, lng, 4.5);
-      targetPos.current.copy(dir);
+  useEffect(() => {
+    if (!selected) {
+      targetPos.current.set(0, 0.5, 6);
+      return;
     }
-  }
+
+    const idx = services.findIndex((service) => service.id === selected.id);
+    const markerPosition = markerPositions[idx];
+
+    if (markerPosition) {
+      const [lat, lng] = markerPosition;
+      targetPos.current.copy(latLngToVec3(lat, lng, 4.5));
+    }
+  }, [selected]);
 
   return null;
 }

@@ -4,6 +4,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo, useEffect, useState } from "react";
 import * as THREE from "three";
 import { services } from "@/data/services";
+import { seededRandom } from "@/lib/seededRandom";
 
 const questions = [
   { text: "내 인스타, AI가 분석해준다면?", color: "#f59e0b" },
@@ -43,9 +44,9 @@ function BackgroundStars() {
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = 20 + Math.random() * 60;
+      const phi = Math.acos(2 * seededRandom(i + 1) - 1);
+      const theta = seededRandom(i + count) * Math.PI * 2;
+      const r = 20 + seededRandom(i + count * 2) * 60;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
@@ -92,9 +93,10 @@ function StreamingStars() {
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 80;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 80;
-      pos[i * 3 + 2] = -(Math.random() * (TOTAL_DEPTH + 100));
+      pos[i * 3] = (seededRandom(i + 1) - 0.5) * 80;
+      pos[i * 3 + 1] = (seededRandom(i + count) - 0.5) * 80;
+      pos[i * 3 + 2] =
+        -(seededRandom(i + count * 2) * (TOTAL_DEPTH + 100));
     }
     return pos;
   }, []);
@@ -182,11 +184,12 @@ function Station({ z, color }: { z: number; color: string }) {
   const positions = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
-      const u1 = Math.max(0.001, Math.random());
+      const u1 = Math.max(0.001, seededRandom(i + 1));
       const r = Math.sqrt(-2 * Math.log(u1)) * 0.8;
-      const theta = Math.random() * Math.PI * 2;
+      const theta = seededRandom(i + particleCount) * Math.PI * 2;
       pos[i * 3] = r * Math.cos(theta);
-      pos[i * 3 + 1] = (Math.random() - 0.5) * r * 0.25;
+      pos[i * 3 + 1] =
+        (seededRandom(i + particleCount * 2) - 0.5) * r * 0.25;
       pos[i * 3 + 2] = r * Math.sin(theta);
     }
     return pos;
@@ -502,7 +505,8 @@ function TypingHero() {
     }
 
     if (phase === "pause") {
-      setPhase("deleting");
+      const timer = setTimeout(() => setPhase("deleting"), 0);
+      return () => clearTimeout(timer);
     }
 
     if (phase === "deleting") {
@@ -513,8 +517,11 @@ function TypingHero() {
         );
         return () => clearTimeout(timer);
       }
-      setIndex((prev) => (prev + 1) % questions.length);
-      setPhase("typing");
+      const timer = setTimeout(() => {
+        setIndex((prev) => (prev + 1) % questions.length);
+        setPhase("typing");
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [displayText, phase, index]);
 

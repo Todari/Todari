@@ -20,9 +20,11 @@ export default function Hero() {
     }
 
     if (isDeleting && text === "") {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-      return;
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }, 0);
+      return () => clearTimeout(timeout);
     }
 
     const timeout = setTimeout(() => {

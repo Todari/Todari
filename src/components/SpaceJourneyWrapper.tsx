@@ -16,7 +16,7 @@ function ToyboxLoading() {
         />
         <div className="relative">
           <p className="mb-5 inline-flex rotate-[-2deg] rounded-full border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 font-mono text-[9px] font-black tracking-[0.18em] text-[#17151c] shadow-[3px_3px_0_#17151c] md:text-xs">
-            PRODUCT ENGINEER · SERVICE BUILDER
+            PRODUCT ENGINEER · AI AUTOMATION · SERVICE BUILDER
           </p>
           <p className="gradient-text text-6xl font-black tracking-[-0.075em] md:text-8xl lg:text-9xl">
             Todari

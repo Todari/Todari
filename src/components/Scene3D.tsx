@@ -4,6 +4,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Stars } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import { seededRandom } from "@/lib/seededRandom";
 
 function FloatingShape({
   position,
@@ -73,9 +74,9 @@ function Particles() {
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 30;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 30;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 30;
+      pos[i * 3] = (seededRandom(i + 1) - 0.5) * 30;
+      pos[i * 3 + 1] = (seededRandom(i + count) - 0.5) * 30;
+      pos[i * 3 + 2] = (seededRandom(i + count * 2) - 0.5) * 30;
     }
     return pos;
   }, []);

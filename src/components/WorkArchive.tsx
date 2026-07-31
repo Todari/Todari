@@ -119,17 +119,18 @@ function WorkCard({
               PRIVATE WORK · 일부 정보 비공개
             </span>
           )}
-          {service.repository && service.repository !== service.url && (
+          {service.publicRepository &&
+            service.publicRepository !== service.url && (
             <a
-              href={service.repository}
+              href={service.publicRepository}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-[#17151c] bg-[#fffaf0] px-4 py-2.5 text-sm font-black shadow-[3px_3px_0_#17151c] transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
             >
-              GitHub
+              공개 코드
               <span aria-hidden="true">↗</span>
             </a>
-          )}
+            )}
         </div>
       </div>
     </article>

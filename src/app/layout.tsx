@@ -7,7 +7,9 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "서비스 기획에서 시작해 UI/UX와 프론트엔드를 익히고, AI로 학습과 실행의 폭을 넓혀 문제를 제품으로 해결하는 프로덕트 엔지니어 Todari입니다.";
+  "PO 경험을 바탕으로 문제를 정의하고, 실시간·데이터 제품을 출시하며, SEO·GEO·GA4와 AI Development Harness로 운영·개선하는 Product Engineer Todari입니다.";
+const PAGE_TITLE =
+  "Todari | 제품을 출시하고 운영·성장시키는 프로덕트 엔지니어";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
+    default: PAGE_TITLE,
     template: "%s | Todari",
   },
   description: DESCRIPTION,
@@ -43,7 +45,19 @@ export const metadata: Metadata = {
     "핀투게더",
     "프로덕트 엔지니어",
     "프론트엔드 개발자",
-    "AI 활용",
+    "Product Operations",
+    "Product Growth",
+    "Technical SEO",
+    "GEO",
+    "GA4",
+    "Google Search Console",
+    "네이버 서치어드바이저",
+    "AI Development Harness",
+    "AI 개발 하네스",
+    "개발 자동화",
+    "CI/CD",
+    "Observability",
+    "Discord Ops",
   ],
   authors: [{ name: "Todari", url: SITE_URL }],
   creator: "Todari",
@@ -54,20 +68,20 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
+    title: PAGE_TITLE,
     description: DESCRIPTION,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Todari — 궁금한 것을 직접 만들어 운영하는 서비스 실험실",
+        alt: "Todari — 3D Project Dispenser와 AI Development Harness",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Todari | 문제를 제품으로 해결하는 프로덕트 엔지니어",
+    title: PAGE_TITLE,
     description: DESCRIPTION,
     images: ["/og.png"],
   },
@@ -116,10 +130,20 @@ const jsonLd = {
       url: SITE_URL,
       knowsAbout: [
         "Service Planning",
+        "Product Management",
+        "Product Operations",
+        "Product Growth",
         "UI/UX Design",
         "Frontend Development",
-        "AI-assisted Software Development",
-        "Product Operations",
+        "Technical SEO",
+        "Generative Engine Optimization",
+        "GA4",
+        "Google Search Console",
+        "Naver Search Advisor",
+        "AI Development Harness",
+        "CI/CD Automation",
+        "Software Observability",
+        "Discord Operations",
       ],
       sameAs: [
         "https://github.com/Todari",

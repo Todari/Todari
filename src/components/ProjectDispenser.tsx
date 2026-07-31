@@ -832,12 +832,17 @@ export default function ProjectDispenser() {
 
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 border-b-2 border-[#17151c] bg-[#17151c]/82 px-4 py-3 backdrop-blur-md md:px-6">
         <div className="flex min-w-0 items-center gap-3">
-          <h1 className="shrink-0 text-2xl font-black tracking-[-0.065em] md:text-3xl">
-            Todari
-          </h1>
+          <div className="shrink-0">
+            <h1 className="text-2xl font-black leading-none tracking-[-0.065em] md:text-3xl">
+              Todari
+            </h1>
+            <p className="mt-1 font-mono text-[7px] font-black tracking-[0.12em] text-[#67e8f9] sm:hidden">
+              AI · AUTOMATION · PRODUCTS
+            </p>
+          </div>
           <span className="hidden h-7 w-px bg-[#fffaf0]/25 sm:block" />
           <p className="hidden truncate font-mono text-[9px] font-bold tracking-[0.14em] text-[#fffaf0]/65 sm:block">
-            PRODUCT ENGINEER · 3D PROJECT DISPENSER
+            PRODUCT ENGINEER · AI AUTOMATION · 3D WORKS
           </p>
         </div>
         <a
