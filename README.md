@@ -32,9 +32,9 @@
 <a href="https://pintogather.todari.dev"><img height="32" src="https://img.shields.io/badge/07_핀투게더-함께_정하는_실시간_지도_보드-0f9f76?style=for-the-badge&labelColor=17151c" alt="07 핀투게더 — 함께 정하는 실시간 지도 보드" /></a><br />
 <a href="https://react-pixel-ui.vercel.app"><img height="32" src="https://img.shields.io/badge/08_REACT_PIXEL_UI-CSS를_픽셀_아트로_바꾸는_UI_라이브러리-ec4899?style=for-the-badge&labelColor=17151c" alt="08 React Pixel UI — CSS를 픽셀 아트로 바꾸는 UI 라이브러리" /></a><br />
 <a href="https://trade-tower.vercel.app"><img height="32" src="https://img.shields.io/badge/09_TRADE_TOWER-틱_기반_자동매매_운영_시스템-6366f1?style=for-the-badge&labelColor=17151c" alt="09 Trade Tower — 틱 기반 자동매매 운영 시스템" /></a><br />
-<a href="https://toksai.todari.dev"><img height="32" src="https://img.shields.io/badge/10_톡사이-카카오톡_관계_신호_분석-ca8a04?style=for-the-badge&labelColor=17151c" alt="10 톡사이 — 카카오톡 관계 신호 분석" /></a><br />
-<a href="https://lvti.my"><img height="32" src="https://img.shields.io/badge/11_LVTI-16가지_연애_성격_유형_테스트-ef4444?style=for-the-badge&labelColor=17151c" alt="11 LVTI — 16가지 연애 성격 유형 테스트" /></a><br />
-<a href="https://hgt.todari.dev"><img height="32" src="https://img.shields.io/badge/12_HGT-홍익대_구성원_주간_1대1_매칭-8b5cf6?style=for-the-badge&labelColor=17151c" alt="12 HGT — 홍익대 구성원 주간 1대1 매칭" /></a>
+<a href="https://hgt.todari.dev"><img height="32" src="https://img.shields.io/badge/10_HGT-홍익대_구성원_주간_1대1_매칭-8b5cf6?style=for-the-badge&labelColor=17151c" alt="10 HGT — 홍익대 구성원 주간 1대1 매칭" /></a><br />
+<a href="https://toksai.todari.dev"><img height="32" src="https://img.shields.io/badge/11_톡사이-카카오톡_관계_신호_분석-ca8a04?style=for-the-badge&labelColor=17151c" alt="11 톡사이 — 카카오톡 관계 신호 분석" /></a><br />
+<a href="https://lvti.my"><img height="32" src="https://img.shields.io/badge/12_LVTI-16가지_연애_성격_유형_테스트-ef4444?style=for-the-badge&labelColor=17151c" alt="12 LVTI — 16가지 연애 성격 유형 테스트" /></a>
 
 </div>
 

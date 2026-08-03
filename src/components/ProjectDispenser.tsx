@@ -864,7 +864,10 @@ export default function ProjectDispenser() {
         </div>
         <nav
           aria-label="프로젝트 바로 선택"
-          className="grid min-h-0 flex-1 grid-rows-11 gap-1.5"
+          className="grid min-h-0 flex-1 gap-1.5"
+          style={{
+            gridTemplateRows: `repeat(${services.length}, minmax(0, 1fr))`,
+          }}
         >
           <ProjectIndex activeIndex={activeIndex} onSelect={selectProject} />
         </nav>

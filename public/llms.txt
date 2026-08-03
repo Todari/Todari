@@ -14,9 +14,9 @@ Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Produc
 - **핀투게더** — https://pintogather.todari.dev — 가입 없이 장소·평가·메모·일정을 함께 정하는 실시간 협업 지도.
 - **React Pixel UI** — https://react-pixel-ui.vercel.app — 기존 DOM·CSS·SSR을 유지하며 UI를 픽셀 아트로 변환하는 React 라이브러리.
 - **Trade Tower** — https://trade-tower.vercel.app — 틱 데이터와 규칙형 판단·다층 리스크 게이트를 연결한 자동매매 운영 시스템.
+- **HGT** — https://hgt.todari.dev — 홍익대학교 구성원 인증과 키워드 프로필을 바탕으로 매주 한 사람을 연결하는 비공식 서비스.
 - **톡사이** — https://toksai.todari.dev — 카카오톡 1:1 대화의 관심 신호·타임라인·대화 습관을 분석하는 서비스.
 - **LVTI** — https://lvti.my — 32개 질문으로 알아보는 16가지 연애 성격 유형 테스트.
-- **HGT** — https://hgt.todari.dev — 홍익대학교 구성원 인증과 키워드 프로필을 바탕으로 매주 한 사람을 연결하는 비공식 서비스.
 
 ## Public engineering systems
 

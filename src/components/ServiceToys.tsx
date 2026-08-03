@@ -211,6 +211,36 @@ function HeartToy({ color }: { color: string }) {
   );
 }
 
+function MatchToy({ color }: { color: string }) {
+  return (
+    <group rotation={[0.06, -0.16, 0]}>
+      <group position={[-1.05, 0, 0]} rotation={[0, 0.18, 0.06]}>
+        <ToyMesh color={color} position={[0, 0.1, 0]}>
+          <capsuleGeometry args={[0.62, 1.1, 6, 16]} />
+        </ToyMesh>
+        <ToyMesh color={PAPER} position={[0, 1.35, 0]}>
+          <sphereGeometry args={[0.5, 20, 20]} />
+        </ToyMesh>
+      </group>
+      <group position={[1.05, 0, 0.15]} rotation={[0, -0.18, -0.06]}>
+        <ToyMesh color={PAPER} position={[0, 0.1, 0]}>
+          <capsuleGeometry args={[0.62, 1.1, 6, 16]} />
+        </ToyMesh>
+        <ToyMesh color={color} position={[0, 1.35, 0]}>
+          <sphereGeometry args={[0.5, 20, 20]} />
+        </ToyMesh>
+      </group>
+      <mesh position={[0, 1.7, 0.1]}>
+        <torusGeometry args={[1.05, 0.09, 8, 48, Math.PI]} />
+        <meshBasicMaterial color={PINK} />
+      </mesh>
+      <ToyMesh color={LIME} position={[0, 2.15, 0.2]} scale={0.34}>
+        <octahedronGeometry args={[1, 0]} />
+      </ToyMesh>
+    </group>
+  );
+}
+
 function TicketToy({ color }: { color: string }) {
   return (
     <group rotation={[0.08, -0.18, -0.03]}>
@@ -376,7 +406,7 @@ export function ServiceToy({
     case "lovetype":
       return <HeartToy color={color} />;
     case "hgt":
-      return <HeartToy color={color} />;
+      return <MatchToy color={color} />;
     case "jeongpyo":
       return <TicketToy color={color} />;
     case "toksai":
