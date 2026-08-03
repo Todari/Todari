@@ -375,6 +375,8 @@ export function ServiceToy({
       return <TowerToy color={color} />;
     case "lovetype":
       return <HeartToy color={color} />;
+    case "hgt":
+      return <HeartToy color={color} />;
     case "jeongpyo":
       return <TicketToy color={color} />;
     case "toksai":

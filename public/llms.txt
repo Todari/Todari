@@ -1,24 +1,43 @@
 # Todari
 
-> Todari(토다리)가 만든 웹 서비스 포트폴리오 사이트입니다. 인터랙티브 3D 태양계 비주얼로 각 서비스를 행성처럼 탐험할 수 있습니다.
+Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Product Engineer의 서비스
+포트폴리오입니다.
 
-## 운영 중인 서비스
+## Services and projects
 
-- **행동대장 (Haengdong)** — https://haengdong.pro — 가입 없이 바로 시작하는 모임/여행 비용 정산 서비스. 구성원 변동에도 자동 재계산.
+- **Forcletter** — https://forcreator.co.kr — 인스타그램 인플루언서의 분석·DM·멀티링크·광고 단가와 AI 에이전트를 연결한 운영 도구.
+- **이정표** — https://jeongpyo.com — 가격 입력 없이 좌석 정가를 산정하는 KBO 팬투팬 티켓 양도 플랫폼.
+- **GEO Dashboard** — 비공개 운영 프로젝트 — 검색과 AI 답변 속 브랜드 가시성·인용·질문 성과를 다음 행동으로 연결하는 대시보드.
+- **닭발 헌터** — https://dakbal.pro — 전국 엽떡 지점의 닭발 종류와 판매 상태를 지도에서 찾는 서비스.
+- **행동대장** — https://haengdong.todari.dev — 가입 없이 링크로 시작하고 구성원 변화에도 자동 재계산하는 모임 정산 서비스.
+- **메트로놈들** — https://metronomdeul.site — 여러 연주자의 이어폰에서 같은 클릭을 재생하는 실시간 동기화 메트로놈.
+- **핀투게더** — https://pintogather.todari.dev — 가입 없이 장소·평가·메모·일정을 함께 정하는 실시간 협업 지도.
+- **React Pixel UI** — https://react-pixel-ui.vercel.app — 기존 DOM·CSS·SSR을 유지하며 UI를 픽셀 아트로 변환하는 React 라이브러리.
+- **Trade Tower** — https://trade-tower.vercel.app — 틱 데이터와 규칙형 판단·다층 리스크 게이트를 연결한 자동매매 운영 시스템.
+- **톡사이** — https://toksai.todari.dev — 카카오톡 1:1 대화의 관심 신호·타임라인·대화 습관을 분석하는 서비스.
 - **LVTI** — https://lvti.my — 32개 질문으로 알아보는 16가지 연애 성격 유형 테스트.
-- **메트로놈들 (Metronomdeul)** — https://metronomdeul.site — 여러 연주자가 네트워크로 동일 박자에 동기화되는 실시간 협업 메트로놈.
-- **React Pixel UI** — https://react-pixel-ui.vercel.app — 순수 CSS 기반 픽셀 아트 React 컴포넌트 라이브러리. SSR 호환.
-- **닭발 헌터 (Dakbal Hunter)** — https://dakbal.pro — 동대문엽기떡볶이 전국 지점의 닭발 메뉴 실시간 재고를 카카오맵 요기요 API로 추적해 지도로 보여주는 서비스.
-- **Trade Tower** — https://trade-tower.vercel.app — 8개 AI 에이전트가 합의 기반으로 의사결정하는 한국 주식 자동매매 플랫폼.
-- **Forcletter** — https://forcreator.co.kr — 인스타그램 크리에이터를 위한 AI 분석 플랫폼.
+- **HGT** — https://hgt.todari.dev — 홍익대학교 구성원 인증과 키워드 프로필을 바탕으로 매주 한 사람을 연결하는 비공식 서비스.
 
-## 운영자
+## Public engineering systems
 
-- 이름: Todari
+- **Workspace AI Harness** — https://github.com/Todari/workspace-ai-harness — Claude Code와 Codex에 공통 context·검증 gate·Obsidian bridge를 제공하는 Python 훅.
+- **Todari Ops** — https://github.com/Todari/todari-ops — AI 코딩 세션, 사람 승인 gate, 배포·오류 알림과 uptime을 Discord에서 통합하는 TypeScript 운영 봇.
+
+## Public source
+
+- GitHub organization: https://github.com/Todari
+- Portfolio source: https://github.com/Todari/Todari
+- HGT: https://github.com/Todari/hgt
+- 행동대장: https://github.com/Todari/2024-haeng-dong
+- 메트로놈들: https://github.com/Todari/metro-nomedeul
+- 핀투게더: https://github.com/Todari/pin-to-gather
+- React Pixel UI: https://github.com/Todari/react-pixel-ui
+- 톡사이: https://github.com/Todari/toksai
+- LVTI: https://github.com/Todari/lovetype
+
+## Identity
+
+- Name: Todari
+- Website: https://todari.dev
 - GitHub: https://github.com/Todari
-- 사이트: https://todari.dev
-
-## 사이트 구조
-
-- 홈(`/`)에서 3D 태양계 인터랙션으로 서비스를 둘러볼 수 있고, 각 행성을 클릭하면 해당 서비스의 외부 링크로 이동합니다.
-- 모바일에서는 카드 리스트 형태로 노출됩니다.
+- Email: hello@todari.dev

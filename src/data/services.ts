@@ -222,6 +222,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://pintogather.todari.dev",
+    publicRepository: "https://github.com/Todari/pin-to-gather",
     status: "개발 중",
     period: "2026 — NOW",
     role: "제품 설계 · 풀스택 · 실시간 협업",
@@ -310,6 +311,7 @@ export const services: Service[] = [
       },
     ],
     url: "https://toksai.todari.dev",
+    publicRepository: "https://github.com/Todari/toksai",
     status: "개발 중",
     period: "2026 — NOW",
     role: "제품 설계 · 풀스택 · AI 분석 파이프라인",
@@ -346,5 +348,35 @@ export const services: Service[] = [
     tags: ["Next.js", "TypeScript", "Analytics"],
     color: "#ef4444",
     gradient: "from-red-500 to-rose-600",
+  },
+  {
+    id: "hgt",
+    title: "HGT",
+    subtitle: "홍익대 구성원 주간 1:1 매칭",
+    question: "사진보다 취향과 키워드로 새로운 사람을 만날 수 있을까?",
+    description:
+      "홍익대학교 구성원 인증을 바탕으로 키워드 프로필을 만들고, 매주 새로운 한 사람과 실시간 대화로 연결하는 비공식 캠퍼스 매칭 서비스.",
+    evidence: [
+      {
+        label: "신뢰 문제",
+        text: "같은 학교 구성원이라는 최소한의 신뢰를 확보하면서 포털 자격증명은 서비스에 남기지 않아야 했습니다.",
+      },
+      {
+        label: "매칭 설계",
+        text: "휴면 사용자를 제외하고 선호·키워드 점수를 조합해 매주 한 명을 결정론적으로 연결하도록 구성했습니다.",
+      },
+      {
+        label: "제품 구조",
+        text: "Next.js·Capacitor 앱과 Hono API, PostgreSQL, WebSocket 채팅 계약을 하나의 TypeScript 모노레포에서 관리합니다.",
+      },
+    ],
+    url: "https://hgt.todari.dev",
+    publicRepository: "https://github.com/Todari/hgt",
+    status: "개선 중",
+    period: "2023 — NOW",
+    role: "제품 설계 · 풀스택 · 모바일 앱",
+    tags: ["Next.js", "Capacitor", "Hono", "WebSocket"],
+    color: "#8b5cf6",
+    gradient: "from-violet-500 to-fuchsia-600",
   },
 ];

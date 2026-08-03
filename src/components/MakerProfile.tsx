@@ -358,6 +358,14 @@ export default function MakerProfile() {
                 세션 시작 시 repo map·git 상태·프로젝트 TODO·완료 기준을
                 주입하고, 소스 편집 뒤 검증 누락을 자동으로 감지합니다.
               </p>
+              <a
+                href="https://github.com/Todari/workspace-ai-harness"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex font-mono text-[10px] font-black tracking-[0.12em] text-[#67e8f9] underline decoration-2 underline-offset-4"
+              >
+                PUBLIC REPOSITORY ↗
+              </a>
             </div>
             <div className="rounded-xl border-2 border-[#fffaf0]/25 bg-[#fffaf0]/5 p-5">
               <p className="font-mono text-[9px] font-black tracking-[0.18em] text-[#ff79bd]">
@@ -377,6 +385,14 @@ export default function MakerProfile() {
                 진단과 `/code` 트리아지로 연결합니다. 복구는 사람이
                 승인합니다.
               </p>
+              <a
+                href="https://github.com/Todari/todari-ops"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex font-mono text-[10px] font-black tracking-[0.12em] text-[#dfff4f] underline decoration-2 underline-offset-4"
+              >
+                PUBLIC REPOSITORY ↗
+              </a>
             </div>
           </div>
         </div>

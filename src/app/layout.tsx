@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     "GEO Dashboard",
     "톡사이",
     "핀투게더",
+    "HGT",
     "프로덕트 엔지니어",
     "프론트엔드 개발자",
     "Product Operations",
@@ -155,6 +156,7 @@ const jsonLd = {
         "https://jeongpyo.com",
         "https://toksai.todari.dev",
         "https://pintogather.todari.dev",
+        "https://hgt.todari.dev",
       ],
     },
     {
@@ -168,6 +170,7 @@ const jsonLd = {
         name: s.title,
         description: s.description,
         ...(s.url ? { url: s.url } : {}),
+        ...(s.publicRepository ? { sameAs: [s.publicRepository] } : {}),
       })),
     },
   ],
