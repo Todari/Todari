@@ -21,7 +21,7 @@
 
 <sub>위계 없이, 만든 순서대로. 각 행을 누르면 서비스 또는 프로젝트 상세로 이동합니다.</sub>
 
-<br /><br />
+<br />
 
 <a href="https://forcreator.co.kr"><img height="32" src="https://img.shields.io/badge/01_FORCLETTER-인스타그램_인플루언서_올인원_툴-3b82f6?style=for-the-badge&labelColor=17151c" alt="01 Forcletter — 인스타그램 인플루언서 올인원 툴" /></a><br />
 <a href="https://jeongpyo.com"><img height="32" src="https://img.shields.io/badge/02_이정표-KBO_티켓_팬투팬_정가_양도-3150ff?style=for-the-badge&labelColor=17151c" alt="02 이정표 — KBO 티켓 팬투팬 정가 양도" /></a><br />
@@ -43,7 +43,7 @@
 
 <code>CONTEXT → AI BUILD → VERIFY → CI/CD → SMOKE → DISCORD OPS</code>
 
-<br /><br />
+<br />
 
 <sub>AI 세션에 컨텍스트를 주입하고, 로컬·CI에서 같은 검증을 돌리고, 배포·에러 신호를 Discord 운영으로 잇습니다. 실행은 사람의 승인을 거칩니다.</sub>
 
