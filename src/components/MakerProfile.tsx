@@ -94,7 +94,7 @@ const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
 const caseStudies = [
   {
-    label: "EXTERNAL API AT SCALE",
+    label: "FORCLETTER · EXTERNAL API AT SCALE",
     title: "수천 계정의 외부 API를 정책 안에서 운영합니다.",
     constraint:
       "4,800여 개 인스타그램 계정의 수집과 DM·댓글 자동 실행을, 토큰 만료와 Meta 정책·레이트리밋이라는 통제 불가능한 조건 위에서 운영해야 했습니다.",
@@ -102,10 +102,10 @@ const caseStudies = [
       "웹훅 서명 검증 → 이벤트 분류 → 모더레이션·자동 DM 실행의 단일 인입 파이프라인을 만들고, 토큰 상태 머신과 서킷 브레이커로 외부 장애가 사용자 의도 상태를 덮어쓰지 못하게 격리했습니다.",
     facts: ["IG 계정 4,800+ 연동", "자동 DM 8.8만+ 건", "댓글 535만 건 수집"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "DATA AT SCALE",
+    label: "FORCLETTER · DATA AT SCALE",
     title: "5,000만 행 시계열을 일상 조회가 가능한 상태로 유지합니다.",
     constraint:
       "계정·미디어 메트릭을 주기 수집하면 스냅샷 테이블이 수천만 행으로 자라고, 통계·리포트 조회는 매일 그 위에서 돌아야 했습니다.",
@@ -113,10 +113,10 @@ const caseStudies = [
       "35개 크론 잡이 중복 실행 락 아래에서 수집하고, 조회 패턴에 맞춘 복합 인덱스와 기간 집계 쿼리로 성장·활성·리텐션 통계를 운영 DB에서 직접 제공합니다.",
     facts: ["메트릭 스냅샷 5,000만+ 행", "복합 인덱스 설계", "크론 잡 35개 · 실행 락"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "ZERO-DOWNTIME OPS",
+    label: "FORCLETTER · ZERO-DOWNTIME OPS",
     title: "배포와 장애 대응이 사용자에게 보이지 않게 합니다.",
     constraint:
       "단일 EC2 위의 운영 서비스라 배포 중단이 곧 사용자 장애였고, 경보가 없거나 너무 많으면 실제 사고를 놓치게 됩니다.",
@@ -124,10 +124,10 @@ const caseStudies = [
       "비활성 슬롯 기동 → 헬스체크 → Nginx upstream 전환의 blue-green 배포를 직접 구축했습니다. Loki·Grafana 관측성 위에 등급·스로틀 정책이 있는 Slack 경보와 fail-closed Sentry 브리지로 장애 신호를 관리합니다.",
     facts: ["Blue-green 무중단 배포", "Loki·Grafana 관측성", "경보 등급·스로틀 정책"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "DELIVERY PIPELINE",
+    label: "FORCLETTER · DELIVERY PIPELINE",
     title: "커밋부터 배포·롤백까지 재현 가능하게 만듭니다.",
     constraint:
       "웹·관리자·모바일 앱·API·스케줄러가 한 모노레포에서 서로 다른 대상(Vercel·EC2 컨테이너)으로 나가야 했고, 프로덕션 반영은 언제든 되돌릴 수 있어야 했습니다.",
@@ -135,10 +135,10 @@ const caseStudies = [
       "CI 검증을 통과한 커밋만 GHCR 이미지로 빌드해 환경별 EC2에 배포합니다. 프로덕션은 승인 게이트를 거치고, 모든 배포가 이미지 태그 기반이라 같은 스크립트로 특정 태그로의 롤백이 가능합니다.",
     facts: ["GitHub Actions → GHCR → EC2", "프로덕션 승인 게이트", "태그 기반 배포·롤백"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "PAYMENTS & IDEMPOTENCY",
+    label: "FORCLETTER · PAYMENTS & IDEMPOTENCY",
     title: "돈이 오가는 흐름은 멱등하게 설계합니다.",
     constraint:
       "구독 결제·환불·쿠폰 이벤트가 웹훅으로 비동기 도착하고, 재시도와 중복 이벤트가 이중 청구나 이중 환불로 이어지면 안 됐습니다.",
@@ -146,10 +146,10 @@ const caseStudies = [
       "결제·환불 이벤트를 단일 웹훅 인입점에서 분류해 처리하고, 환불 실행은 멱등 키 테이블로 중복을 차단했습니다. 결제 이력과 구독 상태를 분리해 상태 전이를 추적 가능하게 유지합니다.",
     facts: ["정기결제 웹훅 처리", "환불 멱등 키 설계", "결제 이력·구독 상태 분리"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "AI PRODUCT ENGINEERING",
+    label: "FORCLETTER · AI PRODUCT ENGINEERING",
     title: "AI의 판단과 실행 사이에 경계를 설계합니다.",
     constraint:
       "AI 에이전트가 계정 분석을 넘어 DM 발송 같은 실행까지 다루면, 잘못된 호출 하나가 실제 사용자에게 그대로 도달합니다.",
@@ -157,10 +157,10 @@ const caseStudies = [
       "도구 레지스트리로 조회와 실행을 분리하고, 실행형 액션은 1회용·TTL·소유자 고정의 무결성 경계를 가진 승인 큐를 통과해야만 수행됩니다. LLM은 멀티 프로바이더 추상화 뒤에 두고 few-shot 예제를 데이터로 관리합니다.",
     facts: ["실행 승인 큐 · 1회용·TTL", "도구 레지스트리 분리", "멀티 프로바이더 LLM 계층"],
     href: "https://forcreator.co.kr",
-    linkLabel: "Forcletter · 서비스 보기",
+    linkLabel: "서비스 보기",
   },
   {
-    label: "INCIDENT RESPONSE",
+    label: "TODARI OPS · INCIDENT RESPONSE",
     title: "장애는 복구로 끝내지 않고 시스템으로 되돌립니다.",
     constraint:
       "서비스 10여 개가 올라간 단일 EC2가 새벽 메모리 포화(OOM)로 응답 불능이 됐고, 사람이 자는 시간이라 감지도 복구도 늦었습니다.",
@@ -168,10 +168,10 @@ const caseStudies = [
       "복구 후 원인(스왑 없는 메모리 포화)을 제거하고, 메모리·스왑 임계 조기 경보와 CloudWatch 상태 검사 실패 시 자동 재부팅·복구, 재부팅 감지 통지까지 붙여 같은 장애가 사람 없이 끝나도록 만들었습니다.",
     facts: ["새벽 OOM → 원인 제거", "CloudWatch 자동 복구", "임계 조기 경보·재부팅 통지"],
     href: "https://github.com/Todari/todari-ops",
-    linkLabel: "Todari Ops · 공개 코드 보기",
+    linkLabel: "공개 코드 보기",
   },
   {
-    label: "REALTIME SYNC",
+    label: "METRONOMDEUL · REALTIME SYNC",
     title: "떨어져 있는 기기들의 박자를 하나로 맞춥니다.",
     constraint:
       "네트워크 지연과 서로 다른 오디오 시계를 가진 기기들이 각자의 이어폰에서 같은 클릭을 재생해야 했습니다.",
@@ -179,10 +179,10 @@ const caseStudies = [
       "RTT/2 표본의 중앙값으로 서버 시각 오프셋을 추정하고, Web Audio 50ms 선행 스케줄링으로 네트워크와 재생을 분리했습니다. iOS 오디오 활성화·재접속·방 상태 동기화의 경합은 복구 가능한 상태 전이로 정리했습니다.",
     facts: ["RTT 중앙값 오프셋 추정", "50ms 선행 스케줄링", "재접속·iOS 복구"],
     href: "https://github.com/Todari/metro-nomedeul",
-    linkLabel: "메트로놈들 · 공개 코드 보기",
+    linkLabel: "공개 코드 보기",
   },
   {
-    label: "FRONTEND INFRA",
+    label: "REACT PIXEL UI · FRONTEND INFRA",
     title: "프레임워크를 깨지 않는 렌더링 계층을 설계합니다.",
     constraint:
       "기존 DOM과 CSS 레이아웃을 훼손하지 않으면서 배경·테두리·모서리·그림자를 픽셀 아트로 변환해야 했습니다.",
@@ -190,10 +190,10 @@ const caseStudies = [
       "Canvas 없이 clip-path 폴리곤과 합성 PNG 데이터 URL로 변환 계층을 설계해 SSR을 유지했습니다. RGBA 그라디언트는 의존성 없는 deflate 인코더로 직접 압축하고, 테마·hover·focus·크기 변화는 자동으로 재계산됩니다.",
     facts: ["npm 패키지 배포", "회귀 테스트 161개", "PNG 출력 30–100× 최적화"],
     href: "https://github.com/Todari/react-pixel-ui",
-    linkLabel: "React Pixel UI · 공개 코드 보기",
+    linkLabel: "공개 코드 보기",
   },
   {
-    label: "VERIFIED EXECUTION",
+    label: "TRADE TOWER · VERIFIED EXECUTION",
     title: "실행이 위험한 시스템은 검증 체계부터 만듭니다.",
     constraint:
       "실시간 틱과 호가 데이터에서 판단을 만들되, 잘못된 진입·중복 주문·연결 단절이 실제 실행으로 번지지 않게 제어해야 했습니다.",
@@ -201,7 +201,7 @@ const caseStudies = [
       "규칙 기반 엔진을 중심에 두고 LLM은 제한적인 VETO로 격리했습니다. 결정론적 룰 선택기와 데이 리플레이 시뮬레이터로 라이브·시뮬레이션 동형성을 검증하고, 드리프트 감지와 킬 스위치로 실행을 제어합니다.",
     facts: ["결정론적 룰 + LLM VETO", "데이 리플레이 백테스트", "드리프트 감지·Kill Switch"],
     href: "https://trade-tower.vercel.app",
-    linkLabel: "Trade Tower · 프로젝트 보기",
+    linkLabel: "프로젝트 보기",
   },
 ] as const;
 
