@@ -149,6 +149,28 @@ const caseStudies = [
     linkLabel: "Forcletter · 서비스 보기",
   },
   {
+    label: "AI PRODUCT ENGINEERING",
+    title: "AI의 판단과 실행 사이에 경계를 설계합니다.",
+    constraint:
+      "AI 에이전트가 계정 분석을 넘어 DM 발송 같은 실행까지 다루면, 잘못된 호출 하나가 실제 사용자에게 그대로 도달합니다.",
+    decision:
+      "도구 레지스트리로 조회와 실행을 분리하고, 실행형 액션은 1회용·TTL·소유자 고정의 무결성 경계를 가진 승인 큐를 통과해야만 수행됩니다. LLM은 멀티 프로바이더 추상화 뒤에 두고 few-shot 예제를 데이터로 관리합니다.",
+    facts: ["실행 승인 큐 · 1회용·TTL", "도구 레지스트리 분리", "멀티 프로바이더 LLM 계층"],
+    href: "https://forcreator.co.kr",
+    linkLabel: "Forcletter · 서비스 보기",
+  },
+  {
+    label: "INCIDENT RESPONSE",
+    title: "장애는 복구로 끝내지 않고 시스템으로 되돌립니다.",
+    constraint:
+      "서비스 10여 개가 올라간 단일 EC2가 새벽 메모리 포화(OOM)로 응답 불능이 됐고, 사람이 자는 시간이라 감지도 복구도 늦었습니다.",
+    decision:
+      "복구 후 원인(스왑 없는 메모리 포화)을 제거하고, 메모리·스왑 임계 조기 경보와 CloudWatch 상태 검사 실패 시 자동 재부팅·복구, 재부팅 감지 통지까지 붙여 같은 장애가 사람 없이 끝나도록 만들었습니다.",
+    facts: ["새벽 OOM → 원인 제거", "CloudWatch 자동 복구", "임계 조기 경보·재부팅 통지"],
+    href: "https://github.com/Todari/todari-ops",
+    linkLabel: "Todari Ops · 공개 코드 보기",
+  },
+  {
     label: "REALTIME SYNC",
     title: "떨어져 있는 기기들의 박자를 하나로 맞춥니다.",
     constraint:
