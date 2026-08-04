@@ -92,6 +92,14 @@ const principles = [
 
 const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
+// 분기마다 실측 갱신 (측정 방법: 볼트 포크레터/리서치/2026-08 운영 KPI 실측)
+const operatingStats = [
+  { value: "12", label: "출시·운영 제품" },
+  { value: "1,900+", label: "월 활성 크리에이터" },
+  { value: "4,800+", label: "연동 인스타그램 계정" },
+  { value: "3.8만+", label: "월 자동 DM 실행" },
+] as const;
+
 const caseStudies = [
   {
     label: "FORCLETTER · EXTERNAL API AT SCALE",
@@ -268,6 +276,27 @@ export default function MakerProfile() {
             </p>
           </div>
         </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {operatingStats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={`rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#17151c] p-5 text-[#fffaf0] shadow-[6px_6px_0_#a78bfa] ${
+                index % 2 === 0 ? "rotate-[-0.6deg]" : "rotate-[0.6deg]"
+              }`}
+            >
+              <p className="text-3xl font-black tracking-[-0.03em] md:text-4xl">
+                {stat.value}
+              </p>
+              <p className="mt-2 font-mono text-[9px] font-black tracking-[0.14em] text-[#fffaf0]/60 md:text-[10px]">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-right font-mono text-[9px] font-bold tracking-[0.12em] text-[#17151c]/40">
+          크리에이터·계정·DM 지표는 Forcletter 운영 실측 (2026-08)
+        </p>
 
         <ol className="mt-16 grid gap-5 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           {capabilities.map((item, index) => (
