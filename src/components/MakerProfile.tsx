@@ -266,7 +266,7 @@ export default function MakerProfile() {
             <p className="text-lg font-black leading-8 md:text-xl">
               실시간·데이터 시스템과 AI 개발 하네스를 설계하고 운영하면서,
               작은 불편과 호기심도 직접 제품으로 검증하는 Product Engineer
-              Todari입니다.
+              토다리(Todari)입니다.
             </p>
             <p className="mt-5 text-base leading-7 text-[#5d5565]">
               PO로 문제와 성공 기준을 정의하고, 도메인 흐름·상태 전이·API
