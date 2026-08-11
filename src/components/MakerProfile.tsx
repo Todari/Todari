@@ -93,7 +93,7 @@ const principles = [
 const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
 const careers = [
-  { period: "2015 — 2023", org: "홍익대학교", role: "토목공학과 졸업 · 학점 4.09/4.5" },
+  { period: "2015.03 — 2023.02", org: "홍익대학교", role: "토목공학과 졸업 · 학점 4.09/4.5" },
   {
     period: "2022.01 — 2023.07",
     org: "미피랩스",
