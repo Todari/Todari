@@ -732,6 +732,24 @@ export default function MakerProfile() {
               </article>
             ))}
           </div>
+
+          <a
+            href="/writing"
+            className="mt-5 flex flex-col gap-2 rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#dfff4f] p-6 shadow-[8px_8px_0_#17151c] transition-transform hover:-translate-y-1 md:flex-row md:items-center md:justify-between"
+          >
+            <div>
+              <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/50">
+                TECH WRITING
+              </p>
+              <p className="mt-2 text-lg font-black tracking-[-0.02em]">
+                운영에서 내린 판단을 글로 씁니다 — 5,000만 행 시계열 설계,
+                실시간 시계 동기화.
+              </p>
+            </div>
+            <span className="shrink-0 rounded-xl border-2 border-[#17151c] bg-[#17151c] px-4 py-2 text-sm font-black text-[#fffaf0]">
+              글 보러 가기 →
+            </span>
+          </a>
         </div>
 
         <div
