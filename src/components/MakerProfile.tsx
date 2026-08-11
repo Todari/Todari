@@ -242,14 +242,14 @@ const talks = [
     ],
   },
   {
-    label: "STUDY LEAD · 2022",
+    label: "STUDY LEAD · HONGIK UNIV",
     title: "사운드 스터디",
     description:
       "관심사를 스터디로 만들어 함께 배우고, 회차마다 영상으로 기록해 공유했습니다.",
     thumb: "dKBiqi0ph7g",
     links: [
-      { name: "1 Make 사운드 스터디 1주차", href: "https://youtu.be/dKBiqi0ph7g" },
-      { name: "1 Make 사운드 스터디 2주차", href: "https://youtu.be/2u2RFoJuIQk" },
+      { name: "사운드 스터디 1주차", href: "https://youtu.be/dKBiqi0ph7g" },
+      { name: "사운드 스터디 2주차", href: "https://youtu.be/2u2RFoJuIQk" },
     ],
   },
 ] as const;
