@@ -93,7 +93,7 @@ const principles = [
 const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
 const careers = [
-  { period: "학력", org: "홍익대학교", role: "토목공학과 졸업" },
+  { period: "2015 — 2023", org: "홍익대학교", role: "토목공학과 졸업" },
   {
     period: "2022.01 — 2023.07",
     org: "미피랩스",
@@ -742,7 +742,7 @@ export default function MakerProfile() {
                 TECH WRITING
               </p>
               <p className="mt-2 text-lg font-black tracking-[-0.02em]">
-                운영에서 내린 판단을 글로 씁니다 — 장애 복구, 토큰 상태 머신,
+                운영에서 내린 판단을 글로 씁니다. 장애 복구, 토큰 상태 머신,
                 무중단 배포, 대용량 시계열, 실시간 동기화.
               </p>
             </div>

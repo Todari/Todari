@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "운영 중인 시스템에서 내린 기술 판단을 기록합니다 — 대용량 시계열 설계, 실시간 시계 동기화.",
+    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
 };
 
 const posts = [
@@ -13,35 +13,35 @@ const posts = [
     label: "INCIDENT RESPONSE · TODARI OPS",
     title: "새벽 3시의 OOM을 시스템으로 되돌리기",
     description:
-      "복구는 재부팅 한 줄이었다. 진짜 작업은 그다음 — 스왑, 히스테리시스 경보, CloudWatch 자동 복구, 그리고 '죽은 서버의 알림' 문제를 뒤집어 푸는 것.",
+      "복구는 재부팅 한 줄이었습니다. 진짜 작업은 스왑과 경보, CloudWatch 자동 복구까지, 같은 장애가 사람 없이 끝나게 만드는 일이었습니다.",
   },
   {
     slug: "token-lifecycle",
     label: "EXTERNAL API AT SCALE · FORCLETTER",
-    title: "토큰 4,800개의 수명주기 — 상태 머신과 서킷 브레이커",
+    title: "토큰 4,800개의 수명주기",
     description:
-      "토큰 값이 아니라 상태가 진실이다. 외부 장애가 사용자의 의도를 덮어쓰지 못하게 만드는 금지된 전이와, 경보 등급을 가르는 서킷 브레이커.",
+      "토큰 값이 아니라 상태가 진실입니다. 외부 장애가 사용자의 의도를 덮어쓰지 못하게 만든 상태 머신과 서킷 브레이커 이야기.",
   },
   {
     slug: "bluegreen-on-one-ec2",
     label: "ZERO-DOWNTIME OPS · FORCLETTER",
     title: "단일 EC2에서 blue-green 무중단 배포 직접 만들기",
     description:
-      "실패한 배포의 기본값을 '무해'로 만드는 헬스체크 게이트, Nginx upstream 스위치, 그리고 기능이 아니라 성질로 얻는 태그 기반 롤백.",
+      "실패한 배포의 기본값을 무해로 만드는 헬스체크 게이트, Nginx upstream 스위치, 태그 기반 롤백으로 구성했습니다.",
   },
   {
     slug: "snapshot-50m-rows",
     label: "DATA AT SCALE · FORCLETTER",
     title: "5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기",
     description:
-      "왜 스냅샷인가, 인덱스는 왜 두 개뿐인가, JSON 컬럼은 왜 버렸나 — 4,800개 계정의 메트릭이 5,000만 행으로 자라는 동안 내린 판단들.",
+      "계정 4,800여 개의 메트릭이 5,000만 행으로 자라는 동안 스키마와 인덱스, JSON 컬럼 백필에서 내린 판단들을 정리했습니다.",
   },
   {
     slug: "metronome-clock-sync",
     label: "REALTIME SYNC · 메트로놈들",
     title: "떨어져 있는 기기들의 박자를 하나로 맞추기",
     description:
-      "세 개의 시계와 네트워크 지연 위에서 같은 클릭을 재생하기 — RTT 중앙값 오프셋 추정과 Web Audio 50ms 선행 스케줄링.",
+      "시계 세 개와 네트워크 지연 위에서 같은 클릭을 재생하기. RTT 중앙값으로 오프셋을 추정하고 Web Audio에 50ms 앞서 예약합니다.",
   },
 ] as const;
 
