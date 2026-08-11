@@ -99,7 +99,7 @@ const careers = [
     org: "미피랩스",
     role: "자율주행·블록체인/NFT 서비스 기획·디자인. 자율주행 특허 출원 1건, KT 안다즈 협업",
   },
-  { period: "2024.02 — 2024.12", org: "우아한테크코스", role: "6기 수료" },
+  { period: "2024.02 — 2024.12", org: "우아한테크코스", role: "6기 프론트엔드 수료" },
   {
     period: "2025.09 — 현재",
     org: "링카이브",
@@ -742,8 +742,8 @@ export default function MakerProfile() {
                 TECH WRITING
               </p>
               <p className="mt-2 text-lg font-black tracking-[-0.02em]">
-                운영에서 내린 판단을 글로 씁니다 — 5,000만 행 시계열 설계,
-                실시간 시계 동기화.
+                운영에서 내린 판단을 글로 씁니다 — 장애 복구, 토큰 상태 머신,
+                무중단 배포, 대용량 시계열, 실시간 동기화.
               </p>
             </div>
             <span className="shrink-0 rounded-xl border-2 border-[#17151c] bg-[#17151c] px-4 py-2 text-sm font-black text-[#fffaf0]">

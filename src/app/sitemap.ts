@@ -15,6 +15,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://todari.dev/writing/ec2-oom-incident",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: "https://todari.dev/writing/token-lifecycle",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: "https://todari.dev/writing/bluegreen-on-one-ec2",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
       url: "https://todari.dev/writing/snapshot-50m-rows",
       lastModified: new Date(),
       changeFrequency: "yearly",

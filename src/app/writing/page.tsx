@@ -9,6 +9,27 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "ec2-oom-incident",
+    label: "INCIDENT RESPONSE · TODARI OPS",
+    title: "새벽 3시의 OOM을 시스템으로 되돌리기",
+    description:
+      "복구는 재부팅 한 줄이었다. 진짜 작업은 그다음 — 스왑, 히스테리시스 경보, CloudWatch 자동 복구, 그리고 '죽은 서버의 알림' 문제를 뒤집어 푸는 것.",
+  },
+  {
+    slug: "token-lifecycle",
+    label: "EXTERNAL API AT SCALE · FORCLETTER",
+    title: "토큰 4,800개의 수명주기 — 상태 머신과 서킷 브레이커",
+    description:
+      "토큰 값이 아니라 상태가 진실이다. 외부 장애가 사용자의 의도를 덮어쓰지 못하게 만드는 금지된 전이와, 경보 등급을 가르는 서킷 브레이커.",
+  },
+  {
+    slug: "bluegreen-on-one-ec2",
+    label: "ZERO-DOWNTIME OPS · FORCLETTER",
+    title: "단일 EC2에서 blue-green 무중단 배포 직접 만들기",
+    description:
+      "실패한 배포의 기본값을 '무해'로 만드는 헬스체크 게이트, Nginx upstream 스위치, 그리고 기능이 아니라 성질로 얻는 태그 기반 롤백.",
+  },
+  {
     slug: "snapshot-50m-rows",
     label: "DATA AT SCALE · FORCLETTER",
     title: "5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기",
