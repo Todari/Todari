@@ -92,6 +92,21 @@ const principles = [
 
 const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
+const careers = [
+  { period: "학력", org: "홍익대학교", role: "토목공학과 졸업" },
+  {
+    period: "2022.01 — 2023.07",
+    org: "미피랩스",
+    role: "자율주행·블록체인/NFT 서비스 기획·디자인. 자율주행 특허 출원 1건, KT 안다즈 협업",
+  },
+  { period: "2024.02 — 2024.12", org: "우아한테크코스", role: "6기 수료" },
+  {
+    period: "2025.09 — 현재",
+    org: "링카이브",
+    role: "포크레터 1인 기획·디자인·풀스택·운영",
+  },
+] as const;
+
 // 분기마다 실측 갱신 (측정 방법: 볼트 포크레터/리서치/2026-08 운영 KPI 실측)
 const operatingStats = [
   { value: "12", label: "출시·운영 제품" },
@@ -318,7 +333,29 @@ export default function MakerProfile() {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-12">
+          <p className="font-mono text-[10px] font-black tracking-[0.22em] text-[#17151c]/40">
+            CAREER
+          </p>
+          <ol className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {careers.map((career) => (
+              <li
+                key={career.org}
+                className="rounded-[1rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-4 shadow-[5px_5px_0_#17151c]"
+              >
+                <p className="font-mono text-[9px] font-black tracking-[0.14em] text-[#17151c]/45">
+                  {career.period}
+                </p>
+                <p className="mt-1.5 text-base font-black">{career.org}</p>
+                <p className="mt-1 text-xs leading-5 text-[#5d5565]">
+                  {career.role}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {operatingStats.map((stat, index) => (
             <div
               key={stat.label}

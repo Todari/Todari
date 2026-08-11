@@ -128,6 +128,11 @@ const jsonLd = {
       name: SITE_NAME,
       alternateName: "토다리",
       jobTitle: "Product Engineer",
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "홍익대학교" },
+        { "@type": "EducationalOrganization", name: "우아한테크코스" },
+      ],
+      worksFor: { "@type": "Organization", name: "링카이브" },
       description: DESCRIPTION,
       email: "mailto:hello@todari.dev",
       url: SITE_URL,

@@ -789,6 +789,17 @@ export default function ProjectDispenser() {
             alpha: false,
             powerPreference: "high-performance",
           }}
+          fallback={
+            <div className="flex h-full items-center justify-center px-6">
+              <p className="max-w-sm rounded-2xl border-2 border-[#fffaf0]/35 bg-[#17151c]/80 px-6 py-5 text-center font-mono text-xs font-bold leading-6 tracking-[0.08em] text-[#fffaf0]/85">
+                3D 무대를 불러오지 못했어요.
+                <br />
+                왼쪽 인덱스와 프로젝트 카드는 그대로 쓸 수 있고,
+                <br />
+                아래 ALL WORKS에서 전체 목록을 볼 수 있어요 ↓
+              </p>
+            </div>
+          }
         >
           <DispenserScene
             activeIndex={activeIndex}
@@ -847,7 +858,7 @@ export default function ProjectDispenser() {
         </div>
         <a
           href="#works"
-          className="pointer-events-auto shrink-0 rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-3 py-2 font-mono text-[9px] font-black tracking-[0.1em] text-[#17151c] shadow-[3px_3px_0_#fffaf0]"
+          className="pointer-events-auto shrink-0 rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-3 py-2 font-mono text-[9px] font-black tracking-[0.1em] text-[#17151c] shadow-[3px_3px_0_#fffaf0] motion-safe:animate-[bounce_2.6s_ease-in-out_infinite]"
         >
           ALL WORKS ↓
         </a>
