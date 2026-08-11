@@ -213,6 +213,47 @@ const caseStudies = [
   },
 ] as const;
 
+const talks = [
+  {
+    label: "PODCAST HOST · ONGOING",
+    title: "우리끼리 수다 타임",
+    description:
+      "동료 개발자들과 다양한 주제로 이야기를 나누는 토크 채널을 직접 기획하고 호스트를 맡고 있습니다.",
+    thumb: "k2JIKx44L5M",
+    links: [
+      { name: "EP5. 부트캠프는 아직 유효한가?!", href: "https://youtu.be/k2JIKx44L5M" },
+      { name: "EP3. 우리에게 수다가 필요한 이유", href: "https://youtu.be/007QtdQTLBo" },
+      { name: "EP2. 그동안 어떻게 지냈나요?", href: "https://youtu.be/_jlNYmb6NAU" },
+      {
+        name: "채널 전체 보기",
+        href: "https://www.youtube.com/@%EC%9A%B0%EB%A6%AC%EB%81%BC%EB%A6%AC%EC%88%98%EB%8B%A4%ED%83%80%EC%9E%84",
+      },
+    ],
+  },
+  {
+    label: "TECH TALK · 우아한테크코스",
+    title: "테코톡 · 방과후 강의",
+    description:
+      "우아한테크코스에서 기술 주제를 골라 발표하고, 동료들을 위한 Figma 방과후 강의를 직접 열었습니다.",
+    thumb: "Pdi-zj761bM",
+    links: [
+      { name: "10분 테코톡 — 토다리의 디자인시스템", href: "https://www.youtube.com/watch?v=Pdi-zj761bM" },
+      { name: "방과후수업 — Figma 강의", href: "https://www.youtube.com/watch?v=6z_UKO8uWus" },
+    ],
+  },
+  {
+    label: "STUDY LEAD · 2022",
+    title: "사운드 스터디",
+    description:
+      "관심사를 스터디로 만들어 함께 배우고, 회차마다 영상으로 기록해 공유했습니다.",
+    thumb: "dKBiqi0ph7g",
+    links: [
+      { name: "1 Make 사운드 스터디 1주차", href: "https://youtu.be/dKBiqi0ph7g" },
+      { name: "1 Make 사운드 스터디 2주차", href: "https://youtu.be/2u2RFoJuIQk" },
+    ],
+  },
+] as const;
+
 export default function MakerProfile() {
   return (
     <section
@@ -589,6 +630,70 @@ export default function MakerProfile() {
                 </a>
               );
             })}
+          </div>
+        </div>
+
+        <div className="mt-24">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="inline-flex rotate-[1deg] items-center rounded-full border-2 border-[#17151c] bg-[#67e8f9] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
+                SHARING &amp; TALKS
+              </p>
+              <h2 className="mt-6 text-3xl font-black tracking-[-0.045em] md:text-5xl">
+                만드는 만큼, 말하고 나눕니다.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-[#5d5565]">
+              발표와 호스트, 스터디로 아는 것을 설명 가능한 언어로 바꿔
+              왔습니다. 기술은 결국 사람과의 대화로 완성된다고 믿습니다.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {talks.map((talk) => (
+              <article
+                key={talk.title}
+                className="flex flex-col overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] shadow-[8px_8px_0_#17151c]"
+              >
+                <a
+                  href={talk.links[0].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block border-b-[3px] border-[#17151c]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- 외부 유튜브 썸네일, next/image 도메인 설정 불필요 */}
+                  <img
+                    src={`https://i.ytimg.com/vi/${talk.thumb}/hqdefault.jpg`}
+                    alt={`${talk.title} 대표 영상 썸네일`}
+                    className="aspect-video w-full object-cover"
+                    loading="lazy"
+                  />
+                </a>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/40">
+                    {talk.label}
+                  </p>
+                  <h3 className="mt-3 text-xl font-black">{talk.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5d5565]">
+                    {talk.description}
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    {talk.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-bold text-[#5b38b9] hover:underline"
+                        >
+                          ▶ {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
 
