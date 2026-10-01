@@ -51,8 +51,8 @@ const productOperatingLoop = [
     label: "MEASURE",
     title: "발견성과 행동을 관측",
     description:
-      "GA4의 이벤트·퍼널, Search Console·서치어드바이저의 색인·검색 신호, GEO의 AI 답변·인용 흐름을 함께 봅니다.",
-    signals: ["GA4", "SEO · GEO", "Search Signals"],
+      "GA4의 이벤트·퍼널, 광고 ID 기반 가입 코호트, Search Console·서치어드바이저의 색인·검색 신호, GEO의 AI 답변·인용 흐름을 함께 봅니다.",
+    signals: ["GA4", "Ad Attribution", "SEO · GEO"],
     color: "#ff79bd",
   },
   {
@@ -471,8 +471,8 @@ export default function MakerProfile() {
               </h3>
               <p className="mt-4 text-sm leading-6 text-[#544c5c]">
                 검색 노출과 AI 답변의 인용·출처·질문별 성과를 정규화하고,
-                상태 → 원인 → 다음 행동으로 이어지는 모니터링 흐름을
-                설계했습니다.
+                품질 검사를 통과한 표본만 지표에 반영합니다. 상태 → 원인 →
+                다음 행동으로 이어지는 모니터링 흐름을 설계했습니다.
               </p>
             </article>
 
@@ -487,6 +487,26 @@ export default function MakerProfile() {
                 메타데이터·canonical·JSON-LD·sitemap, GA 이벤트,
                 Search Console·서치어드바이저의 색인과 검색 가시성,
                 배포·오류 신호를 함께 관리하며 개선점을 찾습니다.
+              </p>
+            </article>
+
+            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#ff79bd] lg:col-span-2">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">
+                OPERATING EVIDENCE 03 · FORCLETTER SEO
+              </p>
+              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
+                검색 기회를 찾아 글을 고치고, 효과는 따로 판정합니다.
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-[#544c5c]">
+                Search Console 성과를 매일 적재해 클릭률이 낮거나 순위를 올릴
+                여지가 있는 검색어를 찾고, 그 검색어로 노출되는 글을 보강하는
+                개선안을 LLM이 작성합니다. 키워드 반복·중복 글·근거 없는 수치를
+                거르는 두 번째 LLM 검토가 웹 검색으로 확인해 승인해야만 반영하고,
+                불확실하면 보류합니다. 사람이 보관·검수 중인 글은 건드리지 않고
+                기존 글의 URL은 바꾸지 않으며, 다른 편집이 감지되면 변경을
+                멈춥니다. 게시한 변경은 전후 내용이 이력으로 남아 이후 편집이
+                없으면 되돌릴 수 있고, 효과는 사이트 전체 변화와 비교해
+                판정합니다. 효과 수치는 현재 누적하고 있습니다.
               </p>
             </article>
           </div>

@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "PO 경험을 바탕으로 문제를 정의하고, 실시간·데이터 제품을 출시하며, SEO·GEO·GA4와 AI Development Harness로 운영·개선하는 Product Engineer Todari입니다.";
+  "PO 경험을 바탕으로 문제를 정의하고, 실시간·데이터 제품을 출시하며, SEO·GEO·GA4·광고 어트리뷰션과 AI Development Harness로 운영·개선하는 Product Engineer Todari입니다.";
 const PAGE_TITLE =
   "Todari | 제품을 출시하고 운영·성장시키는 프로덕트 엔지니어";
 
@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     "Technical SEO",
     "GEO",
     "GA4",
+    "광고 어트리뷰션",
+    "Marketing Attribution",
     "Google Search Console",
     "네이버 서치어드바이저",
     "AI Development Harness",
@@ -146,6 +148,7 @@ const jsonLd = {
         "Technical SEO",
         "Generative Engine Optimization",
         "GA4",
+        "Marketing Attribution",
         "Google Search Console",
         "Naver Search Advisor",
         "AI Development Harness",
