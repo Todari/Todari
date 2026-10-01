@@ -4,10 +4,17 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 광고 어트리뷰션, 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
+    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 광고 어트리뷰션, 메모리 최적화, 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
 };
 
 const posts = [
+  {
+    slug: "geo-aggregation-memory",
+    label: "PERFORMANCE · GEO DASHBOARD",
+    title: "75만 멘션 집계를 2.5GB 컨테이너 안에 넣기",
+    description:
+      "CPU 100%와 OOM으로 반복 재시작하던 대시보드를 정규식 컴파일, 겹치는 계산, 멘션 객체 복제로 나눠 풀었습니다. 같은 계산이 1.97GB에서 0.59GB로 줄었고, 운영 DB로 결과가 같은지 대조했습니다.",
+  },
   {
     slug: "ad-attribution-cohort",
     label: "AD ATTRIBUTION · FORCLETTER",

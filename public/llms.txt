@@ -20,6 +20,8 @@ Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Produc
 
 ## Writing
 
+- **75만 멘션 집계를 2.5GB 컨테이너 안에 넣기** — https://todari.dev/writing/geo-aggregation-memory — 정규식 컴파일 캐시, 무거운 계산 직렬 큐, 값 ID 로딩·객체 공유로 메모리 1.97GB→0.59GB, 운영 DB 결과 대조.
+- **광고가 데려온 가입자를 서버 기준으로 다시 세기** — https://todari.dev/writing/ad-attribution-cohort — 서버 가입 채널 판정, 광고비 노출일·코호트 가입일 분리, 연결률·표본 부족 시 판단 보류, 24시간 유입 창으로 오귀속 차단.
 - **새벽 3시의 OOM을 시스템으로 되돌리기** — https://todari.dev/writing/ec2-oom-incident — 실사고 복구, 스왑·히스테리시스 경보·CloudWatch 자동 복구·재부팅 감지 통지.
 - **토큰 4,800개의 수명주기** — https://todari.dev/writing/token-lifecycle — tokenStatus 상태 머신, 금지된 전이, 경보 등급 분리.
 - **단일 EC2에서 blue-green 무중단 배포 직접 만들기** — https://todari.dev/writing/bluegreen-on-one-ec2 — 헬스체크 게이트, Nginx upstream 전환, 태그 기반 롤백.
