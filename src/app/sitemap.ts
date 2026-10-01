@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://todari.dev/writing/ad-attribution-cohort",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
       url: "https://todari.dev/writing/ec2-oom-incident",
       lastModified: new Date(),
       changeFrequency: "yearly",

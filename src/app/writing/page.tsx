@@ -4,10 +4,17 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
+    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 광고 어트리뷰션, 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
 };
 
 const posts = [
+  {
+    slug: "ad-attribution-cohort",
+    label: "AD ATTRIBUTION · FORCLETTER",
+    title: "광고가 데려온 가입자를 서버 기준으로 다시 세기",
+    description:
+      "광고 플랫폼의 전환과 서버의 가입은 기준이 달라 더할 수 없습니다. 가입 채널을 서버에서 판정하고, 숫자가 부족하면 결론을 보류하고, 운영 데이터에서 찾은 오귀속을 막은 과정입니다.",
+  },
   {
     slug: "ec2-oom-incident",
     label: "INCIDENT RESPONSE · TODARI OPS",
