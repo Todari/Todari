@@ -139,24 +139,13 @@ const caseStudies = [
     linkLabel: "서비스 보기",
   },
   {
-    label: "FORCLETTER · ZERO-DOWNTIME OPS",
+    label: "FORCLETTER · ZERO-DOWNTIME DELIVERY",
     title: "배포와 장애 대응이 사용자에게 보이지 않게 합니다.",
     constraint:
-      "단일 EC2 위의 운영 서비스라 배포 중단이 곧 사용자 장애였고, 경보가 없거나 너무 많으면 실제 사고를 놓치게 됩니다.",
+      "웹·관리자·모바일 앱·API·스케줄러가 한 모노레포에서 서로 다른 대상으로 나가는데, 운영 서비스는 단일 EC2 위에 있어 배포 중단이 곧 사용자 장애였습니다.",
     decision:
-      "비활성 슬롯 기동 → 헬스체크 → Nginx upstream 전환의 blue-green 배포를 직접 구축했습니다. Loki·Grafana 관측성 위에 등급·스로틀 정책이 있는 Slack 경보와 fail-closed Sentry 브리지로 장애 신호를 관리합니다.",
-    facts: ["Blue-green 무중단 배포", "Loki·Grafana 관측성", "경보 등급·스로틀 정책"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
-  },
-  {
-    label: "FORCLETTER · DELIVERY PIPELINE",
-    title: "커밋부터 배포·롤백까지 재현 가능하게 만듭니다.",
-    constraint:
-      "웹·관리자·모바일 앱·API·스케줄러가 한 모노레포에서 서로 다른 대상(Vercel·EC2 컨테이너)으로 나가야 했고, 프로덕션 반영은 언제든 되돌릴 수 있어야 했습니다.",
-    decision:
-      "CI 검증을 통과한 커밋만 GHCR 이미지로 빌드해 환경별 EC2에 배포합니다. 프로덕션은 승인 게이트를 거치고, 모든 배포가 이미지 태그 기반이라 같은 스크립트로 특정 태그로의 롤백이 가능합니다.",
-    facts: ["GitHub Actions → GHCR → EC2", "프로덕션 승인 게이트", "태그 기반 배포·롤백"],
+      "CI를 통과한 커밋만 GHCR 이미지로 빌드해 승인 게이트를 거쳐 배포하고, 비활성 슬롯 기동 → 헬스체크 → Nginx upstream 전환의 blue-green으로 무중단 전환합니다. 모든 배포가 이미지 태그 기반이라 같은 스크립트로 롤백하고, Loki·Grafana 관측성 위에 등급·스로틀 정책이 있는 Slack 경보로 장애 신호를 관리합니다.",
+    facts: ["Blue-green 무중단 배포", "태그 기반 배포·롤백", "경보 등급·스로틀 정책"],
     href: "https://forcreator.co.kr",
     linkLabel: "서비스 보기",
   },
