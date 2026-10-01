@@ -183,6 +183,17 @@ const caseStudies = [
     linkLabel: "서비스 보기",
   },
   {
+    label: "FORCLETTER · AD ATTRIBUTION",
+    title: "광고가 데려온 고객을 서버 데이터로 다시 셉니다.",
+    constraint:
+      "광고 플랫폼이 보고하는 전환과 서버의 실제 가입은 기여 기준이 달라 합칠 수 없었고, 광고 지표만으로는 어떤 소재가 제품을 실제로 쓰는 고객을 데려왔는지 답할 수 없었습니다.",
+    decision:
+      "방문 시점의 광고 ID·UTM·클릭 ID를 보존해 가입 채널을 판정하고, 광고별 일별 성과를 가입 코호트와 광고 ID로 결합했습니다. 연결률이나 관찰 표본이 부족하면 판단을 보류하고, 운영 데이터에서 찾은 기존 가입자 오귀속은 가입 24시간 유입 창으로 재발을 막았습니다.",
+    facts: ["광고 ID 연결률 약 95% (2026-09)", "광고 → 가입 → 14일 활성화 코호트", "연결·표본 부족 시 판단 보류"],
+    href: "https://forcreator.co.kr",
+    linkLabel: "서비스 보기",
+  },
+  {
     label: "TODARI OPS · INCIDENT RESPONSE",
     title: "장애는 복구로 끝내지 않고 시스템으로 되돌립니다.",
     constraint:
