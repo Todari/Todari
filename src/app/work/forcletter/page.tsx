@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { H2, P } from "../../writing/shell";
-import dm from "../../../../public/work/forcletter/product-1.jpg";
-import profile from "../../../../public/work/forcletter/product-2.jpg";
-import campaign from "../../../../public/work/forcletter/product-3.jpg";
 
 export const metadata: Metadata = {
   title: "포크레터 · 기획부터 운영까지 | Todari",
@@ -32,9 +29,9 @@ export default function ForcletterPage() {
           <H2>문제 · 콘텐츠 밖에서도 운영은 계속됩니다</H2>
           <P>콘텐츠에 달린 댓글에 링크를 보내고, 프로필의 링크를 관리하고, 브랜드의 광고 제안을 확인하는 일은 반복됩니다. 이 작업들을 한 서비스에서 처리하고, 사용자가 자연어로 요청한 내용을 확인한 뒤 실행하는 흐름으로 연결했습니다.</P>
           <div className="grid grid-cols-3 items-start gap-3 md:gap-6">
-            <Image src={dm} alt="댓글 키워드와 전송 메시지를 설정하는 자동 DM 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
-            <Image src={profile} alt="AI로 프로필 링크 페이지를 만드는 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
-            <Image src={campaign} alt="브랜드 광고 제안 목록을 보여주는 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
+            <Image src="/work/forcletter/product-1.jpg" width={221} height={480} alt="댓글 키워드와 전송 메시지를 설정하는 자동 DM 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
+            <Image src="/work/forcletter/product-2.jpg" width={221} height={480} alt="AI로 프로필 링크 페이지를 만드는 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
+            <Image src="/work/forcletter/product-3.jpg" width={221} height={480} alt="브랜드 광고 제안 목록을 보여주는 공개 소개 화면" className="h-auto w-full rounded-xl" sizes="(max-width: 768px) 30vw, 280px" />
           </div>
           <p className="text-xs leading-6 text-[#5d5565]">App Store 공개 소개 이미지 · 2026-10-02 확인. 제품 소개용 예시 화면이며, 실제 고객의 운영 데이터를 공개한 화면이 아닙니다.</p>
           <H2>담당 · 화면에서 배포 이후까지</H2>
