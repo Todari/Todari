@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const capabilities = [
   {
     step: "01",
@@ -107,14 +109,6 @@ const careers = [
   },
 ] as const;
 
-// 분기마다 실측 갱신 (측정 방법: 볼트 포크레터/리서치/2026-08 운영 KPI 실측)
-const operatingStats = [
-  { value: "12", label: "출시·운영 제품" },
-  { value: "1,900+", label: "월 활성 크리에이터" },
-  { value: "4,800+", label: "연동 인스타그램 계정" },
-  { value: "3.8만+", label: "월 자동 DM 실행" },
-] as const;
-
 const caseStudies = [
   {
     label: "FORCLETTER · EXTERNAL API AT SCALE",
@@ -123,9 +117,9 @@ const caseStudies = [
       "4,800여 개 인스타그램 계정의 수집과 DM·댓글 자동 실행을, 토큰 만료와 Meta 정책·레이트리밋이라는 통제 불가능한 조건 위에서 운영해야 했습니다.",
     decision:
       "웹훅 서명 검증 → 이벤트 분류 → 모더레이션·자동 DM 실행의 단일 인입 파이프라인을 만들고, 토큰 상태 머신과 서킷 브레이커로 외부 장애가 사용자 의도 상태를 덮어쓰지 못하게 격리했습니다.",
-    facts: ["IG 계정 4,800+ 연동", "자동 DM 8.8만+ 건", "댓글 535만 건 수집"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
+    facts: ["IG 계정 4,800+ 연동", "누적 자동 DM 8.8만+ 건", "댓글 535만 건 수집"],
+    href: "/writing/token-lifecycle",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "FORCLETTER · DATA AT SCALE",
@@ -135,8 +129,8 @@ const caseStudies = [
     decision:
       "35개 크론 잡이 중복 실행 락 아래에서 수집하고, 조회 패턴에 맞춘 복합 인덱스와 기간 집계 쿼리로 성장·활성·리텐션 통계를 운영 DB에서 직접 제공합니다.",
     facts: ["메트릭 스냅샷 5,000만+ 행", "복합 인덱스 설계", "크론 잡 35개 · 실행 락"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
+    href: "/writing/snapshot-50m-rows",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "FORCLETTER · ZERO-DOWNTIME DELIVERY",
@@ -146,8 +140,8 @@ const caseStudies = [
     decision:
       "CI를 통과한 커밋만 GHCR 이미지로 빌드해 승인 게이트를 거쳐 배포하고, 비활성 슬롯 기동 → 헬스체크 → Nginx upstream 전환의 blue-green으로 무중단 전환합니다. 모든 배포가 이미지 태그 기반이라 같은 스크립트로 롤백하고, Loki·Grafana 관측성 위에 등급·스로틀 정책이 있는 Slack 경보로 장애 신호를 관리합니다.",
     facts: ["Blue-green 무중단 배포", "태그 기반 배포·롤백", "경보 등급·스로틀 정책"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
+    href: "/writing/bluegreen-on-one-ec2",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "FORCLETTER · PAYMENTS & IDEMPOTENCY",
@@ -179,8 +173,8 @@ const caseStudies = [
     decision:
       "방문 시점의 광고 ID·UTM·클릭 ID를 보존해 가입 채널을 판정하고, 광고별 일별 성과를 가입 코호트와 광고 ID로 결합했습니다. 연결률이나 관찰 표본이 부족하면 판단을 보류하고, 운영 데이터에서 찾은 기존 가입자 오귀속은 가입 24시간 유입 창으로 재발을 막았습니다.",
     facts: ["광고 ID 연결률 약 95% (2026-09)", "광고 → 가입 → 14일 활성화 코호트", "연결·표본 부족 시 판단 보류"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
+    href: "/writing/ad-attribution-cohort",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "TODARI OPS · INCIDENT RESPONSE",
@@ -190,8 +184,8 @@ const caseStudies = [
     decision:
       "복구 후 원인(스왑 없는 메모리 포화)을 제거하고, 메모리·스왑 임계 조기 경보와 CloudWatch 상태 검사 실패 시 자동 재부팅·복구, 재부팅 감지 통지까지 붙여 같은 장애가 사람 없이 끝나도록 만들었습니다.",
     facts: ["새벽 OOM → 원인 제거", "CloudWatch 자동 복구", "임계 조기 경보·재부팅 통지"],
-    href: "https://github.com/Todari/todari-ops",
-    linkLabel: "공개 코드 보기",
+    href: "/writing/ec2-oom-incident",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "METRONOMDEUL · REALTIME SYNC",
@@ -201,8 +195,8 @@ const caseStudies = [
     decision:
       "RTT/2 표본의 중앙값으로 서버 시각 오프셋을 추정하고, Web Audio 50ms 선행 스케줄링으로 네트워크와 재생을 분리했습니다. iOS 오디오 활성화·재접속·방 상태 동기화의 경합은 복구 가능한 상태 전이로 정리했습니다.",
     facts: ["RTT 중앙값 오프셋 추정", "50ms 선행 스케줄링", "재접속·iOS 복구"],
-    href: "https://github.com/Todari/metro-nomedeul",
-    linkLabel: "공개 코드 보기",
+    href: "/writing/metronome-clock-sync",
+    linkLabel: "설계 과정 읽기",
   },
   {
     label: "REACT PIXEL UI · FRONTEND INFRA",
@@ -295,42 +289,10 @@ export default function MakerProfile() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
-          <div>
-            <p className="mb-6 inline-flex rotate-[-2deg] items-center rounded-full border-2 border-[#17151c] bg-[#67e8f9] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
-              ABOUT TODARI
-            </p>
-            <h2
-              id="about-heading"
-              className="text-balance text-4xl font-black leading-[1.05] tracking-[-0.055em] md:text-6xl"
-            >
-              제품의 불확실성을
-              <br />
-              <span className="relative inline-block">
-                구조화하고,
-                <span
-                  aria-hidden="true"
-                  className="absolute -bottom-1 left-0 -z-10 h-3 w-full rotate-[-1deg] bg-[#dfff4f]"
-                />
-              </span>
-              <br />
-              운영 가능한 시스템으로 완성합니다.
-            </h2>
-          </div>
-
-          <div className="self-end rotate-[1deg] rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-6 shadow-[8px_8px_0_#17151c] md:p-8">
-            <p className="text-lg font-black leading-8 md:text-xl">
-              실시간·데이터 시스템과 AI 개발 하네스를 설계하고 운영하면서,
-              작은 불편과 호기심도 직접 제품으로 검증하는 Product Engineer
-              토다리(Todari)입니다.
-            </p>
-            <p className="mt-5 text-base leading-7 text-[#5d5565]">
-              PO로 문제와 성공 기준을 정의하고, 도메인 흐름·상태 전이·API
-              계약을 직접 제품으로 구현합니다. 출시 후에는 검색 발견성,
-              사용자 행동, 장애와 배포 신호를 관측해 다음 제품 판단과
-              개선으로 되돌립니다.
-            </p>
-          </div>
+        <div className="max-w-3xl">
+          <p className="text-xs font-black tracking-widest text-[#5b38b9]">ABOUT TODARI</p>
+          <h2 id="about-heading" className="mt-4 text-3xl font-black tracking-tight md:text-4xl">기획의 질문을 구현과 운영으로 이어 왔습니다.</h2>
+          <p className="mt-5 text-base leading-7 text-[#5d5565]">기획·디자인 실무에서 시작해 우아한테크코스에서 프론트엔드를 공부했습니다. 지금은 포크레터의 기획·디자인·풀스택 개발과 운영을 맡고 있습니다.</p>
         </div>
 
         <div className="mt-12">
@@ -355,27 +317,15 @@ export default function MakerProfile() {
           </ol>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {operatingStats.map((stat, index) => (
-            <div
-              key={stat.label}
-              className={`rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#17151c] p-5 text-[#fffaf0] shadow-[6px_6px_0_#a78bfa] ${
-                index % 2 === 0 ? "rotate-[-0.6deg]" : "rotate-[0.6deg]"
-              }`}
-            >
-              <p className="text-3xl font-black tracking-[-0.03em] md:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 font-mono text-[9px] font-black tracking-[0.14em] text-[#fffaf0]/60 md:text-[10px]">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-3 text-right font-mono text-[9px] font-bold tracking-[0.12em] text-[#17151c]/40">
-          크리에이터·계정·DM 지표는 Forcletter 운영 실측 (2026-08)
-        </p>
+        <article className="mt-8 rounded-2xl border-[3px] border-[#17151c] bg-[#fffaf0] p-6 shadow-[5px_5px_0_#17151c]">
+          <p className="text-xs font-black text-[#5b38b9]">TEAMWORK · 행동대장</p>
+          <h3 className="mt-3 text-xl font-black">리뷰에서 발견한 접근성 문제를 구현에 반영했습니다.</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[#5d5565]">Carousel·BottomSheet의 키보드 접근성을 개선하던 중, 팀원이 슬라이드 변경을 스크린리더가 실제로 읽는지 질문했습니다. 기존 aria-label 방식의 한계를 확인하고 aria-live 안내 영역으로 수정했습니다. 포커스 애니메이션도 리뷰를 통해 제거하며 컴포넌트 간 동작을 통일했습니다.</p>
+          <a href="https://github.com/woowacourse-teams/2024-haeng-dong/pull/984#discussion_r1938219295" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">리뷰와 수정 기록 보기 ↗</a>
+        </article>
 
+        <details className="mt-10 rounded-2xl border-2 border-[#17151c] p-5 md:p-7">
+          <summary className="cursor-pointer text-lg font-black">운영 방식과 기술 사례 더 보기</summary>
         <ol className="mt-16 grid gap-5 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           {capabilities.map((item, index) => (
             <li
@@ -615,7 +565,7 @@ export default function MakerProfile() {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-16">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="inline-flex rotate-[-1deg] items-center rounded-full border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
@@ -676,21 +626,21 @@ export default function MakerProfile() {
               );
 
               return (
-                <a
+                <Link
                   key={item.title}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[8px_8px_0_#17151c] transition-transform hover:-translate-y-1"
                 >
                   {content}
-                </a>
+                </Link>
               );
             })}
           </div>
         </div>
 
-        <div className="mt-24">
+        </details>
+
+        <div className="mt-16">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="inline-flex rotate-[1deg] items-center rounded-full border-2 border-[#17151c] bg-[#67e8f9] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
@@ -712,20 +662,6 @@ export default function MakerProfile() {
                 key={talk.title}
                 className="flex flex-col overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] shadow-[8px_8px_0_#17151c]"
               >
-                <a
-                  href={talk.links[0].href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block border-b-[3px] border-[#17151c]"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element -- 외부 유튜브 썸네일, next/image 도메인 설정 불필요 */}
-                  <img
-                    src={`https://i.ytimg.com/vi/${talk.thumb}/hqdefault.jpg`}
-                    alt={`${talk.title} 대표 영상 썸네일`}
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                  />
-                </a>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/40">
                     {talk.label}
@@ -773,7 +709,8 @@ export default function MakerProfile() {
         </div>
 
         <div
-          className="mt-24 overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#17151c] p-7 text-[#fffaf0] shadow-[8px_8px_0_#17151c] md:p-10"
+          id="contact"
+          className="mt-24 scroll-mt-6 overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#17151c] p-7 text-[#fffaf0] shadow-[8px_8px_0_#17151c] md:p-10"
           style={{
             backgroundImage: "radial-gradient(rgba(255,250,240,.17) 1.2px, transparent 1.4px)",
             backgroundSize: "22px 22px",
@@ -791,7 +728,8 @@ export default function MakerProfile() {
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[#d6cedd] md:text-base">
                 프로덕트 엔지니어·프론트엔드 포지션과 제품을 처음부터 함께
-                만드는 협업 제안을 열어두고 있습니다.
+                만드는 협업 제안을 열어두고 있습니다. 해결하려는 문제와 기대하는 역할을
+                함께 보내주시면 대화를 시작하기 좋습니다.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -799,7 +737,7 @@ export default function MakerProfile() {
                 href="mailto:hello@todari.dev?subject=Todari를%20보고%20연락드립니다"
                 className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-5 py-3 text-sm font-black text-[#17151c] shadow-[4px_4px_0_#17151c] transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
               >
-                이메일 보내기 ↗
+                hello@todari.dev ↗
               </a>
               <a
                 href="https://github.com/Todari"

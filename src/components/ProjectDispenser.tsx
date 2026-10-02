@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Edges } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
@@ -436,16 +437,11 @@ function ProjectCard({
   onPrevious: () => void;
   onNext: () => void;
 }) {
-  const evidenceRows = service.evidence.map((item, index) => ({
-    ...item,
-    color: [PINK, CYAN, LIME][index],
-  }));
-
   return (
     <article
       key={service.id}
       aria-live="polite"
-      className="flex h-[24rem] w-full flex-col overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-4 text-[#17151c] shadow-[8px_8px_0_#17151c] sm:h-[26rem] sm:p-5 lg:h-[32rem] lg:p-6"
+      className="flex min-h-[24rem] w-full flex-col overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-4 text-[#17151c] shadow-[8px_8px_0_#17151c] sm:min-h-[26rem] sm:p-5 lg:min-h-[28rem] lg:p-6"
       style={{ boxShadow: `8px 8px 0 ${service.color}` }}
     >
       <div className="flex items-start justify-between gap-3">
@@ -468,34 +464,13 @@ function ProjectCard({
         {service.subtitle}
       </p>
 
-      <dl className="mt-3 grid h-[9.75rem] shrink-0 grid-rows-3 divide-y-2 divide-[#17151c]/10 border-y-2 border-[#17151c]/15 sm:h-[11rem] lg:h-[13rem]">
-        {evidenceRows.map((row) => (
-          <div
-            key={row.label}
-            className="grid min-h-0 grid-cols-[4.5rem_1fr] items-center gap-2 py-1.5 sm:gap-3 sm:py-2"
-          >
-            <dt
-              className="h-fit whitespace-nowrap rounded-md border border-[#17151c] px-1.5 py-1 text-center font-mono text-[8px] font-black tracking-[0.08em]"
-              style={{ backgroundColor: row.color }}
-            >
-              {row.label}
-            </dt>
-            <dd className="line-clamp-2 text-[11px] font-medium leading-[1.5] text-[#463f4c] sm:text-xs sm:leading-5 lg:line-clamp-3">
-              {row.text}
-            </dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mt-3 hidden h-6 shrink-0 flex-wrap gap-1.5 overflow-hidden sm:flex">
-        {service.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md border border-[#17151c]/20 bg-[#efe7d8] px-2 py-1 font-mono text-[9px] font-bold text-[#544c5c]"
-          >
-            {tag}
-          </span>
-        ))}
+      <p className="mt-2 break-keep text-[11px] leading-5 text-[#463f4c]">
+        <span className="font-black">맡은 역할</span> · {service.role}
+      </p>
+      <p className="mt-4 text-sm leading-7 text-[#463f4c]">{service.description}</p>
+      <div className="mt-5 rounded-xl border-2 border-[#17151c] bg-[#dfff4f] p-4">
+        <p className="text-[10px] font-black">{service.evidence[2].label}</p>
+        <p className="mt-2 text-base font-black leading-7">{service.evidence[2].text}</p>
       </div>
 
       <div className="mt-auto flex items-center justify-between gap-3 pt-4">
@@ -520,7 +495,9 @@ function ProjectCard({
           </button>
         </div>
 
-        {service.url ? (
+        {service.caseStudy ? (
+          <Link href={service.caseStudy} className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2.5 text-xs font-black text-[#17151c] shadow-[3px_3px_0_#17151c]">사례 읽기 →</Link>
+        ) : service.url ? (
           <a
             href={service.url}
             target="_blank"
@@ -572,7 +549,7 @@ function MobileProjectCard({
       className={`w-full rounded-[1.15rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-3 text-[#17151c] shadow-[6px_6px_0_#17151c] transition-[max-height] duration-300 ${
         expanded
           ? "max-h-[calc(100svh-8.5rem)] overflow-y-auto"
-          : "h-[10.25rem] overflow-hidden"
+          : "min-h-[13rem]"
       }`}
       style={{ boxShadow: `6px 6px 0 ${service.color}` }}
     >
@@ -608,6 +585,8 @@ function MobileProjectCard({
         </p>
       </div>
 
+      <p className="mt-2 text-[10px] leading-4 text-[#463f4c]">{service.role}</p>
+      {!expanded && <p className="mt-2 line-clamp-2 text-[11px] font-black leading-5">{service.evidence[2].text}</p>}
       {expanded ? (
         <>
           <dl className="mt-3 divide-y-2 divide-[#17151c]/10 border-y-2 border-[#17151c]/15">
@@ -664,7 +643,9 @@ function MobileProjectCard({
           </button>
         </div>
 
-        {service.url ? (
+        {service.caseStudy ? (
+          <Link href={service.caseStudy} className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2.5 text-xs font-black text-[#17151c] shadow-[3px_3px_0_#17151c]">사례 읽기 →</Link>
+        ) : service.url ? (
           <a
             href={service.url}
             target="_blank"
@@ -796,7 +777,7 @@ export default function ProjectDispenser() {
                 <br />
                 왼쪽 인덱스와 프로젝트 카드는 그대로 쓸 수 있고,
                 <br />
-                아래 ALL WORKS에서 전체 목록을 볼 수 있어요 ↓
+                아래 대표 사례에서 작업의 근거를 볼 수 있어요 ↓
               </p>
             </div>
           }
@@ -844,23 +825,23 @@ export default function ProjectDispenser() {
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 border-b-2 border-[#17151c] bg-[#17151c]/82 px-4 py-3 backdrop-blur-md md:px-6">
         <div className="flex min-w-0 items-center gap-3">
           <div className="shrink-0">
-            <h1 className="text-2xl font-black leading-none tracking-[-0.065em] md:text-3xl">
+            <p className="text-2xl font-black leading-none tracking-[-0.065em] md:text-3xl">
               Todari
-            </h1>
+            </p>
             <p className="mt-1 font-mono text-[7px] font-black tracking-[0.12em] text-[#67e8f9] sm:hidden">
-              AI · AUTOMATION · PRODUCTS
+              아이디어를 꺼내, 쓰이는 제품으로.
             </p>
           </div>
           <span className="hidden h-7 w-px bg-[#fffaf0]/25 sm:block" />
           <p className="hidden truncate font-mono text-[9px] font-bold tracking-[0.14em] text-[#fffaf0]/65 sm:block">
-            PRODUCT ENGINEER · AI AUTOMATION · 3D WORKS
+            아이디어를 꺼내, 쓰이는 제품으로.
           </p>
         </div>
         <a
-          href="#works"
+          href="#selected-work"
           className="pointer-events-auto shrink-0 rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-3 py-2 font-mono text-[9px] font-black tracking-[0.1em] text-[#17151c] shadow-[3px_3px_0_#fffaf0] motion-safe:animate-[bounce_2.6s_ease-in-out_infinite]"
         >
-          ALL WORKS ↓
+          대표 사례 ↓
         </a>
       </header>
 

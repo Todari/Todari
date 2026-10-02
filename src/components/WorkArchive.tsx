@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services, type Service } from "@/data/services";
 
 const statusTone = {
@@ -56,6 +57,10 @@ function WorkCard({
         <h3 className="text-3xl font-black tracking-[-0.045em] md:text-4xl">
           {service.title}
         </h3>
+        <dl className="mt-4 rounded-lg border border-[#17151c]/15 bg-[#efe7d8] px-3 py-2">
+          <dt className="text-[10px] font-black text-[#5d5565]">맡은 역할</dt>
+          <dd className="mt-1 break-keep text-sm font-bold leading-6 text-[#463f4c]">{service.role}</dd>
+        </dl>
         <p className="mt-3 text-sm leading-6 text-[#5d5565]">
           {service.description}
         </p>
@@ -83,14 +88,6 @@ function WorkCard({
           ))}
         </dl>
 
-        <dl className="mt-5">
-          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-            <dt className="w-12 shrink-0 font-mono text-[10px] font-black tracking-widest text-[#17151c]/40">
-              OWNED
-            </dt>
-            <dd className="text-sm font-medium text-[#463f4c]">{service.role}</dd>
-          </div>
-        </dl>
         <div className="mt-5 flex flex-wrap gap-2">
           {service.tags.map((tag) => (
             <span
@@ -205,12 +202,12 @@ export default function WorkArchive() {
             >
               이메일 보내기 ↗
             </a>
-            <a
-              href="#space-journey"
+            <Link
+              href="/"
               className="rounded-xl border-2 border-[#fffaf0] bg-[#17151c] px-5 py-3 text-sm font-bold text-[#fffaf0] shadow-[4px_4px_0_rgba(255,250,240,.28)] transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
             >
               3D 디스펜서로 돌아가기 ↑
-            </a>
+            </Link>
           </div>
         </div>
       </div>

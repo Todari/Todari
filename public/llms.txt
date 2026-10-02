@@ -51,3 +51,8 @@ Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Produc
 - Website: https://todari.dev
 - GitHub: https://github.com/Todari
 - Email: hello@todari.dev
+
+## Portfolio case study and archive
+
+- Forcletter case study: https://todari.dev/work/forcletter — 문제, 1인 담당 범위, 공개 제품 화면, 설계 판단과 2026-08-04 기준 운영 규모.
+- All projects: https://todari.dev/works

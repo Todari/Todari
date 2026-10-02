@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
+    { url: "https://todari.dev/work/forcletter", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: "https://todari.dev/works", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     {
       url: "https://todari.dev",
       lastModified: new Date(),

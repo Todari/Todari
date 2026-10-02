@@ -12,6 +12,7 @@ export interface Service {
   evidence: [ServiceEvidence, ServiceEvidence, ServiceEvidence];
   url?: string;
   linkLabel?: string;
+  caseStudy?: string;
   /** Only add repositories that anonymous visitors can open. */
   publicRepository?: string;
   status: "운영 중" | "개선 중" | "개발 중" | "점검 중";
@@ -27,6 +28,7 @@ export interface Service {
 export const services: Service[] = [
   {
     id: "forcletter",
+    caseStudy: "/work/forcletter",
     title: "Forcletter",
     subtitle: "인스타그램 인플루언서 올인원 툴",
     question: "인플루언서의 반복 업무를 한곳에서 운영할 수 있을까?",
@@ -43,13 +45,13 @@ export const services: Service[] = [
       },
       {
         label: "운영 지표",
-        text: "월 활성 1,900명이 사용하고 연동 크리에이터 3명 중 1명이 지금도 매달 씁니다. 자동 DM은 월 3.8만 건 실행됩니다.",
+        text: "최근 30일 활성 크리에이터 1,900+명, 자동 DM 약 3.8만 건. 2026-08-04 운영 실측 기준입니다.",
       },
     ],
     url: "https://forcreator.co.kr",
     status: "운영 중",
     period: "2025 — NOW",
-    role: "제품 설계 · 프론트엔드 · AI 에이전트",
+    role: "1인 기획·디자인·풀스택·운영 · AI 에이전트 설계",
     tags: ["Next.js", "NestJS", "AI Agent", "Instagram"],
     color: "#3b82f6",
     gradient: "from-blue-500 to-indigo-600",
@@ -85,6 +87,7 @@ export const services: Service[] = [
   },
   {
     id: "geo",
+    caseStudy: "/writing/geo-aggregation-memory",
     title: "GEO Dashboard",
     subtitle: "검색·AI 답변 브랜드 가시성 모니터링",
     question: "검색과 AI 답변 속 브랜드 노출을 어떻게 다음 행동으로 연결할까?",
@@ -172,6 +175,7 @@ export const services: Service[] = [
   },
   {
     id: "metronomdeul",
+    caseStudy: "/writing/metronome-clock-sync",
     title: "메트로놈들",
     subtitle: "함께 맞추는 박자",
     question: "멀리 떨어진 연주자들이 같은 박자를 들을 수 있을까?",
