@@ -28,7 +28,7 @@
 <a href="https://todari.dev/#geo"><img height="32" src="https://img.shields.io/badge/03_GEO_DASHBOARD-브랜드_가시성_대시보드_·_PRIVATE-0e7490?style=for-the-badge&labelColor=17151c" alt="03 GEO Dashboard — 브랜드 가시성 대시보드 · Private Work" /></a><br />
 <a href="https://dakbal.pro"><img height="32" src="https://img.shields.io/badge/04_닭발_헌터-엽떡_닭발_판매_지점_지도-e11d48?style=for-the-badge&labelColor=17151c" alt="04 닭발 헌터 — 엽떡 닭발 판매 지점 지도" /></a><br />
 <a href="https://haengdong.todari.dev"><img height="32" src="https://img.shields.io/badge/05_행동대장-가입_없는_모임_정산-a855f7?style=for-the-badge&labelColor=17151c" alt="05 행동대장 — 가입 없는 모임 정산" /></a><br />
-<a href="https://metronomdeul.site"><img height="32" src="https://img.shields.io/badge/06_메트로놈들-실시간_협업_메트로놈-f97316?style=for-the-badge&labelColor=17151c" alt="06 메트로놈들 — 실시간 협업 메트로놈" /></a><br />
+<a href="https://metronome.todari.dev"><img height="32" src="https://img.shields.io/badge/06_메트로놈들-실시간_협업_메트로놈-f97316?style=for-the-badge&labelColor=17151c" alt="06 메트로놈들 — 실시간 협업 메트로놈" /></a><br />
 <a href="https://pintogather.todari.dev"><img height="32" src="https://img.shields.io/badge/07_핀투게더-함께_정하는_실시간_지도_보드-0f9f76?style=for-the-badge&labelColor=17151c" alt="07 핀투게더 — 함께 정하는 실시간 지도 보드" /></a><br />
 <a href="https://react-pixel-ui.vercel.app"><img height="32" src="https://img.shields.io/badge/08_REACT_PIXEL_UI-CSS를_픽셀_아트로_바꾸는_UI_라이브러리-ec4899?style=for-the-badge&labelColor=17151c" alt="08 React Pixel UI — CSS를 픽셀 아트로 바꾸는 UI 라이브러리" /></a><br />
 <a href="https://trade-tower.vercel.app"><img height="32" src="https://img.shields.io/badge/09_TRADE_TOWER-틱_기반_자동매매_운영_시스템-6366f1?style=for-the-badge&labelColor=17151c" alt="09 Trade Tower — 틱 기반 자동매매 운영 시스템" /></a><br />

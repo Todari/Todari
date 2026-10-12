@@ -45,7 +45,7 @@ export const services: Service[] = [
       },
       {
         label: "운영 지표",
-        text: "최근 30일 활성 크리에이터 1,900+명, 자동 DM 약 3.8만 건. 2026-08-04 운영 실측 기준입니다.",
+        text: "최근 30일 활성 크리에이터 2,700+명, 자동 DM 약 4.3만 건. 2026-10-12 운영 실측 기준입니다.",
       },
     ],
     url: "https://forcreator.co.kr",
@@ -195,7 +195,7 @@ export const services: Service[] = [
         text: "모바일 실기기에서 시계 보정·재접속·iOS 오디오 활성화 경합을 재현하고 회귀 흐름으로 고정했습니다.",
       },
     ],
-    url: "https://metronomdeul.site",
+    url: "https://metronome.todari.dev",
     publicRepository: "https://github.com/Todari/metro-nomedeul",
     status: "운영 중",
     period: "2025 — NOW",

@@ -51,10 +51,10 @@ export default function ForcletterPage() {
           </div>
           <H2>운영 규모 · 실제로 감당한 서비스의 크기</H2>
           <dl className="grid grid-cols-2 gap-4 rounded-2xl border-[3px] border-[#17151c] bg-[#dfff4f] p-6">
-            <div><dt className="text-sm font-bold">최근 30일 활성 크리에이터</dt><dd className="mt-3 text-3xl font-black">1,900+</dd></div>
-            <div><dt className="text-sm font-bold">최근 30일 자동 DM 실행</dt><dd className="mt-3 text-3xl font-black">약 3.8만</dd></div>
+            <div><dt className="text-sm font-bold">최근 30일 활성 크리에이터</dt><dd className="mt-3 text-3xl font-black">2,700+</dd></div>
+            <div><dt className="text-sm font-bold">최근 30일 자동 DM 발송</dt><dd className="mt-3 text-3xl font-black">약 4.3만</dd></div>
           </dl>
-          <P>2026-08-04 운영 DB 실측을 바탕으로 반올림한 규모입니다. 현재 실시간 수치나 특정 기능의 도입 전후 성장률을 뜻하지 않습니다. 제가 맡은 제품이 어느 정도의 사용량을 처리했는지 보여주는 기준으로 사용합니다.</P>
+          <P>2026-10-12 운영 DB 실측을 바탕으로 반올림한 규모입니다. 현재 실시간 수치나 특정 기능의 도입 전후 성장률을 뜻하지 않습니다. 제가 맡은 제품이 어느 정도의 사용량을 처리했는지 보여주는 기준으로 사용합니다.</P>
           <H2>남은 과제 · 기능 실행이 사용자 가치로 이어지는가</H2>
           <P>실행 건수만으로 제품의 효과를 판단할 수는 없습니다. 광고 플랫폼 전환과 서버의 실제 가입을 구분하고, 가입 이후 활성화를 코호트로 연결했습니다. 측정 체계를 만든 사실과 매출·유지율을 개선했다는 주장은 구분하며, 표본이 부족할 때는 판단을 보류합니다.</P>
           <Link href="/writing/ad-attribution-cohort" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">가입·활성화 측정의 기준과 한계 읽기 →</Link>

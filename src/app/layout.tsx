@@ -160,7 +160,7 @@ const jsonLd = {
         "https://github.com/Todari",
         "https://forcreator.co.kr",
         "https://lvti.my",
-        "https://metronomdeul.site",
+        "https://metronome.todari.dev",
         "https://react-pixel-ui.vercel.app",
         "https://dakbal.pro",
         "https://jeongpyo.com",

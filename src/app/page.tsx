@@ -23,9 +23,9 @@ export default function Home() {
             <div className="mt-4 grid gap-4 md:grid-cols-3">
               <Link href="/work/forcletter" className="neo-card bg-[#fffaf0] p-6 transition-transform hover:-translate-y-1">
                 <p className="text-xs font-bold text-[#5b38b9]">01 · FORCLETTER · 제품 운영</p>
-                <h3 className="mt-3 text-2xl font-black">월 활성 크리에이터 1,900+</h3>
-                <p className="mt-3 text-sm leading-6 text-[#5d5565]">1인 기획·디자인·풀스택·운영. 연동 계정 4,800여 개의 토큰 만료와 외부 API 장애를 복구 가능한 상태로 설계했습니다.</p>
-                <p className="mt-3 text-xs text-[#5d5565]">Forcletter 운영 실측 · 2026-08</p>
+                <h3 className="mt-3 text-2xl font-black">월 활성 크리에이터 2,700+</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5d5565]">1인 기획·디자인·풀스택·운영. 연동 계정 6,800여 개의 토큰 만료와 외부 API 장애를 복구 가능한 상태로 설계했습니다.</p>
+                <p className="mt-3 text-xs text-[#5d5565]">Forcletter 운영 실측 · 2026-10</p>
                 <span className="mt-5 inline-block text-sm font-black text-[#5b38b9]">제품과 담당 범위 살펴보기 →</span>
               </Link>
               <Link href="/writing/geo-aggregation-memory" className="neo-card bg-[#67e8f9] p-6 transition-transform hover:-translate-y-1">
