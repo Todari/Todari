@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { services } from "@/data/services";
 
 function ToyboxLoading() {
   return (
@@ -35,26 +36,33 @@ const ProjectDispenser = dynamic(() => import("./ProjectDispenser"), {
 });
 
 export default function SpaceJourneyWrapper() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    const previousRestoration = window.history.scrollRestoration;
-    window.history.scrollRestoration = "manual";
+    const container = containerRef.current;
+    if (!container) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setVisible(true);
+      observer.disconnect();
+    }, { rootMargin: "200px" });
+    observer.observe(container);
 
-    const navigation = performance.getEntriesByType(
-      "navigation",
-    )[0] as PerformanceNavigationTiming | undefined;
-    const shouldStartAtHero =
-      !window.location.hash && navigation?.type !== "back_forward";
-
-    if (shouldStartAtHero) {
-      window.requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, behavior: "auto" });
-      });
-    }
+    // Existing project links still open the corresponding 3D project.
+    const requestedProject = services.some(
+      (service) => `#${service.id}` === window.location.hash,
+    );
+    const frame = requestedProject ? window.requestAnimationFrame(() => {
+      setVisible(true);
+      container.scrollIntoView({ behavior: "instant", block: "start" });
+    }) : null;
 
     return () => {
-      window.history.scrollRestoration = previousRestoration;
+      observer.disconnect();
+      if (frame !== null) window.cancelAnimationFrame(frame);
     };
   }, []);
 
-  return <ProjectDispenser />;
+  return <div ref={containerRef}>{visible ? <ProjectDispenser /> : <ToyboxLoading />}</div>;
 }

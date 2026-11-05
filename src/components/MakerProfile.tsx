@@ -296,16 +296,16 @@ export default function MakerProfile() {
         </div>
 
         <div className="mt-12">
-          <p className="font-mono text-[10px] font-black tracking-[0.22em] text-[#17151c]/40">
+          <p className="font-mono text-[10px] font-black tracking-[0.22em] text-[#17151c]/70">
             CAREER
           </p>
           <ol className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-            {careers.map((career) => (
+            {[...careers].reverse().map((career) => (
               <li
                 key={career.org}
                 className="rounded-[1rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-4 shadow-[5px_5px_0_#17151c]"
               >
-                <p className="font-mono text-[9px] font-black tracking-[0.14em] text-[#17151c]/45">
+                <p className="font-mono text-[9px] font-black tracking-[0.14em] text-[#17151c]/70">
                   {career.period}
                 </p>
                 <p className="mt-1.5 text-base font-black">{career.org}</p>
@@ -402,7 +402,7 @@ export default function MakerProfile() {
 
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#67e8f9]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
                 OPERATING EVIDENCE 01 · AIBRIGHT · GEO / SEO
               </p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
@@ -418,7 +418,7 @@ export default function MakerProfile() {
             </article>
 
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#ffcae5] p-7 shadow-[7px_7px_0_#a78bfa]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
                 OPERATING EVIDENCE 02 · TODARI.DEV
               </p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
@@ -432,7 +432,7 @@ export default function MakerProfile() {
             </article>
 
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#ff79bd] lg:col-span-2">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
                 OPERATING EVIDENCE 03 · FORCLETTER SEO
               </p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
@@ -451,13 +451,13 @@ export default function MakerProfile() {
               </p>
             </article>
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#67e8f9] p-7 shadow-[7px_7px_0_#17151c]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">OPERATING EVIDENCE 04 · CONTENT CMS</p>
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">OPERATING EVIDENCE 04 · CONTENT CMS</p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">콘텐츠 생성부터 검수·발행까지 흐름을 만듭니다.</h3>
               <p className="mt-4 text-sm leading-6 text-[#544c5c]">주제·질문에서 본문·출처·SEO/GEO 정보를 만들고, 별도의 사실 검수와 품질 검사를 거쳐 발행하도록 연결했습니다. 사람 승인과 조건부 자동 발행을 구분하고, 게시 응답을 놓친 경우에는 공개 문서를 대조해 상태를 복구합니다.</p>
               <Link href="/work/geo-seo-automation#content-cms" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">콘텐츠 CMS 설계 보기 →</Link>
             </article>
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#dfff4f] p-7 shadow-[7px_7px_0_#17151c]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">OPERATING EVIDENCE 05 · FORCLETTER REELS</p>
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">OPERATING EVIDENCE 05 · FORCLETTER REELS</p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">광고 소구에서 릴스 검토본까지 자동으로 만듭니다.</h3>
               <p className="mt-4 text-sm leading-6 text-[#544c5c]">광고 성과·제품 근거로 소구와 대본을 만들고, 제품 화면 촬영·화면 대조·음성·자막·편집을 연결했습니다. 제작 결과와 멈춘 단계를 남겨 재개할 수 있고, 검토 기록을 다음 제작에 전달합니다. 광고 게시와 예산 변경은 별도 판단으로 남겼습니다.</p>
               <Link href="/writing/marketing-reels-pipeline" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인 읽기 →</Link>
@@ -484,7 +484,7 @@ export default function MakerProfile() {
             </div>
 
             <div className="rounded-[1rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-4 text-[#17151c] shadow-[6px_6px_0_#5d4c7d] md:p-6">
-              <p className="font-mono text-[9px] font-black tracking-[0.18em] text-[#17151c]/45">
+              <p className="font-mono text-[9px] font-black tracking-[0.18em] text-[#17151c]/70">
                 AI → AUTOMATION → OPERATIONS
               </p>
               <ol className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
@@ -494,7 +494,7 @@ export default function MakerProfile() {
                     className="rounded-xl border-2 border-[#17151c] px-2 py-3 text-center shadow-[3px_3px_0_#17151c]"
                     style={{ backgroundColor: item.color }}
                   >
-                    <span className="block font-mono text-[8px] font-black tracking-[0.08em] text-[#17151c]/45">
+                    <span className="block font-mono text-[8px] font-black tracking-[0.08em] text-[#17151c]/70">
                       {item.step}
                     </span>
                     <span className="mt-1 block font-mono text-[9px] font-black tracking-[0.06em]">
@@ -565,7 +565,7 @@ export default function MakerProfile() {
                 className="rounded-[1.25rem] border-[3px] border-[#17151c] p-7 shadow-[8px_8px_0_#17151c]"
                 style={{ backgroundColor: principleColors[index] }}
               >
-                <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/50">
+                <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
                   {principle.label}
                 </p>
                 <h3 className="mt-5 text-2xl font-black tracking-[-0.035em]">
@@ -599,7 +599,7 @@ export default function MakerProfile() {
             {caseStudies.map((item) => {
               const content = (
                 <>
-                  <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/40">
+                  <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
                     {item.label}
                   </p>
                   <h3 className="mt-4 text-2xl font-black">
@@ -607,7 +607,7 @@ export default function MakerProfile() {
                   </h3>
                   <dl className="mt-5 space-y-4">
                     <div>
-                      <dt className="font-mono text-[9px] font-black tracking-[0.16em] text-[#17151c]/40">
+                      <dt className="font-mono text-[9px] font-black tracking-[0.16em] text-[#17151c]/70">
                         CONSTRAINT
                       </dt>
                       <dd className="mt-1 text-sm leading-6 text-[#5d5565]">
@@ -615,7 +615,7 @@ export default function MakerProfile() {
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-mono text-[9px] font-black tracking-[0.16em] text-[#17151c]/40">
+                      <dt className="font-mono text-[9px] font-black tracking-[0.16em] text-[#17151c]/70">
                         ENGINEERING DECISION
                       </dt>
                       <dd className="mt-1 text-sm leading-6 text-[#5d5565]">
@@ -677,7 +677,7 @@ export default function MakerProfile() {
                 className="flex flex-col overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] shadow-[8px_8px_0_#17151c]"
               >
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/40">
+                  <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
                     {talk.label}
                   </p>
                   <h3 className="mt-3 text-xl font-black">{talk.title}</h3>
@@ -708,7 +708,7 @@ export default function MakerProfile() {
             className="mt-5 flex flex-col gap-2 rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#dfff4f] p-6 shadow-[8px_8px_0_#17151c] transition-transform hover:-translate-y-1 md:flex-row md:items-center md:justify-between"
           >
             <div>
-              <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/50">
+              <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
                 TECH WRITING
               </p>
               <p className="mt-2 text-lg font-black tracking-[-0.02em]">

@@ -707,11 +707,14 @@ export default function ProjectDispenser() {
       trackEvent("view_section", { section_name: service.id });
     }
 
-    mobileButtonRefs.current[activeIndex]?.scrollIntoView({
-      behavior: reducedMotion ? "auto" : "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    const button = mobileButtonRefs.current[activeIndex];
+    const nav = button?.parentElement;
+    if (button && nav) {
+      nav.scrollTo({
+        left: button.offsetLeft - (nav.clientWidth - button.clientWidth) / 2,
+        behavior: reducedMotion ? "auto" : "smooth",
+      });
+    }
   }, [activeIndex, reducedMotion]);
 
   useEffect(() => {
@@ -777,7 +780,7 @@ export default function ProjectDispenser() {
                 <br />
                 왼쪽 인덱스와 프로젝트 카드는 그대로 쓸 수 있고,
                 <br />
-                아래 대표 사례에서 작업의 근거를 볼 수 있어요 ↓
+                대표 사례 버튼에서 작업의 근거를 볼 수 있어요.
               </p>
             </div>
           }
@@ -837,12 +840,12 @@ export default function ProjectDispenser() {
             아이디어를 꺼내, 쓰이는 제품으로.
           </p>
         </div>
-        <a
+        <Link
           href="#selected-work"
           className="pointer-events-auto shrink-0 rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-3 py-2 font-mono text-[9px] font-black tracking-[0.1em] text-[#17151c] shadow-[3px_3px_0_#fffaf0] motion-safe:animate-[bounce_2.6s_ease-in-out_infinite]"
         >
-          대표 사례 ↓
-        </a>
+          대표 사례 ↑
+        </Link>
       </header>
 
       <aside className="pointer-events-auto absolute bottom-5 left-5 top-20 z-10 hidden w-[15.5rem] flex-col rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0]/96 p-3 text-[#17151c] shadow-[8px_8px_0_#17151c] backdrop-blur lg:flex">
