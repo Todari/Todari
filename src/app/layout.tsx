@@ -7,9 +7,9 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "PO 경험을 바탕으로 문제를 정의하고, 실시간·데이터 제품을 출시하며, SEO·GEO·GA4·광고 어트리뷰션과 AI Development Harness로 운영·개선하는 Product Engineer Todari입니다.";
+  "포크레터의 기획·디자인·개발·운영, 앱·웹 버전 호환, AI 검색·CMS 연동과 릴스 제작 자동화. 제품과 운영의 병목을 해결하는 프로덕트 엔지니어 Todari의 구현 사례입니다.";
 const PAGE_TITLE =
-  "Todari | 제품을 출시하고 운영·성장시키는 프로덕트 엔지니어";
+  "Todari | 제품과 운영의 병목을 푸는 프로덕트 엔지니어";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

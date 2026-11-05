@@ -163,14 +163,14 @@ export default function WorkArchive() {
             id="works-heading"
             className="text-balance text-4xl font-black leading-[1.05] tracking-[-0.055em] md:text-6xl"
           >
-            질문을 제품으로 바꾸고,
+            직접 맡은 역할과
             <br />
-            운영하며 다음 답을 찾습니다.
+            프로젝트마다 다른 기술 제약.
           </h2>
           <p className="mt-8 max-w-2xl rotate-[0.5deg] rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-5 text-base leading-7 text-[#544c5c] shadow-[8px_8px_0_#17151c] md:p-6 md:text-lg">
-            기술적 깊이와 제품의 재미를 따로 나누지 않습니다. 서로 다른
-            문제를 구조화하고, 실제 서비스로 출시하고, 운영에서 발견한
-            실패를 다음 개선으로 연결한 {services.length}개의 프로젝트입니다.
+            실시간 동기화, 정산 규칙, 외부 API, 데이터 수집, UI 렌더링.
+            {services.length}개 프로젝트에서 맡은 범위와 설계를 정리했습니다.
+            운영 중인 서비스와 개발·검증 중인 프로젝트는 각 카드에 표시합니다.
           </p>
         </div>
 

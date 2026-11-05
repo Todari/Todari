@@ -44,8 +44,8 @@ export const services: Service[] = [
         text: "여러 채널의 인사이트를 사용자별 리포트로 모으고, 포키의 제안을 확인 카드에서 승인한 뒤 실행하도록 연결했습니다.",
       },
       {
-        label: "운영 지표",
-        text: "최근 30일 활성 크리에이터 2,700+명, 자동 DM 약 4.3만 건. 2026-10-12 운영 실측 기준입니다.",
+        label: "공개 규모",
+        text: "공개 홈페이지 가입 계정 13,847+ (2026-11-05). 탈퇴 제외 계정 수이며 월 활성·유료 고객 수는 아닙니다.",
       },
     ],
     url: "https://forcreator.co.kr",
@@ -104,7 +104,7 @@ export const services: Service[] = [
       },
       {
         label: "콘텐츠 연결",
-        text: "개선안을 CMS의 글 초안·페이지 보강 할 일로 넘기고 반영 상태를 돌려받는 연결을 구현했습니다. 콘텐츠 반영과 검색 성과 개선은 따로 확인합니다.",
+        text: "개선안을 초안·할 일로 넘기는 고객 CMS의 구현·배포를 확인했습니다(2026-11-05). 실제 공개 URL의 전달·도달과 검색 효과는 후속 검증 대상입니다.",
       },
     ],
     url: "https://aibright.ai",
@@ -238,8 +238,8 @@ export const services: Service[] = [
   {
     id: "react-pixel-ui",
     title: "React Pixel UI",
-    subtitle: "어떤 CSS든 픽셀 아트로",
-    question: "기존 UI의 CSS를 그대로 살려 픽셀 아트로 바꿀 수 있을까?",
+    subtitle: "기존 DOM을 유지하는 CSS 픽셀 렌더링",
+    question: "레이아웃과 이벤트를 유지하며 CSS의 시각 표현을 픽셀로 바꿀 수 있을까?",
     description:
       "React 요소를 <Pixel>로 감싸면 배경·모서리·테두리·그림자를 Canvas 없이 픽셀 아트로 변환하는 SSR 호환 라이브러리.",
     evidence: [
@@ -253,7 +253,7 @@ export const services: Service[] = [
       },
       {
         label: "검증 근거",
-        text: "SSR·다크 모드·상호작용 상태를 회귀 테스트로 고정하고 npm 패키지와 데모로 공개했습니다.",
+        text: "지원 범위는 배경·그라데이션·모서리·테두리·그림자입니다. SSR·상호작용을 테스트하며, 미지원 배경은 원본을 유지합니다.",
       },
     ],
     url: "https://react-pixel-ui.vercel.app",

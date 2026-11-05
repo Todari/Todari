@@ -1,73 +1,5 @@
 import Link from "next/link";
 
-const capabilities = [
-  {
-    step: "01",
-    title: "Product Architecture",
-    description:
-      "불명확한 요구사항을 도메인 흐름과 상태 전이로 구조화하고, 제품·클라이언트·서버의 책임 경계를 설계합니다.",
-  },
-  {
-    step: "02",
-    title: "Frontend Systems",
-    description:
-      "인터랙션 구현을 넘어 재사용 가능한 UI 추상화, 성능, 접근성, 테스트 가능한 상태 구조를 함께 다룹니다.",
-  },
-  {
-    step: "03",
-    title: "Realtime & Data",
-    description:
-      "WebSocket·Web Audio·외부 API·데이터 수집처럼 시간과 정합성이 중요한 흐름을 안정적인 파이프라인으로 만듭니다.",
-  },
-  {
-    step: "04",
-    title: "Product Operations & Growth",
-    description:
-      "출시 이후 검색 발견성, 사용자 행동, 운영 오류를 함께 관측합니다. SEO·GEO·GA4·Search Console·서치어드바이저의 신호를 다음 제품 판단과 개선으로 연결합니다.",
-  },
-] as const;
-
-const capabilityColors = ["#dfff4f", "#67e8f9", "#ff79bd", "#a78bfa"] as const;
-
-const productOperatingLoop = [
-  {
-    step: "01",
-    label: "DEFINE",
-    title: "문제와 성공 기준",
-    description:
-      "PO 경험을 바탕으로 고객·사업 문제를 가설과 KPI로 바꾸고, 지금 검증할 범위와 우선순위를 정합니다.",
-    signals: ["Problem", "Hypothesis", "KPI"],
-    color: "#dfff4f",
-  },
-  {
-    step: "02",
-    label: "SHIP",
-    title: "직접 제품으로 출시",
-    description:
-      "UX와 도메인 흐름부터 클라이언트·서버·데이터·배포까지 연결해 실제 사용 가능한 제품으로 만듭니다.",
-    signals: ["UX", "System", "Delivery"],
-    color: "#67e8f9",
-  },
-  {
-    step: "03",
-    label: "MEASURE",
-    title: "발견성과 행동을 관측",
-    description:
-      "GA4의 이벤트·퍼널, 광고 ID 기반 가입 코호트, Search Console·서치어드바이저의 색인·검색 신호, GEO의 AI 답변·인용 흐름을 함께 봅니다.",
-    signals: ["GA4", "Ad Attribution", "SEO · GEO"],
-    color: "#ff79bd",
-  },
-  {
-    step: "04",
-    label: "IMPROVE",
-    title: "다음 판단으로 환류",
-    description:
-      "검색 노출·제품 퍼널·운영 오류에서 얻은 신호를 백로그, 실험, 자동화로 바꿔 다음 개선까지 이어갑니다.",
-    signals: ["Backlog", "Experiment", "Automation"],
-    color: "#a78bfa",
-  },
-] as const;
-
 const engineeringLoop = [
   { step: "01", label: "CONTEXT", color: "#67e8f9" },
   { step: "02", label: "AI BUILD", color: "#ff79bd" },
@@ -76,23 +8,6 @@ const engineeringLoop = [
   { step: "05", label: "SMOKE", color: "#67e8f9" },
   { step: "06", label: "OPS", color: "#ff79bd" },
 ] as const;
-
-const principles = [
-  {
-    label: "ENGINEERING DEPTH",
-    title: "실패와 복구까지 시스템의 일부로 봅니다.",
-    description:
-      "정상 흐름만 구현하지 않습니다. 데이터 정합성, 경계 조건, 재시도, 복구, 관측 가능성을 설계에 포함하고 운영에서 발견한 실패를 테스트와 가드레일로 되돌립니다.",
-  },
-  {
-    label: "PRODUCT INSTINCT",
-    title: "작은 불편도 실제 제품으로 검증합니다.",
-    description:
-      "거창한 아이디어를 기다리지 않습니다. 일상의 문제를 검증 가능한 범위로 줄이고, 직접 출시해 사용 가능성과 기술적 비용을 확인합니다.",
-  },
-] as const;
-
-const principleColors = ["#fffaf0", "#ffcae5"] as const;
 
 const careers = [
   { period: "2015.03 — 2023.02", org: "홍익대학교", role: "토목공학과 졸업 · 학점 4.09/4.5" },
@@ -111,123 +26,61 @@ const careers = [
 
 const caseStudies = [
   {
-    label: "FORCLETTER · EXTERNAL API AT SCALE",
-    title: "수천 계정의 외부 API를 정책 안에서 운영합니다.",
-    constraint:
-      "6,800여 개 인스타그램 계정의 수집과 DM·댓글 자동 실행을, 토큰 만료와 Meta 정책·레이트리밋이라는 통제 불가능한 조건 위에서 운영해야 했습니다.",
-    decision:
-      "웹훅 서명 검증 → 이벤트 분류 → 모더레이션·자동 DM 실행의 단일 인입 파이프라인을 만들고, 토큰 상태 머신과 서킷 브레이커로 외부 장애가 사용자 의도 상태를 덮어쓰지 못하게 격리했습니다.",
-    facts: ["IG 계정 6,800+ 연동", "누적 자동 DM 17만+ 건", "댓글 1,000만+ 건 수집", "2026-10-12 실측"],
-    href: "/writing/token-lifecycle",
-    linkLabel: "설계 과정 읽기",
+    label: "FORCLETTER · DATA MODELING",
+    title: "시계열 조회 패턴을 인덱스와 수집 구조에 반영했습니다.",
+    constraint: "주기 수집으로 커지는 메트릭 테이블을 통계 화면이 매번 조회해야 했습니다.",
+    decision: "조회 범위에 맞춘 복합 인덱스와 기간 집계, 크론 중복 실행 락을 설계했습니다. JSON 컬럼 백필은 운영 데이터를 유지하며 진행했습니다.",
+    facts: ["복합 인덱스 · 기간 집계", "2026-08 설계 기록"],
+    href: "/writing/snapshot-50m-rows", linkLabel: "당시 규모와 설계 읽기",
   },
   {
-    label: "FORCLETTER · DATA AT SCALE",
-    title: "7,000만 행 시계열을 일상 조회가 가능한 상태로 유지합니다.",
-    constraint:
-      "계정·미디어 메트릭을 주기 수집하면 스냅샷 테이블이 수천만 행으로 자라고, 통계·리포트 조회는 매일 그 위에서 돌아야 했습니다.",
-    decision:
-      "47개 크론 잡이 중복 실행 락 아래에서 수집하고, 조회 패턴에 맞춘 복합 인덱스와 기간 집계 쿼리로 성장·활성·리텐션 통계를 운영 DB에서 직접 제공합니다.",
-    facts: ["메트릭 스냅샷 7,000만+ 행", "복합 인덱스 설계", "크론 잡 47개 · 실행 락", "2026-10-12 기준"],
-    href: "/writing/snapshot-50m-rows",
-    linkLabel: "설계 과정 읽기",
-  },
-  {
-    label: "FORCLETTER · ZERO-DOWNTIME DELIVERY",
-    title: "배포와 장애 대응이 사용자에게 보이지 않게 합니다.",
-    constraint:
-      "웹·관리자·모바일 앱·API·스케줄러가 한 모노레포에서 서로 다른 대상으로 나가는데, 운영 서비스는 단일 EC2 위에 있어 배포 중단이 곧 사용자 장애였습니다.",
-    decision:
-      "CI를 통과한 커밋만 GHCR 이미지로 빌드해 승인 게이트를 거쳐 배포하고, 비활성 슬롯 기동 → 헬스체크 → Nginx upstream 전환의 blue-green으로 무중단 전환합니다. 모든 배포가 이미지 태그 기반이라 같은 스크립트로 롤백하고, Loki·Grafana 관측성 위에 등급·스로틀 정책이 있는 Slack 경보로 장애 신호를 관리합니다.",
-    facts: ["Blue-green 무중단 배포", "태그 기반 배포·롤백", "경보 등급·스로틀 정책"],
-    href: "/writing/bluegreen-on-one-ec2",
-    linkLabel: "설계 과정 읽기",
-  },
-  {
-    label: "FORCLETTER · PAYMENTS & IDEMPOTENCY",
-    title: "돈이 오가는 흐름은 멱등하게 설계합니다.",
-    constraint:
-      "구독 결제·환불·쿠폰 이벤트가 웹훅으로 비동기 도착하고, 재시도와 중복 이벤트가 이중 청구나 이중 환불로 이어지면 안 됐습니다.",
-    decision:
-      "결제·환불 이벤트를 단일 웹훅 인입점에서 분류해 처리하고, 환불 실행은 멱등 키 테이블로 중복을 차단했습니다. 결제 이력과 구독 상태를 분리해 상태 전이를 추적 가능하게 유지합니다.",
-    facts: ["정기결제 웹훅 처리", "환불 멱등 키 설계", "결제 이력·구독 상태 분리"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
-  },
-  {
-    label: "FORCLETTER · AI PRODUCT ENGINEERING",
-    title: "AI의 판단과 실행 사이에 경계를 설계합니다.",
-    constraint:
-      "AI 에이전트가 계정 분석을 넘어 DM 발송 같은 실행까지 다루면, 잘못된 호출 하나가 실제 사용자에게 그대로 도달합니다.",
-    decision:
-      "도구 레지스트리로 조회와 실행을 분리하고, 실행형 액션은 1회용·TTL·소유자 고정의 무결성 경계를 가진 승인 큐를 통과해야만 수행됩니다. LLM은 멀티 프로바이더 추상화 뒤에 두고 few-shot 예제를 데이터로 관리합니다.",
-    facts: ["실행 승인 큐 · 1회용·TTL", "도구 레지스트리 분리", "멀티 프로바이더 LLM 계층"],
-    href: "https://forcreator.co.kr",
-    linkLabel: "서비스 보기",
+    label: "FORCLETTER · DEPLOYMENT",
+    title: "새 버전이 준비된 뒤에 트래픽을 넘깁니다.",
+    constraint: "단일 EC2에서 기존 컨테이너를 먼저 내리는 배포는 사용자 요청을 끊었습니다.",
+    decision: "비활성 슬롯을 띄워 헬스체크를 통과한 뒤 Nginx upstream을 전환합니다. 배포 단위를 이미지 태그로 고정해 이전 버전으로 돌아갈 경로도 만들었습니다.",
+    facts: ["헬스체크 후 슬롯 전환", "태그 기반 롤백"],
+    href: "/writing/bluegreen-on-one-ec2", linkLabel: "배포·롤백 설계 읽기",
   },
   {
     label: "FORCLETTER · AD ATTRIBUTION",
-    title: "광고가 데려온 고객을 서버 데이터로 다시 셉니다.",
-    constraint:
-      "광고 플랫폼이 보고하는 전환과 서버의 실제 가입은 기여 기준이 달라 합칠 수 없었고, 광고 지표만으로는 어떤 소재가 제품을 실제로 쓰는 고객을 데려왔는지 답할 수 없었습니다.",
-    decision:
-      "방문 시점의 광고 ID·UTM·클릭 ID를 보존해 가입 채널을 판정하고, 광고별 일별 성과를 가입 코호트와 광고 ID로 결합했습니다. 연결률이나 관찰 표본이 부족하면 판단을 보류하고, 운영 데이터에서 찾은 기존 가입자 오귀속은 가입 24시간 유입 창으로 재발을 막았습니다.",
-    facts: ["광고 ID 연결률 약 95% (2026-09)", "광고 → 가입 → 14일 활성화 코호트", "연결·표본 부족 시 판단 보류"],
-    href: "/writing/ad-attribution-cohort",
-    linkLabel: "설계 과정 읽기",
+    title: "기존 회원의 재방문을 신규 광고 가입으로 세지 않도록.",
+    constraint: "오래된 회원이 광고로 다시 방문해 처음 채널을 연결하면, 비어 있던 유입 정보가 채워져 신규 가입처럼 표시됐습니다.",
+    decision: "서버의 공통 기록 함수에 가입 후 24시간 경계를 두었습니다. 광고 지출과 가입 코호트의 날짜 기준을 분리하고, 14일 관찰이 끝나지 않은 가입은 완료 표본에서 제외합니다.",
+    facts: ["가입 후 기록 시간 제한", "관찰 완료 코호트 비교"],
+    href: "/writing/ad-attribution-cohort", linkLabel: "오귀속 원인과 수정 읽기",
   },
   {
     label: "TODARI OPS · INCIDENT RESPONSE",
-    title: "장애는 복구로 끝내지 않고 시스템으로 되돌립니다.",
-    constraint:
-      "서비스 10여 개가 올라간 단일 EC2가 새벽 메모리 포화(OOM)로 응답 불능이 됐고, 사람이 자는 시간이라 감지도 복구도 늦었습니다.",
-    decision:
-      "복구 후 원인(스왑 없는 메모리 포화)을 제거하고, 메모리·스왑 임계 조기 경보와 CloudWatch 상태 검사 실패 시 자동 재부팅·복구, 재부팅 감지 통지까지 붙여 같은 장애가 사람 없이 끝나도록 만들었습니다.",
-    facts: ["새벽 OOM → 원인 제거", "CloudWatch 자동 복구", "임계 조기 경보·재부팅 통지"],
-    href: "/writing/ec2-oom-incident",
-    linkLabel: "설계 과정 읽기",
+    title: "새벽 장애 뒤에 감지와 복구 경로를 추가했습니다.",
+    constraint: "메모리 압박으로 인스턴스가 응답하지 않았고, 사람이 잠든 동안 장애를 알아차리지 못했습니다.",
+    decision: "재부팅으로 복구한 뒤 스왑, 반복 알림을 억제하는 임계 경보, CloudWatch 복구 동작을 설정했습니다. 메모리 증가 원인의 제거와 재발 시 자동 복구 성공까지 검증한 것은 아닙니다.",
+    facts: ["실제 사고 복구", "자동 복구 설정 · 재실패 시험 미확인"],
+    href: "/writing/ec2-oom-incident", linkLabel: "대응과 남은 한계 읽기",
   },
   {
     label: "METRONOMDEUL · REALTIME SYNC",
-    title: "떨어져 있는 기기들의 박자를 하나로 맞춥니다.",
-    constraint:
-      "네트워크 지연과 서로 다른 오디오 시계를 가진 기기들이 각자의 이어폰에서 같은 클릭을 재생해야 했습니다.",
-    decision:
-      "RTT/2 표본의 중앙값으로 서버 시각 오프셋을 추정하고, Web Audio 50ms 선행 스케줄링으로 네트워크와 재생을 분리했습니다. iOS 오디오 활성화·재접속·방 상태 동기화의 경합은 복구 가능한 상태 전이로 정리했습니다.",
-    facts: ["RTT 중앙값 오프셋 추정", "50ms 선행 스케줄링", "재접속·iOS 복구"],
-    href: "/writing/metronome-clock-sync",
-    linkLabel: "설계 과정 읽기",
+    title: "네트워크 수신 시각과 오디오 재생 시각을 분리했습니다.",
+    constraint: "기기마다 시계와 네트워크 지연이 달라, 메시지를 받자마자 소리를 내면 박자가 어긋납니다.",
+    decision: "RTT 표본의 중앙값으로 서버 시각 차이를 추정하고 Web Audio에 미리 재생을 예약합니다. 재접속과 iOS 오디오 활성화의 상태 전이도 함께 다뤘습니다.",
+    facts: ["시계 오프셋 추정", "선행 예약 ≠ 실측 동기화 오차"],
+    href: "/writing/metronome-clock-sync", linkLabel: "시계·오디오 설계 읽기",
   },
   {
-    label: "REACT PIXEL UI · FRONTEND INFRA",
-    title: "프레임워크를 깨지 않는 렌더링 계층을 설계합니다.",
-    constraint:
-      "기존 DOM과 CSS 레이아웃을 훼손하지 않으면서 배경·테두리·모서리·그림자를 픽셀 아트로 변환해야 했습니다.",
-    decision:
-      "Canvas 없이 clip-path 폴리곤과 합성 PNG 데이터 URL로 변환 계층을 설계해 SSR을 유지했습니다. RGBA 그라디언트는 의존성 없는 deflate 인코더로 직접 압축하고, 테마·hover·focus·크기 변화는 자동으로 재계산됩니다.",
-    facts: ["npm 패키지 배포", "회귀 테스트 161개", "PNG 출력 30–100× 최적화"],
-    href: "https://github.com/Todari/react-pixel-ui",
-    linkLabel: "공개 코드 보기",
-  },
-  {
-    label: "TRADE TOWER · VERIFIED EXECUTION",
-    title: "실행이 위험한 시스템은 검증 체계부터 만듭니다.",
-    constraint:
-      "실시간 틱과 호가 데이터에서 판단을 만들되, 잘못된 진입·중복 주문·연결 단절이 실제 실행으로 번지지 않게 제어해야 했습니다.",
-    decision:
-      "규칙 기반 엔진을 중심에 두고 LLM은 제한적인 VETO로 격리했습니다. 결정론적 룰 선택기와 데이 리플레이 시뮬레이터로 라이브·시뮬레이션 동형성을 검증하고, 드리프트 감지와 킬 스위치로 실행을 제어합니다.",
-    facts: ["결정론적 룰 + LLM VETO", "데이 리플레이 백테스트", "드리프트 감지·Kill Switch"],
-    href: "https://trade-tower.vercel.app",
-    linkLabel: "프로젝트 보기",
+    label: "REACT PIXEL UI · FRONTEND LIBRARY",
+    title: "DOM을 유지한 채 지원하는 CSS 속성을 픽셀로 렌더링합니다.",
+    constraint: "픽셀 스타일을 적용해도 기존 레이아웃·이벤트·서버 렌더링을 사용할 수 있어야 했습니다.",
+    decision: "clip-path와 PNG 데이터 URL로 배경·그라데이션·테두리·모서리·그림자를 변환합니다. 미지원 배경은 원본을 유지하고, 서버에서는 일반 요소를 렌더링한 뒤 hydration 이후 변환합니다.",
+    facts: ["공개 React 라이브러리", "지원 속성·미지원 범위 문서화"],
+    href: "https://github.com/Todari/react-pixel-ui", linkLabel: "공개 구현과 지원 범위 보기",
   },
 ] as const;
 
 const talks = [
   {
-    label: "PODCAST HOST · ONGOING",
+    label: "PODCAST HOST",
     title: "우리끼리 수다 타임",
     description:
-      "동료 개발자들과 다양한 주제로 이야기를 나누는 토크 채널을 직접 기획하고 호스트를 맡고 있습니다.",
+      "동료 개발자들과 다양한 주제로 이야기를 나누는 토크 채널을 직접 기획하고 호스트를 맡았습니다.",
     thumb: "k2JIKx44L5M",
     links: [
       { name: "EP5. 부트캠프는 아직 유효한가?!", href: "https://youtu.be/k2JIKx44L5M" },
@@ -254,7 +107,7 @@ const talks = [
     label: "STUDY LEAD · HONGIK UNIV",
     title: "사운드 스터디",
     description:
-      "관심사를 스터디로 만들어 함께 배우고, 회차마다 영상으로 기록해 공유했습니다.",
+      "사운드를 주제로 스터디를 진행하고 회차별 영상을 공개했습니다.",
     thumb: "dKBiqi0ph7g",
     links: [
       { name: "사운드 스터디 1주차", href: "https://youtu.be/dKBiqi0ph7g" },
@@ -291,7 +144,7 @@ export default function MakerProfile() {
       <div className="relative mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-xs font-black tracking-widest text-[#5b38b9]">ABOUT TODARI</p>
-          <h2 id="about-heading" className="mt-4 text-3xl font-black tracking-tight md:text-4xl">기획의 질문을 구현과 운영으로 이어 왔습니다.</h2>
+          <h2 id="about-heading" className="mt-4 text-3xl font-black tracking-tight md:text-4xl">기획자·디자이너에서 제품 엔지니어로</h2>
           <p className="mt-5 text-base leading-7 text-[#5d5565]">기획·디자인 실무에서 시작해 우아한테크코스에서 프론트엔드를 공부했습니다. 지금은 포크레터의 기획·디자인·풀스택 개발과 운영을 맡고 있습니다.</p>
         </div>
 
@@ -325,146 +178,7 @@ export default function MakerProfile() {
         </article>
 
         <details className="mt-10 rounded-2xl border-2 border-[#17151c] p-5 md:p-7">
-          <summary className="cursor-pointer text-lg font-black">운영 방식과 기술 사례 더 보기</summary>
-        <ol className="mt-16 grid gap-5 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
-          {capabilities.map((item, index) => (
-            <li
-              key={item.step}
-              className={`rounded-[1.25rem] border-[3px] border-[#17151c] p-6 shadow-[8px_8px_0_#17151c] ${
-                index % 2 === 0 ? "rotate-[-1deg]" : "rotate-[1deg]"
-              }`}
-              style={{ backgroundColor: capabilityColors[index] }}
-            >
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#17151c] bg-[#fffaf0] font-mono text-xs font-black">
-                {item.step}
-              </span>
-              <h3 className="mt-5 text-lg font-black">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[#463f4c]">
-                {item.description}
-              </p>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-24">
-          <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-            <div>
-              <p className="inline-flex rotate-[1deg] items-center rounded-full border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 font-mono text-[10px] font-black tracking-[0.2em] shadow-[3px_3px_0_#17151c] md:text-xs">
-                WHAT I OWN · PRODUCT OPERATING LOOP
-              </p>
-              <h2 className="mt-6 text-balance text-4xl font-black leading-[1.02] tracking-[-0.055em] md:text-6xl">
-                출시가 끝이 아니라,
-                <br />
-                다음 판단이 시작되도록 만듭니다.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-7 text-[#5d5565] lg:justify-self-end">
-              PO로 문제와 우선순위를 정의하고, 개발자로 제품을 출시하며,
-              SEO·GEO·GA4·Search Console·네이버 서치어드바이저의 신호로
-              발견 가능성과 사용자 흐름을 계속 개선합니다.
-            </p>
-          </div>
-
-          <ol className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {productOperatingLoop.map((item) => (
-              <li
-                key={item.step}
-                className="flex min-h-[20rem] flex-col rounded-[1.25rem] border-[3px] border-[#17151c] p-6 shadow-[7px_7px_0_#17151c]"
-                style={{ backgroundColor: item.color }}
-              >
-                <div className="flex items-center justify-between gap-3 font-mono text-[10px] font-black tracking-[0.16em]">
-                  <span>{item.step}</span>
-                  <span className="rounded-full border-2 border-[#17151c] bg-[#fffaf0] px-3 py-1.5">
-                    {item.label}
-                  </span>
-                </div>
-                <h3 className="mt-7 text-xl font-black tracking-[-0.03em]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#463f4c]">
-                  {item.description}
-                </p>
-                <div className="mt-auto flex flex-wrap gap-2 pt-6">
-                  {item.signals.map((signal) => (
-                    <span
-                      key={signal}
-                      className="rounded-md border-2 border-[#17151c]/70 bg-[#fffaf0]/80 px-2.5 py-1 font-mono text-[9px] font-black tracking-[0.04em]"
-                    >
-                      {signal}
-                    </span>
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-6 grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#67e8f9]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
-                OPERATING EVIDENCE 01 · AIBRIGHT · GEO / SEO
-              </p>
-              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
-                AI 검색 관측을 콘텐츠 개선과 재측정으로 잇습니다.
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-[#544c5c]">
-                네이버와 글로벌 AI의 답변·브랜드 언급·인용 출처를 수집하고,
-                수집 누락과 미노출을 구분합니다. 근거 질문에서 개선 액션을
-                만들고, CMS의 초안·할 일로 넘긴 뒤 새 관측으로 변화를 확인하는
-                흐름을 설계했습니다.
-              </p>
-              <Link href="/work/geo-seo-automation" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">AiBright·CMS 자동화 사례 →</Link>
-            </article>
-
-            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#ffcae5] p-7 shadow-[7px_7px_0_#a78bfa]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
-                OPERATING EVIDENCE 02 · TODARI.DEV
-              </p>
-              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
-                제품·검색·배포 신호를 한 운영 루프로 연결합니다.
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-[#544c5c]">
-                메타데이터·canonical·JSON-LD·sitemap, GA 이벤트,
-                Search Console·서치어드바이저의 색인과 검색 가시성,
-                배포·오류 신호를 함께 관리하며 개선점을 찾습니다.
-              </p>
-            </article>
-
-            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#ff79bd] lg:col-span-2">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">
-                OPERATING EVIDENCE 03 · FORCLETTER SEO
-              </p>
-              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
-                검색 기회를 찾아 글을 고치고, 효과는 따로 판정합니다.
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-[#544c5c]">
-                Search Console 성과를 매일 적재해 클릭률이 낮거나 순위를 올릴
-                여지가 있는 검색어를 찾고, 그 검색어로 노출되는 글을 보강하는
-                개선안을 LLM이 작성합니다. 키워드 반복·중복 글·근거 없는 수치를
-                거르는 두 번째 LLM 검토가 웹 검색으로 확인해 승인해야만 반영하고,
-                불확실하면 보류합니다. 사람이 보관·검수 중인 글은 건드리지 않고
-                기존 글의 URL은 바꾸지 않으며, 다른 편집이 감지되면 변경을
-                멈춥니다. 게시한 변경은 전후 내용이 이력으로 남아 이후 편집이
-                없으면 되돌릴 수 있고, 효과는 사이트 전체 변화와 비교해
-                판정합니다. 효과 수치는 현재 누적하고 있습니다.
-              </p>
-            </article>
-            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#67e8f9] p-7 shadow-[7px_7px_0_#17151c]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">OPERATING EVIDENCE 04 · CONTENT CMS</p>
-              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">콘텐츠 생성부터 검수·발행까지 흐름을 만듭니다.</h3>
-              <p className="mt-4 text-sm leading-6 text-[#544c5c]">주제·질문에서 본문·출처·SEO/GEO 정보를 만들고, 별도의 사실 검수와 품질 검사를 거쳐 발행하도록 연결했습니다. 사람 승인과 조건부 자동 발행을 구분하고, 게시 응답을 놓친 경우에는 공개 문서를 대조해 상태를 복구합니다.</p>
-              <Link href="/work/geo-seo-automation#content-cms" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">콘텐츠 CMS 설계 보기 →</Link>
-            </article>
-            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#dfff4f] p-7 shadow-[7px_7px_0_#17151c]">
-              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/70">OPERATING EVIDENCE 05 · FORCLETTER REELS</p>
-              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">광고 소구에서 릴스 검토본까지 자동으로 만듭니다.</h3>
-              <p className="mt-4 text-sm leading-6 text-[#544c5c]">광고 성과·제품 근거로 소구와 대본을 만들고, 제품 화면 촬영·화면 대조·음성·자막·편집을 연결했습니다. 제작 결과와 멈춘 단계를 남겨 재개할 수 있고, 검토 기록을 다음 제작에 전달합니다. 광고 게시와 예산 변경은 별도 판단으로 남겼습니다.</p>
-              <Link href="/writing/marketing-reels-pipeline" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인 읽기 →</Link>
-            </article>
-          </div>
-        </div>
-
+          <summary className="cursor-pointer text-lg font-black">구현 근거와 운영 사례 더 보기</summary>
         <div className="mt-24 overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#17151c] p-7 text-[#fffaf0] shadow-[8px_8px_0_#a78bfa] md:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-end">
             <div>
@@ -477,9 +191,9 @@ export default function MakerProfile() {
                 Harness
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-6 text-[#d6cedd] md:text-base">
-                Claude·Codex가 코드를 생성하는 데서 끝나지 않도록, 레포
-                컨텍스트 주입부터 검증·배포·운영 신호까지 하나의 자동화
-                흐름으로 연결했습니다.
+                AI 작업에서 현재 브랜치와 변경 상태를 놓치거나 검증을 생략하는
+                문제에 대응했습니다. 공통 컨텍스트 주입과 검증 누락 감지,
+                배포 후 스모크 체크를 공개 코드로 관리합니다.
               </p>
             </div>
 
@@ -554,44 +268,19 @@ export default function MakerProfile() {
           </div>
         </div>
 
-        <div className="mt-24">
-          <p className="inline-flex rotate-[1deg] items-center rounded-full border-2 border-[#17151c] bg-[#ff79bd] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
-            TWO SIDES, ONE PRACTICE
-          </p>
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
-            {principles.map((principle, index) => (
-              <article
-                key={principle.label}
-                className="rounded-[1.25rem] border-[3px] border-[#17151c] p-7 shadow-[8px_8px_0_#17151c]"
-                style={{ backgroundColor: principleColors[index] }}
-              >
-                <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
-                  {principle.label}
-                </p>
-                <h3 className="mt-5 text-2xl font-black tracking-[-0.035em]">
-                  {principle.title}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-[#544c5c]">
-                  {principle.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-
         <div className="mt-16">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="inline-flex rotate-[-1deg] items-center rounded-full border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
-                EVIDENCE, NOT CLAIMS
+                ENGINEERING DECISIONS
               </p>
               <h2 className="mt-6 text-3xl font-black tracking-[-0.045em] md:text-5xl">
-                기술적 판단은 운영 결과로 증명합니다.
+                무엇을 고쳤고, 어디까지 확인했는가.
               </h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-[#5d5565]">
-              사용한 기술보다 어떤 제약을 발견했고, 어떤 경계를 설계했으며,
-              실패를 어떻게 시스템에 되돌렸는지를 기록합니다.
+              당시의 문제와 선택한 설계를 기록했습니다. 과거 글의 수치는
+              작성 시점의 기록이며 현재 운영 규모를 뜻하지 않습니다.
             </p>
           </div>
 
@@ -661,12 +350,12 @@ export default function MakerProfile() {
                 SHARING &amp; TALKS
               </p>
               <h2 className="mt-6 text-3xl font-black tracking-[-0.045em] md:text-5xl">
-                만드는 만큼, 말하고 나눕니다.
+                기술 발표·강의·팟캐스트
               </h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-[#5d5565]">
-              발표와 호스트, 스터디로 아는 것을 설명 가능한 언어로 바꿔
-              왔습니다. 기술은 결국 사람과의 대화로 완성된다고 믿습니다.
+              디자인 시스템 발표, 동료를 위한 Figma 강의, 개발자 팟캐스트를
+              진행했습니다. 영상에서 설명 방식과 협업 경험을 확인할 수 있습니다.
             </p>
           </div>
 

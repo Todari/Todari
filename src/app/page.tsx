@@ -4,10 +4,10 @@ import SelectedWork from "@/components/SelectedWork";
 import SpaceJourneyWrapper from "@/components/SpaceJourneyWrapper";
 
 const workSteps = [
-  { title: "문제를 정하고", detail: "기획 · 우선순위 · 사용자 흐름", color: "#dfff4f" },
-  { title: "화면으로 옮기고", detail: "디자인 · 프론트엔드 · 접근성", color: "#67e8f9" },
-  { title: "제품으로 연결하고", detail: "서버 · 데이터 · AI 실행 경계", color: "#ff79bd" },
-  { title: "운영하며 개선합니다", detail: "배포 · 장애 복구 · 검증", color: "#a78bfa" },
+  { title: "크리에이터 SaaS를 직접 운영", detail: "포크레터 · 기획·디자인·웹·앱·서버", color: "#dfff4f" },
+  { title: "앱·웹 배포 시차를 호환 설계로", detail: "구버전 앱에서도 화면 위치 기준 유지", color: "#67e8f9" },
+  { title: "AI 검색 분석을 콘텐츠 작업으로", detail: "수집 품질 구분 · CMS 초안·할 일 연동", color: "#ff79bd" },
+  { title: "영상 제작을 재개 가능한 작업으로", detail: "제품 화면 촬영 · 음성·자막·편집 자동화", color: "#a78bfa" },
 ] as const;
 
 export default function Home() {
@@ -39,10 +39,10 @@ export default function Home() {
               Product engineer · Frontend developer
             </p>
             <h1 id="intro-heading" className="mt-7 text-[clamp(2.2rem,4.6vw,4rem)] font-black leading-[1.3] tracking-[-0.065em] [word-break:keep-all]">
-              기획의 질문부터,<br />제품의 다음 개선까지.
+              제품은 직접 만들고,<br />운영의 병목까지 풉니다.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#5d5565] [word-break:keep-all]">
-              안녕하세요, 토다리입니다. 기획·디자인에서 출발해 화면과 시스템을 직접 만들고, 출시 이후의 운영과 개선까지 맡습니다.
+              토다리입니다. 포크레터의 기획·디자인·개발·운영을 맡고, AI 검색 분석과 콘텐츠 제작 자동화를 구축했습니다. 외부 API 장애, 앱과 웹의 배포 시차, 반복 제작 업무를 제품 설계와 코드로 풀어 왔습니다.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href="#selected-work" className="neo-button rounded-xl bg-[#dfff4f] px-5 py-3.5 text-sm font-black">대표 사례 읽기 ↓</Link>
@@ -50,7 +50,7 @@ export default function Home() {
             </div>
           </div>
           <div className="neo-card ink-dots p-6 text-[#fffaf0] md:p-8">
-            <h2 className="text-lg font-black">제가 연결하는 일</h2>
+            <h2 className="text-lg font-black">최근에 맡아 해결한 일</h2>
             <ol className="mt-6 space-y-3">
               {workSteps.map((step, index) => (
                 <li key={step.title} className="flex items-center gap-4 rounded-xl border-2 border-[#17151c] p-4 text-[#17151c]" style={{ backgroundColor: step.color }}>
@@ -59,7 +59,7 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <p className="mt-5 text-xs leading-6 text-[#d6cedd]">아래 사례에서 제가 맡은 범위와 실제 판단을 확인할 수 있습니다.</p>
+            <p className="mt-5 text-xs leading-6 text-[#d6cedd]">2026년 11월 확인 · 문제와 구현 근거는 아래 사례에 담았습니다.</p>
           </div>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function Home() {
       <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-4 bg-[#272138]">
         <div className="border-y-[3px] border-[#17151c] bg-[#17151c] px-5 py-8 text-[#fffaf0] md:px-10">
           <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-5">
-            <div><h2 id="projects-heading" className="text-2xl font-black md:text-3xl">다른 프로젝트도 꺼내보세요.</h2><p className="mt-3 text-sm leading-6 text-[#d6cedd]">작은 불편에서 시작한 제품과 실험을 3D로 둘러볼 수 있습니다.</p></div>
+            <div><h2 id="projects-heading" className="text-2xl font-black md:text-3xl">직접 만든 제품과 기술 실험</h2><p className="mt-3 text-sm leading-6 text-[#d6cedd]">실시간 동기화, 정산, 지도 협업, UI 라이브러리의 제약과 설계를 살펴보세요.</p></div>
             <Link href="/works" className="neo-button rounded-xl bg-[#fffaf0] px-5 py-3 text-sm font-black text-[#17151c]">전체 작업 목록 →</Link>
           </div>
         </div>

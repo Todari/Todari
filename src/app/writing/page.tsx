@@ -28,7 +28,7 @@ const posts = [
     label: "PERFORMANCE · GEO DASHBOARD",
     title: "75만 멘션 집계를 2.5GB 컨테이너 안에 넣기",
     description:
-      "CPU 100%와 OOM으로 반복 재시작하던 대시보드를 정규식 컴파일, 겹치는 계산, 멘션 객체 복제로 나눠 풀었습니다. 같은 계산이 1.97GB에서 0.59GB로 줄었고, 운영 DB로 결과가 같은지 대조했습니다.",
+      "반복 재시작을 정규식 컴파일, 계산 동시 실행, 멘션 객체 복제로 나눠 진단했습니다. 로딩 구조를 바꾸고 결과를 대조한 2026-09 기록이며, 메모리 관측치의 측정 한계도 함께 남겼습니다.",
   },
   {
     slug: "ad-attribution-cohort",
@@ -42,14 +42,14 @@ const posts = [
     label: "INCIDENT RESPONSE · TODARI OPS",
     title: "새벽 3시의 OOM을 시스템으로 되돌리기",
     description:
-      "복구는 재부팅 한 줄이었습니다. 진짜 작업은 스왑과 경보, CloudWatch 자동 복구까지, 같은 장애가 사람 없이 끝나게 만드는 일이었습니다.",
+      "수동 재부팅으로 복구한 뒤 스왑·임계 경보·CloudWatch 복구 동작을 설정했습니다. 재발 시험과 근본 원인 제거가 남은 사고 대응 기록입니다.",
   },
   {
     slug: "token-lifecycle",
     label: "EXTERNAL API AT SCALE · FORCLETTER",
     title: "토큰 4,800개의 수명주기",
     description:
-      "토큰 값이 아니라 상태가 진실입니다. 외부 장애가 사용자의 의도를 덮어쓰지 못하게 만든 상태 머신과 서킷 브레이커 이야기.",
+      "일시적인 외부 API 장애와 사용자 연결 해제에 서로 다른 복구 경로를 둔 상태 머신. 제목의 4,800개는 2026-08 당시 규모입니다.",
   },
   {
     slug: "bluegreen-on-one-ec2",
@@ -63,14 +63,14 @@ const posts = [
     label: "DATA AT SCALE · FORCLETTER",
     title: "5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기",
     description:
-      "계정 4,800여 개의 메트릭이 5,000만 행으로 자라는 동안 스키마와 인덱스, JSON 컬럼 백필에서 내린 판단들을 정리했습니다.",
+      "스키마·복합 인덱스·JSON 컬럼 백필에서 내린 판단을 정리했습니다. 4,800여 계정·5,000만 행은 2026-08 작성 당시 규모입니다.",
   },
   {
     slug: "metronome-clock-sync",
     label: "REALTIME SYNC · 메트로놈들",
     title: "떨어져 있는 기기들의 박자를 하나로 맞추기",
     description:
-      "시계 세 개와 네트워크 지연 위에서 같은 클릭을 재생하기. RTT 중앙값으로 오프셋을 추정하고 Web Audio에 50ms 앞서 예약합니다.",
+      "서버 시각 보정과 Web Audio 선행 예약을 분리한 설계입니다. 50ms는 선행 예약 시간이며 기기 사이에서 달성한 동기화 오차를 뜻하지 않습니다.",
   },
 ] as const;
 
@@ -108,7 +108,7 @@ export default function Page() {
                 href={`/writing/${post.slug}`}
                 className="block rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-6 shadow-[8px_8px_0_#17151c] transition-transform hover:-translate-y-1 md:p-7"
               >
-                <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/40">
+                <p className="font-mono text-[10px] font-black tracking-[0.2em] text-[#17151c]/70">
                   {post.label}
                 </p>
                 <h2 className="mt-3 text-xl font-black tracking-[-0.02em] md:text-2xl">
