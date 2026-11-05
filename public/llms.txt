@@ -5,27 +5,29 @@ Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Produc
 
 ## Services and projects
 
-- **Forcletter** — https://forcreator.co.kr — 인스타그램 인플루언서의 분석·DM·멀티링크·광고 단가와 AI 에이전트를 연결한 운영 도구.
-- **이정표** — https://jeongpyo.com — 가격 입력 없이 좌석 정가를 산정하는 KBO 팬투팬 티켓 양도 플랫폼.
-- **GEO Dashboard** — 비공개 운영 프로젝트 — 검색과 AI 답변 속 브랜드 가시성·인용·질문 성과를 다음 행동으로 연결하는 대시보드.
+- **Forcletter** — https://forcreator.co.kr — 인스타그램·유튜브 분석과 사용자별 통합 리포트, 인스타그램 자동 DM·멀티링크·브랜드 캠페인을 AI 포키로 연결한 운영 도구. Threads·TikTok은 지원 예정.
+- **이정표** — https://jeongpyo.com — 가격 입력 없이 정가를 산정하고 경기 시간·구장 반경·실시간 촬영으로 직관을 인증하는 KBO 티켓 양도 플랫폼. 잠실 베타 준비 중이며 좌석 단위 추정은 R&D.
+- **AiBright** — https://aibright.ai — AI 검색 답변의 브랜드 언급·인용 출처를 관측하고 근거 질문에서 GEO·SEO 개선 액션을 만드는 서비스. 수집 누락과 미노출을 구분하고, CMS 콘텐츠 반영과 검색 효과를 별도로 확인.
 - **닭발 헌터** — https://dakbal.pro — 전국 엽떡 지점의 닭발 종류와 판매 상태를 지도에서 찾는 서비스.
 - **행동대장** — https://haengdong.todari.dev — 가입 없이 링크로 시작하고 구성원 변화에도 자동 재계산하는 모임 정산 서비스.
 - **메트로놈들** — https://metronome.todari.dev — 여러 연주자의 이어폰에서 같은 클릭을 재생하는 실시간 동기화 메트로놈.
-- **핀투게더** — https://pintogather.todari.dev — 가입 없이 장소·평가·메모·일정을 함께 정하는 실시간 협업 지도.
+- **핀투게더** — https://pintogather.todari.dev — 가입 없이 장소 후보·날짜별 방문 순서·동선을 함께 정하고, 여행 중 길찾기·방문 완료까지 공유하는 실시간 여행 지도.
 - **React Pixel UI** — https://react-pixel-ui.vercel.app — 기존 DOM·CSS·SSR을 유지하며 UI를 픽셀 아트로 변환하는 React 라이브러리.
 - **Trade Tower** — https://trade-tower.vercel.app — 틱 데이터와 규칙형 판단·다층 리스크 게이트를 연결한 자동매매 운영 시스템.
 - **HGT** — https://hgt.todari.dev — 홍익대학교 구성원 인증과 키워드 프로필을 바탕으로 매주 한 사람을 연결하는 비공식 서비스.
-- **톡사이** — https://toksai.todari.dev — 카카오톡 1:1 대화의 관심 신호·타임라인·대화 습관을 분석하는 서비스.
+- **톡사이** — https://toksai.todari.dev — 카카오톡 TXT·CSV·ZIP 업로드 또는 이메일 접수로 두 사람의 대화를 분석하는 서비스. 단체방에서 두 사람 선택 가능. 결과는 검색 비노출이며 링크를 아는 사람은 열람 가능. 생성한 브라우저에서 원본·결과 삭제 가능.
 - **LVTI** — https://lvti.my — 32개 질문으로 알아보는 16가지 연애 성격 유형 테스트.
 
 ## Writing
 
+- **광고 릴스를 검토본까지 자동으로 만들기** — https://todari.dev/writing/marketing-reels-pipeline — 소구 후보·대본·제품 화면 촬영·화면 대조·음성·자막·편집·검토본 전달을 잇는 포크레터 제작 파이프라인. 단계별 재개와 검토 기록. 검토본 생성 실행 확인, 광고 활성화·예산 변경은 별도 판단.
+- **앱과 웹의 업데이트 시차를 다루는 법** — https://todari.dev/writing/native-web-layout-compatibility — 아이폰 듀오의 탭·포키·빠른 실행 배치, CSS 위치 변수와 구버전 기본값, 웹·앱 업데이트 시차를 다룬 호환 설계. 2026-11-05 확인.
 - **75만 멘션 집계를 2.5GB 컨테이너 안에 넣기** — https://todari.dev/writing/geo-aggregation-memory — 정규식 컴파일 캐시, 무거운 계산 직렬 큐, 값 ID 로딩·객체 공유로 메모리 1.97GB→0.59GB, 운영 DB 결과 대조.
 - **광고가 데려온 가입자를 서버 기준으로 다시 세기** — https://todari.dev/writing/ad-attribution-cohort — 서버 가입 채널 판정, 광고비 노출일·코호트 가입일 분리, 연결률·표본 부족 시 판단 보류, 24시간 유입 창으로 오귀속 차단.
 - **새벽 3시의 OOM을 시스템으로 되돌리기** — https://todari.dev/writing/ec2-oom-incident — 실사고 복구, 스왑·히스테리시스 경보·CloudWatch 자동 복구·재부팅 감지 통지.
-- **토큰 4,800개의 수명주기** — https://todari.dev/writing/token-lifecycle — tokenStatus 상태 머신, 금지된 전이, 경보 등급 분리.
+- **토큰 4,800개의 수명주기** — https://todari.dev/writing/token-lifecycle — tokenStatus 상태 머신, 금지된 전이, 경보 등급 분리. 수치는 2026-08 작성 당시 기준.
 - **단일 EC2에서 blue-green 무중단 배포 직접 만들기** — https://todari.dev/writing/bluegreen-on-one-ec2 — 헬스체크 게이트, Nginx upstream 전환, 태그 기반 롤백.
-- **5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기** — https://todari.dev/writing/snapshot-50m-rows — 스냅샷 스키마·복합 인덱스·JSON 컬럼 백필·크론 중복 실행 락.
+- **5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기** — https://todari.dev/writing/snapshot-50m-rows — 스냅샷 스키마·복합 인덱스·JSON 컬럼 백필·크론 중복 실행 락. 수치와 구조는 2026-08 작성 당시 기준.
 - **떨어져 있는 기기들의 박자를 하나로 맞추기** — https://todari.dev/writing/metronome-clock-sync — RTT 중앙값 오프셋 추정과 Web Audio 50ms 선행 스케줄링.
 
 ## Public engineering systems
@@ -54,5 +56,6 @@ Todari는 문제를 제품으로 정의하고 직접 출시·운영하는 Produc
 
 ## Portfolio case study and archive
 
-- Forcletter case study: https://todari.dev/work/forcletter — 문제, 1인 담당 범위, 공개 제품 화면, 설계 판단과 2026-10-12 기준 운영 규모.
+- AiBright·CMS case study: https://todari.dev/work/geo-seo-automation — AI 검색 관측·개선 액션, 미디어 CMS의 생성·독립 검수·조건부 발행, 고객 사이트 CMS의 초안·할 일 연동. 두 CMS의 역할과 콘텐츠 반영·효과 측정을 구분함. 2026-11-05 확인.
+- Forcletter case study: https://todari.dev/work/forcletter — 문제, 1인 담당 범위, 공개 제품 화면, 2026-11 확인 제품 변화와 2026-10-12 기준 운영 규모. 두 기준일을 구분함.
 - All projects: https://todari.dev/works

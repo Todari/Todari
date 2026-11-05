@@ -4,8 +4,8 @@ import Link from "next/link";
 import { H2, P } from "../../writing/shell";
 
 export const metadata: Metadata = {
-  title: "포크레터 · 기획부터 운영까지 | Todari",
-  description: "크리에이터 SaaS 포크레터의 문제 정의, 1인 기획·디자인·풀스택 담당 범위, 운영 규모와 핵심 설계 판단을 정리했습니다.",
+  title: "포크레터 · 기획부터 운영까지",
+  description: "인스타그램·유튜브 크리에이터 SaaS 포크레터의 담당 범위, 통합 리포트, AI 실행 확인, 아이폰 듀오 대응과 기준일이 있는 운영 규모를 정리했습니다.",
   alternates: { canonical: "https://todari.dev/work/forcletter" },
 };
 
@@ -16,7 +16,7 @@ export default function ForcletterPage() {
         <Link href="/" className="text-sm font-black text-[#5b38b9]">← 포트폴리오 홈</Link>
         <p className="mt-10 text-xs font-black tracking-widest text-[#5b38b9]">SELECTED WORK · FORCLETTER</p>
         <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">크리에이터의 반복 업무를<br />제품으로 연결했습니다.</h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8">포크레터는 인스타그램 크리에이터를 위한 운영 도구입니다. 댓글 자동 DM, 프로필 링크, 광고 제안과 AI 운영 매니저 포키를 하나의 서비스로 제공합니다.</p>
+        <p className="mt-6 max-w-3xl text-lg leading-8">포크레터는 인스타그램·유튜브 크리에이터를 위한 운영 도구입니다. 채널 분석, 인스타그램 댓글 자동 DM, 프로필 링크, 브랜드 캠페인과 AI 운영 매니저 포키를 하나의 서비스로 제공합니다.</p>
         <dl className="mt-8 grid gap-4 rounded-2xl border-[3px] border-[#17151c] bg-[#fffaf0] p-6 text-sm md:grid-cols-2">
           <div><dt className="font-black">기간</dt><dd className="mt-2">2025.09 — 현재 · Linkive</dd></div>
           <div><dt className="font-black">내 담당 범위</dt><dd className="mt-2 leading-6">1인 기획·디자인·풀스택 개발·운영, AI 에이전트 설계</dd></div>
@@ -36,6 +36,27 @@ export default function ForcletterPage() {
           <p className="text-xs leading-6 text-[#5d5565]">App Store 공개 소개 이미지 · 2026-10-02 확인. 제품 소개용 예시 화면이며, 실제 고객의 운영 데이터를 공개한 화면이 아닙니다.</p>
           <H2>담당 · 화면에서 배포 이후까지</H2>
           <P>기능의 문제 정의와 흐름 설계, UI 디자인, 프론트엔드·서버 구현, 배포와 장애 대응을 맡았습니다. 웹·모바일 앱·관리자 도구를 연결하고, 포키가 실행할 작업과 사용자 확인이 필요한 경계를 설계했습니다.</P>
+          <H2>최근 제품 변화 · 2026년 11월</H2>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="neo-card bg-[#67e8f9] p-6">
+              <h3 className="font-black">채널별 알림을 사용자별 리포트로</h3>
+              <p className="mt-3 text-sm leading-7">인스타그램 계정과 유튜브 채널을 모아 사람당 한 통의 인사이트 리포트로 정리했습니다. 채널 이름을 함께 표시해 어떤 채널의 변화인지 구분하고, 유튜브는 최근 7일과 이전 7일의 값을 나란히 보여줍니다.</p>
+            </div>
+            <div className="neo-card bg-[#fffaf0] p-6">
+              <h3 className="font-black">AI의 제안을 사용자의 확인으로 연결</h3>
+              <p className="mt-3 text-sm leading-7">포키의 채널 브리핑에서 다음 행동을 제안하고, 자동 DM 설정·멀티링크 편집·캠페인 지원은 실행 전에 확인 카드를 보여줍니다. 분석 결과와 실제 설정 변경 사이에 사용자의 판단을 남깁니다.</p>
+            </div>
+          </div>
+          <Link href="/writing/native-web-layout-compatibility" className="neo-card block bg-[#dfff4f] p-6">
+            <h3 className="font-black">아이폰 듀오 · 화면 배치와 배포 시차를 함께 다루기</h3>
+            <p className="mt-3 text-sm leading-7">바깥 화면과 펼친 화면에 맞춰 탭·포키·빠른 실행의 관계를 유지하고, 웹과 앱이 서로 다른 버전이어도 버튼이 겹치지 않도록 호환 경로를 뒀습니다.</p>
+            <span className="mt-4 inline-block text-sm font-bold text-[#5b38b9]">앱·웹 호환 설계 읽기 →</span>
+          </Link>
+          <p className="text-xs leading-6 text-[#5d5565]">2026-11-05 공개 제품 소개·App Store 출시 노트와 병합된 코드 확인 기준입니다. Threads·TikTok은 공개 소개에서 지원 예정으로 안내합니다. 아래 운영 수치는 10월의 별도 실측 기록입니다.</p>
+          <H2>마케팅 릴스 · 소구에서 검토본까지 자동화</H2>
+          <P>광고 성과·제품 근거를 바탕으로 소구와 대본을 만들고, 촬영용 계정의 제품 UI 조작·녹화, 화면과 대사 대조, 음성·자막·편집을 하나의 제작 흐름으로 연결했습니다. 단계별 결과를 남겨 실패한 지점부터 재개하고, 어드민·Discord에서 검토본과 제작 상태를 확인할 수 있게 했습니다.</P>
+          <P>검토 기록은 다음 소재 제작에 전달합니다. 최근 실행에서 제작 완료와 영상 산출물까지 확인했으며, 광고 게시·예산 변경·본선 승격은 별도 판단으로 남겼습니다. 제작 자동화와 광고 성과 개선을 같은 주장으로 묶지 않습니다.</P>
+          <Link href="/writing/marketing-reels-pipeline" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인과 검증 범위 읽기 →</Link>
           <H2>핵심 결정 · 실패해도 복구할 수 있는 운영</H2>
           <div className="grid gap-4 md:grid-cols-2">
             <Link href="/writing/token-lifecycle" className="neo-card bg-[#fffaf0] p-6">

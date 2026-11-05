@@ -23,13 +23,13 @@
 
 <br />
 
-<a href="https://forcreator.co.kr"><img height="32" src="https://img.shields.io/badge/01_FORCLETTER-인스타그램_인플루언서_올인원_툴-3b82f6?style=for-the-badge&labelColor=17151c" alt="01 Forcletter — 인스타그램 인플루언서 올인원 툴" /></a><br />
+<a href="https://forcreator.co.kr"><img height="32" src="https://img.shields.io/badge/01_FORCLETTER-인스타그램·유튜브_크리에이터_운영_도구-3b82f6?style=for-the-badge&labelColor=17151c" alt="01 Forcletter — 인스타그램·유튜브 크리에이터 운영 도구" /></a><br />
 <a href="https://jeongpyo.com"><img height="32" src="https://img.shields.io/badge/02_이정표-KBO_티켓_팬투팬_정가_양도-3150ff?style=for-the-badge&labelColor=17151c" alt="02 이정표 — KBO 티켓 팬투팬 정가 양도" /></a><br />
-<a href="https://todari.dev/#geo"><img height="32" src="https://img.shields.io/badge/03_GEO_DASHBOARD-브랜드_가시성_대시보드_·_PRIVATE-0e7490?style=for-the-badge&labelColor=17151c" alt="03 GEO Dashboard — 브랜드 가시성 대시보드 · Private Work" /></a><br />
+<a href="https://aibright.ai"><img height="32" src="https://img.shields.io/badge/03_AIBRIGHT-AI_검색_관측과_GEO·SEO_개선_자동화-0e7490?style=for-the-badge&labelColor=17151c" alt="03 AiBright — AI 검색 관측과 GEO·SEO 개선 자동화" /></a><br />
 <a href="https://dakbal.pro"><img height="32" src="https://img.shields.io/badge/04_닭발_헌터-엽떡_닭발_판매_지점_지도-e11d48?style=for-the-badge&labelColor=17151c" alt="04 닭발 헌터 — 엽떡 닭발 판매 지점 지도" /></a><br />
 <a href="https://haengdong.todari.dev"><img height="32" src="https://img.shields.io/badge/05_행동대장-가입_없는_모임_정산-a855f7?style=for-the-badge&labelColor=17151c" alt="05 행동대장 — 가입 없는 모임 정산" /></a><br />
 <a href="https://metronome.todari.dev"><img height="32" src="https://img.shields.io/badge/06_메트로놈들-실시간_협업_메트로놈-f97316?style=for-the-badge&labelColor=17151c" alt="06 메트로놈들 — 실시간 협업 메트로놈" /></a><br />
-<a href="https://pintogather.todari.dev"><img height="32" src="https://img.shields.io/badge/07_핀투게더-함께_정하는_실시간_지도_보드-0f9f76?style=for-the-badge&labelColor=17151c" alt="07 핀투게더 — 함께 정하는 실시간 지도 보드" /></a><br />
+<a href="https://pintogather.todari.dev"><img height="32" src="https://img.shields.io/badge/07_핀투게더-친구들과_함께_만드는_여행_계획_지도-0f9f76?style=for-the-badge&labelColor=17151c" alt="07 핀투게더 — 친구들과 함께 만드는 여행 계획 지도" /></a><br />
 <a href="https://react-pixel-ui.vercel.app"><img height="32" src="https://img.shields.io/badge/08_REACT_PIXEL_UI-CSS를_픽셀_아트로_바꾸는_UI_라이브러리-ec4899?style=for-the-badge&labelColor=17151c" alt="08 React Pixel UI — CSS를 픽셀 아트로 바꾸는 UI 라이브러리" /></a><br />
 <a href="https://trade-tower.vercel.app"><img height="32" src="https://img.shields.io/badge/09_TRADE_TOWER-틱_기반_자동매매_운영_시스템-6366f1?style=for-the-badge&labelColor=17151c" alt="09 Trade Tower — 틱 기반 자동매매 운영 시스템" /></a><br />
 <a href="https://hgt.todari.dev"><img height="32" src="https://img.shields.io/badge/10_HGT-홍익대_구성원_주간_1대1_매칭-8b5cf6?style=for-the-badge&labelColor=17151c" alt="10 HGT — 홍익대 구성원 주간 1대1 매칭" /></a><br />
@@ -37,6 +37,12 @@
 <a href="https://lvti.my"><img height="32" src="https://img.shields.io/badge/12_LVTI-16가지_연애_성격_유형_테스트-ef4444?style=for-the-badge&labelColor=17151c" alt="12 LVTI — 16가지 연애 성격 유형 테스트" /></a>
 
 </div>
+
+## Latest writing
+
+- [광고 릴스를 검토본까지 자동으로 만들기](https://todari.dev/writing/marketing-reels-pipeline) — 소구·대본·제품 화면 촬영·음성·자막·편집을 잇는 포크레터 제작 파이프라인 · 2026-11-05
+- [앱과 웹의 업데이트 시차를 다루는 법](https://todari.dev/writing/native-web-layout-compatibility) — 포크레터 아이폰 듀오 대응과 웹·앱 업데이트 시차를 다룬 호환 설계 · 2026-11-05
+- [전체 기술 글](https://todari.dev/writing) · [포크레터 제품 사례](https://todari.dev/work/forcletter) · [AiBright·CMS 자동화 사례](https://todari.dev/work/geo-seo-automation)
 
 ## AI Development Harness
 

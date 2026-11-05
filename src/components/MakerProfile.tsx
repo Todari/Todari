@@ -117,7 +117,7 @@ const caseStudies = [
       "6,800여 개 인스타그램 계정의 수집과 DM·댓글 자동 실행을, 토큰 만료와 Meta 정책·레이트리밋이라는 통제 불가능한 조건 위에서 운영해야 했습니다.",
     decision:
       "웹훅 서명 검증 → 이벤트 분류 → 모더레이션·자동 DM 실행의 단일 인입 파이프라인을 만들고, 토큰 상태 머신과 서킷 브레이커로 외부 장애가 사용자 의도 상태를 덮어쓰지 못하게 격리했습니다.",
-    facts: ["IG 계정 6,800+ 연동", "누적 자동 DM 17만+ 건", "댓글 1,000만+ 건 수집"],
+    facts: ["IG 계정 6,800+ 연동", "누적 자동 DM 17만+ 건", "댓글 1,000만+ 건 수집", "2026-10-12 실측"],
     href: "/writing/token-lifecycle",
     linkLabel: "설계 과정 읽기",
   },
@@ -128,7 +128,7 @@ const caseStudies = [
       "계정·미디어 메트릭을 주기 수집하면 스냅샷 테이블이 수천만 행으로 자라고, 통계·리포트 조회는 매일 그 위에서 돌아야 했습니다.",
     decision:
       "47개 크론 잡이 중복 실행 락 아래에서 수집하고, 조회 패턴에 맞춘 복합 인덱스와 기간 집계 쿼리로 성장·활성·리텐션 통계를 운영 DB에서 직접 제공합니다.",
-    facts: ["메트릭 스냅샷 7,000만+ 행", "복합 인덱스 설계", "크론 잡 47개 · 실행 락"],
+    facts: ["메트릭 스냅샷 7,000만+ 행", "복합 인덱스 설계", "크론 잡 47개 · 실행 락", "2026-10-12 기준"],
     href: "/writing/snapshot-50m-rows",
     linkLabel: "설계 과정 읽기",
   },
@@ -403,16 +403,18 @@ export default function MakerProfile() {
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-7 shadow-[7px_7px_0_#67e8f9]">
               <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">
-                OPERATING EVIDENCE 01 · GEO DASHBOARD
+                OPERATING EVIDENCE 01 · AIBRIGHT · GEO / SEO
               </p>
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">
-                검색과 AI 답변 속 브랜드 가시성을 행동으로 바꿉니다.
+                AI 검색 관측을 콘텐츠 개선과 재측정으로 잇습니다.
               </h3>
               <p className="mt-4 text-sm leading-6 text-[#544c5c]">
-                검색 노출과 AI 답변의 인용·출처·질문별 성과를 정규화하고,
-                품질 검사를 통과한 표본만 지표에 반영합니다. 상태 → 원인 →
-                다음 행동으로 이어지는 모니터링 흐름을 설계했습니다.
+                네이버와 글로벌 AI의 답변·브랜드 언급·인용 출처를 수집하고,
+                수집 누락과 미노출을 구분합니다. 근거 질문에서 개선 액션을
+                만들고, CMS의 초안·할 일로 넘긴 뒤 새 관측으로 변화를 확인하는
+                흐름을 설계했습니다.
               </p>
+              <Link href="/work/geo-seo-automation" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">AiBright·CMS 자동화 사례 →</Link>
             </article>
 
             <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#ffcae5] p-7 shadow-[7px_7px_0_#a78bfa]">
@@ -447,6 +449,18 @@ export default function MakerProfile() {
                 없으면 되돌릴 수 있고, 효과는 사이트 전체 변화와 비교해
                 판정합니다. 효과 수치는 현재 누적하고 있습니다.
               </p>
+            </article>
+            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#67e8f9] p-7 shadow-[7px_7px_0_#17151c]">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">OPERATING EVIDENCE 04 · CONTENT CMS</p>
+              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">콘텐츠 생성부터 검수·발행까지 흐름을 만듭니다.</h3>
+              <p className="mt-4 text-sm leading-6 text-[#544c5c]">주제·질문에서 본문·출처·SEO/GEO 정보를 만들고, 별도의 사실 검수와 품질 검사를 거쳐 발행하도록 연결했습니다. 사람 승인과 조건부 자동 발행을 구분하고, 게시 응답을 놓친 경우에는 공개 문서를 대조해 상태를 복구합니다.</p>
+              <Link href="/work/geo-seo-automation#content-cms" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">콘텐츠 CMS 설계 보기 →</Link>
+            </article>
+            <article className="rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#dfff4f] p-7 shadow-[7px_7px_0_#17151c]">
+              <p className="font-mono text-[10px] font-black tracking-[0.18em] text-[#17151c]/50">OPERATING EVIDENCE 05 · FORCLETTER REELS</p>
+              <h3 className="mt-4 text-2xl font-black tracking-[-0.035em]">광고 소구에서 릴스 검토본까지 자동으로 만듭니다.</h3>
+              <p className="mt-4 text-sm leading-6 text-[#544c5c]">광고 성과·제품 근거로 소구와 대본을 만들고, 제품 화면 촬영·화면 대조·음성·자막·편집을 연결했습니다. 제작 결과와 멈춘 단계를 남겨 재개할 수 있고, 검토 기록을 다음 제작에 전달합니다. 광고 게시와 예산 변경은 별도 판단으로 남겼습니다.</p>
+              <Link href="/writing/marketing-reels-pipeline" className="mt-5 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인 읽기 →</Link>
             </article>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArticleShell, Code, H2, P } from "../shell";
+import Link from "next/link";
+import { ArticleShell, Callout, Code, H2, P } from "../shell";
 
 export const metadata: Metadata = {
   title: "5,000만 행 시계열을 일상 조회가 가능한 상태로 유지하기",
@@ -15,6 +16,10 @@ export default function Page() {
       date="2026.08"
       intro="포크레터는 인스타그램 계정 4,800여 개의 메트릭을 주기적으로 수집합니다. 스냅샷 테이블이 5,000만 행까지 자라는 동안 스키마와 인덱스, 수집 파이프라인에서 내린 판단들을 정리했습니다."
     >
+      <Callout>
+        이 글의 행 수·계정 수와 수집 구조는 2026년 8월 작성 당시의 기록입니다.
+        이후 운영 규모와 제품 변화는 <Link href="/work/forcletter" className="underline underline-offset-4">포크레터 사례</Link>에서 확인할 수 있습니다.
+      </Callout>
       <H2>왜 원본을 다시 조회하지 않고 스냅샷으로 쌓는가</H2>
       <P>
         인스타그램 Graph API는 과거 시점의 지표를 돌려주지 않습니다. 오늘

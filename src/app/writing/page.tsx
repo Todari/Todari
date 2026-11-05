@@ -4,10 +4,25 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 광고 어트리뷰션, 메모리 최적화, 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
+    "운영 중인 시스템에서 내린 기술 판단을 기록합니다. 릴스 제작 자동화, 앱·웹 호환성, 광고 어트리뷰션, 메모리 최적화, 장애 복구, 토큰 상태 머신, 무중단 배포, 대용량 시계열, 실시간 동기화.",
+  alternates: { canonical: "https://todari.dev/writing" },
 };
 
 const posts = [
+  {
+    slug: "marketing-reels-pipeline",
+    label: "MARKETING AUTOMATION · FORCLETTER",
+    title: "광고 릴스를 검토본까지 자동으로 만들기",
+    description:
+      "광고 소구·대본에서 제품 화면 촬영·음성·자막·편집까지 연결했습니다. 단계별 재개와 검토 기록을 두고, 검토본 제작과 광고 집행을 나눈 과정입니다.",
+  },
+  {
+    slug: "native-web-layout-compatibility",
+    label: "MOBILE · WEB COMPATIBILITY · FORCLETTER",
+    title: "앱과 웹의 업데이트 시차를 다루는 법",
+    description:
+      "아이폰 듀오에서 탭·포키·빠른 실행의 관계를 맞췄습니다. 앱과 웹이 따로 업데이트되는 상황을 CSS 변수의 기본값과 양쪽 호환 경로로 다룬 과정입니다.",
+  },
   {
     slug: "geo-aggregation-memory",
     label: "PERFORMANCE · GEO DASHBOARD",
@@ -83,8 +98,8 @@ export default function Page() {
           운영에서 내린 판단을 기록합니다.
         </h1>
         <p className="mt-4 max-w-xl text-sm leading-6 text-[#5d5565]">
-          실제로 돌아가는 시스템에서 내린 기술 판단과 그 이유를 씁니다. 모든
-          수치와 코드는 운영 중인 코드베이스 기준입니다.
+          실제로 돌아가는 시스템에서 내린 기술 판단과 그 이유를 씁니다.
+          수치와 구현은 각 글에 표시한 작성·확인 시점을 기준으로 합니다.
         </p>
         <ul className="mt-12 space-y-5">
           {posts.map((post) => (

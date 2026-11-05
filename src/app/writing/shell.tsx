@@ -7,12 +7,14 @@ export function ArticleShell({
   title,
   date,
   intro,
+  sourceNote = "이 글의 내용은 실제 운영 중인 코드와 프로덕션 데이터를 기준으로 작성했습니다. 궁금한 점은 편하게 연락 주세요.",
   children,
 }: {
   label: string;
   title: string;
   date: string;
   intro: string;
+  sourceNote?: string;
   children: ReactNode;
 }) {
   return (
@@ -46,8 +48,7 @@ export function ArticleShell({
         <div className="article-body mt-12 space-y-6">{children}</div>
         <footer className="mt-16 border-t-[3px] border-[#17151c] pt-8">
           <p className="text-sm leading-6 text-[#5d5565]">
-            이 글의 내용은 실제 운영 중인 코드와 프로덕션 데이터를 기준으로
-            작성했습니다. 궁금한 점은 편하게 연락 주세요.
+            {sourceNote}
           </p>
           <div className="mt-4 flex gap-3">
             <a

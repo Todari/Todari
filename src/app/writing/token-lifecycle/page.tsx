@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArticleShell, Code, H2, P } from "../shell";
+import Link from "next/link";
+import { ArticleShell, Callout, Code, H2, P } from "../shell";
 
 export const metadata: Metadata = {
   title: "토큰 4,800개의 수명주기",
@@ -15,6 +16,10 @@ export default function Page() {
       date="2026.08"
       intro="포크레터는 인스타그램 계정 4,800여 개의 액세스 토큰 위에서 돌아갑니다. 토큰은 수시로 만료되고, 사용자는 연동을 끊고, Meta API는 가끔 통째로 흔들립니다. 이 혼돈을 관리하려고 세운 원칙 하나를 소개합니다. 토큰 값이 아니라 상태가 진실이라는 원칙입니다."
     >
+      <Callout>
+        이 글의 계정 수와 크론 수는 2026년 8월 작성 당시 기준입니다.
+        이후 운영 규모와 제품 변화는 <Link href="/work/forcletter" className="underline underline-offset-4">포크레터 사례</Link>에서 기준일과 함께 확인할 수 있습니다.
+      </Callout>
       <H2>토큰 값은 진실이 아니다</H2>
       <P>
         초기 모델은 단순했습니다. 토큰이 있으면 연동된 계정이다. 이 모델은

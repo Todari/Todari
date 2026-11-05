@@ -30,10 +30,10 @@ export const services: Service[] = [
     id: "forcletter",
     caseStudy: "/work/forcletter",
     title: "Forcletter",
-    subtitle: "인스타그램 인플루언서 올인원 툴",
+    subtitle: "인스타그램·유튜브 크리에이터 운영 도구",
     question: "인플루언서의 반복 업무를 한곳에서 운영할 수 있을까?",
     description:
-      "계정·콘텐츠 인사이트, 댓글 자동 DM, 멀티링크, 광고 단가 예측과 AI 에이전트 포키를 연결한 인스타그램 인플루언서 운영 도구.",
+      "인스타그램·유튜브 채널 분석, 인스타그램 댓글 자동 DM, 멀티링크와 브랜드 캠페인을 AI 운영 매니저 포키로 연결한 크리에이터 운영 도구.",
     evidence: [
       {
         label: "운영 문제",
@@ -41,7 +41,7 @@ export const services: Service[] = [
       },
       {
         label: "제품 구조",
-        text: "계정 데이터와 운영 기능을 한곳에 모으고 AI 에이전트의 분석과 실제 실행 사이에 명시적인 도구 경계를 뒀습니다.",
+        text: "여러 채널의 인사이트를 사용자별 리포트로 모으고, 포키의 제안을 확인 카드에서 승인한 뒤 실행하도록 연결했습니다.",
       },
       {
         label: "운영 지표",
@@ -52,7 +52,7 @@ export const services: Service[] = [
     status: "운영 중",
     period: "2025 — NOW",
     role: "1인 기획·디자인·풀스택·운영 · AI 에이전트 설계",
-    tags: ["Next.js", "NestJS", "AI Agent", "Instagram"],
+    tags: ["Next.js", "NestJS", "AI Agent", "Instagram", "YouTube"],
     color: "#3b82f6",
     gradient: "from-blue-500 to-indigo-600",
   },
@@ -62,7 +62,7 @@ export const services: Service[] = [
     subtitle: "KBO 티켓 팬투팬 정가 양도",
     question: "웃돈 없이 정가로 안전하게 야구 티켓을 양도할 수 있을까?",
     description:
-      "가격 입력을 없애 경기·좌석 등급으로 정가를 서버가 자동 산정하고, 결제 보호·신고·제재·채팅 마스킹을 연결한 KBO 팬투팬 티켓 양도 플랫폼.",
+      "가격 입력 없이 경기·좌석 등급으로 정가를 산정하고, 거래 보호와 직관 인증을 연결한 KBO 팬투팬 티켓 양도 플랫폼. 잠실 베타를 준비하고 있습니다.",
     evidence: [
       {
         label: "시장 문제",
@@ -70,11 +70,11 @@ export const services: Service[] = [
       },
       {
         label: "신뢰 설계",
-        text: "경기·좌석 기준 정가를 서버에서 산정하고 거래 상태 머신에 결제 보호·취소·신고 흐름을 연결했습니다.",
+        text: "서버의 정가 산정·거래 상태 관리에 경기 시간·구장 반경·앱 내 실시간 촬영을 확인하는 직관 인증을 연결했습니다.",
       },
       {
         label: "현재 검증",
-        text: "사용자 가격 입력 없는 거래 구조와 예외 상태를 구현하고 실제 팬 거래 시나리오를 검증하고 있습니다.",
+        text: "잠실 베타 모집 알림을 받고 있습니다. 실제 팬 거래를 검증할 예정이며, 사진으로 좌석 단위를 추정하는 기술은 R&D 단계입니다.",
       },
     ],
     url: "https://jeongpyo.com",
@@ -87,30 +87,31 @@ export const services: Service[] = [
   },
   {
     id: "geo",
-    caseStudy: "/writing/geo-aggregation-memory",
-    title: "GEO Dashboard",
-    subtitle: "검색·AI 답변 브랜드 가시성 모니터링",
+    caseStudy: "/work/geo-seo-automation",
+    title: "AiBright",
+    subtitle: "AI 검색 관측과 GEO·SEO 개선 자동화",
     question: "검색과 AI 답변 속 브랜드 노출을 어떻게 다음 행동으로 연결할까?",
     description:
-      "검색엔진과 AI 답변의 브랜드·제품 노출, 인용 출처와 질문별 성과를 수집하고 상태·원인·행동으로 연결한 사내 의사결정 대시보드. 보안상 식별 가능한 정보는 공개하지 않습니다.",
+      "네이버·ChatGPT·Gemini·Google AI 답변의 브랜드 언급과 인용 출처를 관측하고, 개선 액션과 CMS의 콘텐츠 작업으로 연결하는 서비스.",
     evidence: [
       {
         label: "데이터 제약",
-        text: "검색·AI 표면마다 지표의 분모가 다르고 원시 인용이 누적될수록 비교 정확도와 조회 비용이 함께 나빠졌습니다.",
+        text: "AI 검색 채널마다 답변과 인용 방식이 다르고, 수집 실패를 브랜드 미노출로 세면 개선 판단이 왜곡됩니다.",
       },
       {
         label: "시스템 설계",
-        text: "AI 검색 표면별 수집을 같은 품질 규칙으로 묶고, 계획한 표본이 모두 검사를 통과한 배치만 지표에 반영합니다. 실패는 0%가 아니라 보류로 남깁니다.",
+        text: "답변 원문·관측 시점·인용 출처를 보존하고 수집 품질을 확인합니다. 근거 질문에 연결된 개선안을 만들고 반영 이후의 새 측정으로 변화를 확인합니다.",
       },
       {
-        label: "운영 검증",
-        text: "검수 피드백으로 노출 기준을 다시 정했고, 메모리 한도를 넘던 상세 계산을 객체 공유 구조로 바꿔 1.97GB → 0.59GB로 줄였습니다(한 브랜드 30일치).",
+        label: "콘텐츠 연결",
+        text: "개선안을 CMS의 글 초안·페이지 보강 할 일로 넘기고 반영 상태를 돌려받는 연결을 구현했습니다. 콘텐츠 반영과 검색 성과 개선은 따로 확인합니다.",
       },
     ],
+    url: "https://aibright.ai",
     status: "운영 중",
     period: "2026 — NOW",
-    role: "제품 설계 · 풀스택 · 데이터 운영",
-    tags: ["Next.js", "PostgreSQL", "Data Pipeline", "GEO"],
+    role: "제품 설계 · 풀스택 · 수집·콘텐츠 자동화",
+    tags: ["Next.js", "PostgreSQL", "GEO", "SEO", "CMS"],
     color: "#36d6e7",
     gradient: "from-cyan-400 to-blue-600",
   },
@@ -207,14 +208,14 @@ export const services: Service[] = [
   {
     id: "pin-to-gather",
     title: "핀투게더",
-    subtitle: "함께 정하는 실시간 장소 보드",
-    question: "여러 사람이 가입 없이 장소를 모으고 함께 결정할 수 있을까?",
+    subtitle: "친구들과 함께 만드는 여행 계획 지도",
+    question: "장소 후보부터 여행 당일 동선까지 함께 정할 수 있을까?",
     description:
-      "공유 지도에서 장소를 수집·그룹화하고 참여자의 커서, 지도 뷰포트, 평가와 메모를 실시간으로 동기화하는 익명 협업 보드.",
+      "가입 없이 장소 후보를 모으고 날짜별 방문 순서를 함께 정하는 여행 지도. 여행 중에는 다음 장소·네이버 지도 길찾기·방문 완료 상태까지 이어집니다.",
     evidence: [
       {
         label: "협업 문제",
-        text: "가입하지 않은 여러 사람이 같은 지도에서 장소를 모으고 의견을 합치는 과정이 메신저 대화에 흩어졌습니다.",
+        text: "여행 장소를 모으고 갈 곳을 정한 뒤 날짜별 동선으로 옮기는 과정이 메신저와 여러 지도에 흩어졌습니다.",
       },
       {
         label: "실시간 설계",
@@ -222,7 +223,7 @@ export const services: Service[] = [
       },
       {
         label: "현재 상태",
-        text: "익명 참여자의 장소 수집·평가·커서·지도 뷰 동기화를 구현하고 실제 모임 흐름을 검증하고 있습니다.",
+        text: "장소 평가·메모와 날짜별 일정·방문 완료를 동기화하고, 오늘의 다음 장소와 길찾기를 한 화면에서 확인하도록 구현했습니다.",
       },
     ],
     url: "https://pintogather.todari.dev",
@@ -329,7 +330,7 @@ export const services: Service[] = [
     subtitle: "카카오톡 관계 신호 분석",
     question: "오래 쌓인 대화 속 관계의 신호를 재미있게 발견할 수 있을까?",
     description:
-      "카카오톡 1:1 내보내기 파일을 파싱·샘플링해 관심 신호, 대화 습관, 타임라인과 케미를 분석하고 비공개 링크로 공유하는 AI 분석 서비스.",
+      "카카오톡 TXT·CSV·ZIP 파일을 업로드하거나 이메일로 보내 관계 신호를 분석합니다. 단체방에서도 두 사람을 선택할 수 있고, 결과는 검색 비노출 링크로 공유합니다.",
     evidence: [
       {
         label: "사용자 호기심",
@@ -337,11 +338,11 @@ export const services: Service[] = [
       },
       {
         label: "분석 가설",
-        text: "전체 파일을 구조화한 뒤 문맥을 샘플링하면 대용량 대화에서도 일관된 관계 신호를 추출할 수 있다고 봤습니다.",
+        text: "파일·이메일 접수를 같은 분석 흐름으로 연결하고, 단체방에서는 선택한 두 사람을 중심으로 대화 문맥을 샘플링합니다.",
       },
       {
-        label: "현재 상태",
-        text: "파일 파싱·비동기 AI 분석·비공개 결과 공유를 구현하고 분석 결과의 납득 가능성을 검증하고 있습니다.",
+        label: "공유와 삭제",
+        text: "결과는 링크를 아는 사람이 볼 수 있습니다. 원본은 암호화하고 분석에 Gemini를 사용하며, 생성한 브라우저에서 원본·결과를 함께 삭제할 수 있습니다.",
       },
     ],
     url: "https://toksai.todari.dev",
