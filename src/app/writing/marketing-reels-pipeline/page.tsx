@@ -37,7 +37,7 @@ export default function MarketingReelsPipelinePage() {
       <P>타깃별 제작 요청과 주간 검토 기록을 관리하고, 관찰 기간·표본·수집 상태를 확인해 다음 소재 판단에 사용합니다. 검토 저장이 곧 광고 게시나 본선 승격을 실행하지는 않습니다. 광고 활성화와 예산 변경은 별도 판단으로 남겨뒀습니다.</P>
       <Callout>2026-11-02(KST) 제작 실행에서 릴스 제작 작업 완료와 검토용 영상 묶음·요약 산출물을 확인했습니다. 현재 검증 범위는 검토본 제작까지이며, 광고 성과는 별도 측정 대상입니다.</Callout>
       <P>이 글은 2026-11-05 기준 구현과 제작 실행 기록을 대조해 정리했습니다.</P>
-      <Link href="/work/forcletter" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">포크레터 제품과 담당 범위 보기 →</Link>
+      <Link href="/work/forcletter#reels" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">포크레터 댓글 자동 DM 릴스 보기 →</Link>
     </ArticleShell>
   );
 }

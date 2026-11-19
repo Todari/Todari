@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { services, type Service } from "@/data/services";
+import { workExperiences } from "@/data/work-experiences";
+import { ExperienceSources } from "./WorkExperiences";
 
 const statusTone = {
   "운영 중": "bg-[#dfff4f]",
@@ -15,6 +17,9 @@ function WorkCard({
   service: Service;
   index: number;
 }) {
+  const experiences = workExperiences[service.id];
+  const [featured] = experiences;
+
   return (
     <article
       className={`group relative overflow-hidden rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-6 transition-transform duration-200 hover:-translate-y-1 md:p-8 ${
@@ -32,26 +37,16 @@ function WorkCard({
       />
 
       <div className="relative flex h-full flex-col">
-        <div className="mb-7 flex items-start justify-between gap-4">
-          <span
-            className="inline-flex h-10 items-center justify-center rounded-xl border-2 border-[#17151c] px-3 font-mono text-[9px] font-black tracking-[0.12em] shadow-[3px_3px_0_#17151c]"
-            style={{ backgroundColor: service.color }}
-          >
-            PROJECT {String(index + 1).padStart(2, "0")}
+        <div className="mb-5 flex flex-wrap gap-2">
+          <span className={`rounded-full border-2 border-[#17151c] px-2.5 py-1 text-xs font-bold ${statusTone[service.status]}`}>
+            {service.status}
           </span>
-          <div className="flex flex-wrap justify-end gap-2">
-            <span
-              className={`rounded-full border-2 border-[#17151c] px-2.5 py-1 text-[10px] font-black ${statusTone[service.status]}`}
-            >
-              {service.status}
-            </span>
-            <span className="rounded-full border-2 border-[#17151c] bg-white px-2.5 py-1 font-mono text-[10px] font-bold">
-              {service.period}
-            </span>
-          </div>
+          <span className="rounded-full border-2 border-[#17151c] bg-white px-2.5 py-1 font-mono text-xs font-bold">
+            {service.period}
+          </span>
         </div>
 
-        <p className="mb-2 text-sm font-black" style={{ color: service.color }}>
+        <p className="mb-2 text-sm font-bold text-[#5d5565]">
           {service.subtitle}
         </p>
         <h3 className="text-3xl font-black tracking-[-0.045em] md:text-4xl">
@@ -65,28 +60,16 @@ function WorkCard({
           {service.description}
         </p>
 
-        <dl className="mt-5 divide-y-2 divide-[#17151c]/10 border-y-2 border-[#17151c]/15">
-          {service.evidence.map((item, evidenceIndex) => (
-            <div
-              key={item.label}
-              className="grid grid-cols-[4.5rem_1fr] gap-3 py-3"
-            >
-              <dt
-                className="h-fit whitespace-nowrap rounded-md border border-[#17151c] px-1.5 py-1 text-center font-mono text-[9px] font-black tracking-[0.08em]"
-                style={{
-                  backgroundColor: ["#ff79bd", "#67e8f9", "#dfff4f"][
-                    evidenceIndex
-                  ],
-                }}
-              >
-                {item.label}
-              </dt>
-              <dd className="text-sm font-medium leading-6 text-[#463f4c]">
-                {item.text}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-5 border-y border-[#17151c]/20 py-5">
+          <p className="text-xs font-bold text-[#5b38b9]">{featured.category}</p>
+          <h4 className="mt-2 break-keep text-lg font-black leading-snug">
+            <Link href={`${service.caseStudy}#${featured.id}`} className="underline-offset-4 hover:underline">
+              {featured.title}
+            </Link>
+          </h4>
+          <p className="mt-2 break-keep text-sm leading-6 text-[#463f4c] [overflow-wrap:anywhere]">{featured.change}</p>
+          <ExperienceSources experience={featured} />
+        </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
           {service.tags.map((tag) => (
@@ -100,6 +83,13 @@ function WorkCard({
         </div>
 
         <div className="mt-auto flex flex-wrap gap-3 pt-8">
+          <Link
+            href={service.caseStudy}
+            aria-label={`${service.title} 작업 ${experiences.length}건 보기`}
+            className="neo-button inline-flex items-center gap-2 rounded-xl bg-[#dfff4f] px-4 py-2.5 text-sm font-black"
+          >
+            작업 {experiences.length}건 보기 <span aria-hidden="true">→</span>
+          </Link>
           {service.url ? (
             <a
               href={service.url}
@@ -139,7 +129,7 @@ export default function WorkArchive() {
     <section
       id="works"
       aria-labelledby="works-heading"
-      className="relative z-20 overflow-hidden border-t-[3px] border-[#17151c] bg-[#a78bfa] px-5 py-24 text-[#17151c] md:px-10 md:py-32"
+      className="relative z-20 overflow-hidden border-t-[3px] border-[#17151c] bg-[#a78bfa] px-5 py-12 text-[#17151c] md:px-10 md:py-16"
     >
       <div
         aria-hidden="true"
@@ -155,25 +145,7 @@ export default function WorkArchive() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-14 max-w-3xl md:mb-20">
-          <p className="mb-6 inline-flex rotate-[-2deg] items-center rounded-full border-2 border-[#17151c] bg-[#ff79bd] px-4 py-2 font-mono text-[10px] font-black tracking-[0.22em] shadow-[3px_3px_0_#17151c] md:text-xs">
-            ALL WORKS · 01—{String(services.length).padStart(2, "0")}
-          </p>
-          <h2
-            id="works-heading"
-            className="text-balance text-4xl font-black leading-[1.05] tracking-[-0.055em] md:text-6xl"
-          >
-            직접 맡은 역할과
-            <br />
-            프로젝트마다 다른 기술 제약.
-          </h2>
-          <p className="mt-8 max-w-2xl rotate-[0.5deg] rounded-[1.25rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-5 text-base leading-7 text-[#544c5c] shadow-[8px_8px_0_#17151c] md:p-6 md:text-lg">
-            실시간 동기화, 정산 규칙, 외부 API, 데이터 수집, UI 렌더링.
-            {services.length}개 프로젝트에서 맡은 범위와 설계를 정리했습니다.
-            운영 중인 서비스와 개발·검증 중인 프로젝트는 각 카드에 표시합니다.
-          </p>
-        </div>
-
+        <h2 id="works-heading" className="sr-only">업데이트와 개선 사례</h2>
         <div className="grid gap-7 lg:grid-cols-2">
           {services.map((service, index) => (
             <WorkCard key={service.id} service={service} index={index} />

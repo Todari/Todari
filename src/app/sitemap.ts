@@ -1,9 +1,13 @@
 import type { MetadataRoute } from "next";
+import { services } from "@/data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: "https://todari.dev/work/geo-seo-automation", lastModified: new Date("2026-11-05"), changeFrequency: "monthly", priority: 0.9 },
-    { url: "https://todari.dev/work/forcletter", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    ...services.map(({ caseStudy }) => ({
+      url: `https://todari.dev${caseStudy}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     { url: "https://todari.dev/works", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     {
       url: "https://todari.dev",

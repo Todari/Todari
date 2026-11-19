@@ -1,10 +1,12 @@
+import type { workExperiences } from "./work-experiences";
+
 export interface ServiceEvidence {
   label: string;
   text: string;
 }
 
 export interface Service {
-  id: string;
+  id: keyof typeof workExperiences;
   title: string;
   subtitle: string;
   question: string;
@@ -12,7 +14,7 @@ export interface Service {
   evidence: [ServiceEvidence, ServiceEvidence, ServiceEvidence];
   url?: string;
   linkLabel?: string;
-  caseStudy?: string;
+  caseStudy: string;
   /** Only add repositories that anonymous visitors can open. */
   publicRepository?: string;
   status: "운영 중" | "개선 중" | "개발 중" | "점검 중";
@@ -58,6 +60,7 @@ export const services: Service[] = [
   },
   {
     id: "jeongpyo",
+    caseStudy: "/work/jeongpyo",
     title: "이정표",
     subtitle: "KBO 티켓 팬투팬 정가 양도",
     question: "웃돈 없이 정가로 안전하게 야구 티켓을 양도할 수 있을까?",
@@ -117,6 +120,7 @@ export const services: Service[] = [
   },
   {
     id: "dakbal",
+    caseStudy: "/work/dakbal",
     title: "닭발 헌터",
     subtitle: "엽떡 닭발 판매 지점 탐색",
     question: "지금 닭발을 파는 가장 가까운 엽떡은 어디일까?",
@@ -146,6 +150,7 @@ export const services: Service[] = [
   },
   {
     id: "haengdong",
+    caseStudy: "/work/haengdong",
     title: "행동대장",
     subtitle: "쉽고 빠른 모임 정산",
     question: "사람이 계속 바뀌는 모임도 가입 없이 정산할 수 있을까?",
@@ -169,14 +174,14 @@ export const services: Service[] = [
     publicRepository: "https://github.com/Todari/2024-haeng-dong",
     status: "운영 중",
     period: "2024",
-    role: "서비스 기획 · UI/UX · 프론트엔드",
+    role: "우아한테크코스 팀 프로젝트 · 서비스 기획 · UI/UX · 프론트엔드 · 후속 운영",
     tags: ["React", "TypeScript", "PWA"],
     color: "#a855f7",
     gradient: "from-purple-500 to-fuchsia-600",
   },
   {
     id: "metronomdeul",
-    caseStudy: "/writing/metronome-clock-sync",
+    caseStudy: "/work/metronomdeul",
     title: "메트로놈들",
     subtitle: "함께 맞추는 박자",
     question: "멀리 떨어진 연주자들이 같은 박자를 들을 수 있을까?",
@@ -207,6 +212,7 @@ export const services: Service[] = [
   },
   {
     id: "pin-to-gather",
+    caseStudy: "/work/pin-to-gather",
     title: "핀투게더",
     subtitle: "친구들과 함께 만드는 여행 계획 지도",
     question: "장소 후보부터 여행 당일 동선까지 함께 정할 수 있을까?",
@@ -237,6 +243,7 @@ export const services: Service[] = [
   },
   {
     id: "react-pixel-ui",
+    caseStudy: "/work/react-pixel-ui",
     title: "React Pixel UI",
     subtitle: "기존 DOM을 유지하는 CSS 픽셀 렌더링",
     question: "레이아웃과 이벤트를 유지하며 CSS의 시각 표현을 픽셀로 바꿀 수 있을까?",
@@ -267,6 +274,7 @@ export const services: Service[] = [
   },
   {
     id: "trade-tower",
+    caseStudy: "/work/trade-tower",
     title: "Trade Tower",
     subtitle: "틱 기반 자동매매 운영 시스템",
     question: "실시간 시장의 진입·리스크·실행을 일관되게 자동화할 수 있을까?",
@@ -296,6 +304,7 @@ export const services: Service[] = [
   },
   {
     id: "hgt",
+    caseStudy: "/work/hgt",
     title: "HGT",
     subtitle: "홍익대 구성원 주간 1:1 매칭",
     question: "사진보다 취향과 키워드로 새로운 사람을 만날 수 있을까?",
@@ -326,6 +335,7 @@ export const services: Service[] = [
   },
   {
     id: "toksai",
+    caseStudy: "/work/toksai",
     title: "톡사이",
     subtitle: "카카오톡 관계 신호 분석",
     question: "오래 쌓인 대화 속 관계의 신호를 재미있게 발견할 수 있을까?",
@@ -356,6 +366,7 @@ export const services: Service[] = [
   },
   {
     id: "lovetype",
+    caseStudy: "/work/lovetype",
     title: "LVTI",
     subtitle: "연애 성격 유형 테스트",
     question: "연애할 때 드러나는 나만의 성격 유형은 무엇일까?",

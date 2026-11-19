@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import WorkExperiences from "@/components/WorkExperiences";
+import { workExperiences } from "@/data/work-experiences";
 import { H2, P } from "../../writing/shell";
 
 export const metadata: Metadata = {
@@ -13,7 +15,7 @@ export default function ForcletterPage() {
   return (
     <main className="paper-grid min-h-screen px-5 py-12 text-[#17151c] md:px-10 md:py-20">
       <article className="mx-auto max-w-4xl">
-        <Link href="/" className="text-sm font-black text-[#5b38b9]">← 포트폴리오 홈</Link>
+        <Link href="/works" className="text-sm font-black text-[#5b38b9]">← 전체 작업</Link>
         <p className="mt-10 text-xs font-black tracking-widest text-[#5b38b9]">SELECTED WORK · FORCLETTER</p>
         <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">분석·댓글 응대·링크 관리를<br />하나의 운영 도구로.</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8">크리에이터는 콘텐츠를 만든 뒤에도 채널 성과를 확인하고, 댓글에 링크를 보내고, 프로필 링크를 고쳐야 합니다. 이 반복 작업을 처리하는 웹·앱·관리자 도구와 AI 포키의 기획·디자인·개발·운영을 맡았습니다.</p>
@@ -24,6 +26,9 @@ export default function ForcletterPage() {
         <div className="mt-6 flex flex-wrap gap-5 text-sm font-bold text-[#5b38b9]">
           <a href="https://forcreator.co.kr" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">서비스 방문 ↗</a>
           <a href="https://apps.apple.com/kr/app/id6758508512" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">App Store ↗</a>
+        </div>
+        <div className="mt-10 rounded-2xl border-2 border-[#17151c] bg-[#fffaf0] p-5 md:p-7">
+          <WorkExperiences experiences={workExperiences.forcletter} />
         </div>
         <div className="mt-12 space-y-6">
           <H2>제품 문제 · 채널이 늘수록 반복되는 운영 작업</H2>
@@ -52,10 +57,44 @@ export default function ForcletterPage() {
             <span className="mt-4 inline-block text-sm font-bold text-[#5b38b9]">앱·웹 호환 설계 읽기 →</span>
           </Link>
           <p className="text-xs leading-6 text-[#5d5565]">통합 리포트와 앱·웹 호환은 2026-11-04 병합 기록을 11-05에 재확인했습니다. Instagram·YouTube는 공개 지원, Threads·TikTok은 지원 예정입니다.</p>
-          <H2>마케팅 제작 · 실패한 단계만 다시 실행하는 파이프라인</H2>
-          <P>광고 성과·제품 근거를 바탕으로 소구와 대본을 만들고, 촬영용 계정의 제품 UI 조작·녹화, 화면과 대사 대조, 음성·자막·편집을 하나의 제작 흐름으로 연결했습니다. 단계별 결과를 남겨 실패한 지점부터 재개하고, 어드민·Discord에서 검토본과 제작 상태를 확인할 수 있게 했습니다.</P>
-          <P>2026-11-02(KST) 실행의 제작 작업 성공과 검토 산출물 존재를 확인했습니다. 구현상 완료한 단계를 재사용할 수 있지만, 제작 시간·비용 절감률이나 광고 전환율 변화는 아직 측정 근거가 없습니다.</P>
-          <Link href="/writing/marketing-reels-pipeline" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인과 검증 범위 읽기 →</Link>
+          <section id="reels" aria-labelledby="reels-title" className="scroll-mt-8 rounded-2xl border-2 border-[#17151c] bg-[#fffaf0] p-5 md:p-7">
+            <h2 id="reels-title" className="text-xl font-black tracking-tight md:text-2xl">마케팅 릴스 · 댓글마다 링크를 보내고 있나요?</h2>
+            <div className="mt-5 grid items-start gap-7 sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)]">
+              <figure className="mx-auto w-full max-w-60 sm:mx-0">
+                <video
+                  aria-label="포크레터 댓글 자동 DM 소개 릴스"
+                  className="aspect-[9/16] w-full rounded-xl border-2 border-[#17151c] bg-[#10192b] object-contain"
+                  controls
+                  playsInline
+                  preload="none"
+                  poster="/work/forcletter/reel-poster.webp"
+                  width={1080}
+                  height={1920}
+                >
+                  <source src="/work/forcletter/reel-auto-dm.mp4" type="video/mp4" />
+                  <a href="/work/forcletter/reel-auto-dm.mp4">댓글 자동 DM 영상 파일 열기</a>
+                </video>
+                <figcaption className="mt-2 text-xs leading-5 text-[#5d5565]">2026.09 제작 · 공개 제품 데모 · 17초 · 자막·무음</figcaption>
+              </figure>
+              <div className="space-y-5 text-sm leading-6 text-[#3d3745]">
+                <div>
+                  <h3 className="font-black text-[#17151c]">이 영상에서 보여준 것</h3>
+                  <p className="mt-2">공식 제품 데모에 있는 댓글 키워드와 발송 문구를 근거로, 링크를 반복해서 보내는 상황을 첫 문장으로 잡았습니다. 두 항목이 함께 보이도록 설정 카드를 확대하고, 화면 자막에서 조건에 맞는 댓글에만 설정한 안내를 보낸다고 설명했습니다.</p>
+                  <a href="https://forcreator.co.kr/instagram-auto-dm" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block font-bold text-[#5b38b9] underline underline-offset-4">댓글 자동 DM 제품 근거 ↗</a>
+                </div>
+                <div className="border-t border-[#17151c]/20 pt-4">
+                  <h3 className="font-black text-[#17151c]">후속 제작 파이프라인에서 자동화한 판단</h3>
+                  <dl className="mt-3 space-y-3">
+                    <div><dt className="font-bold text-[#17151c]">화면과 대사 대조</dt><dd>촬영 프레임을 대본과 비교해 화면이 뒷받침하는 표현으로 고치고, 해결되지 않은 불일치는 검토 기록에 남겼습니다.</dd></div>
+                    <div><dt className="font-bold text-[#17151c]">실패한 작업만 재생성</dt><dd>클립마다 대본·촬영·음성·편집 결과를 저장했습니다. 한 편의 편집에서 실패하면 완료한 촬영과 음성을 재사용해 멈춘 단계부터 다시 실행합니다.</dd></div>
+                    <div><dt className="font-bold text-[#17151c]">사람이 게시와 예산을 결정</dt><dd>완성본과 검수 근거를 검토자에게 전달합니다. 광고를 게시할지, 예산을 바꿀지는 담당자가 별도로 결정합니다.</dd></div>
+                  </dl>
+                </div>
+                <p className="text-xs leading-5 text-[#5d5565]">영상은 9월 제작본의 포트폴리오용 편집입니다. 후속 파이프라인은 11월 2일 제작 완료와 검토용 영상 산출까지 확인했습니다.</p>
+                <Link href="/writing/marketing-reels-pipeline" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">릴스 제작 파이프라인과 검증 범위 읽기 →</Link>
+              </div>
+            </div>
+          </section>
           <H2>핵심 결정 · 실패해도 복구할 수 있는 운영</H2>
           <div className="grid gap-4 md:grid-cols-2">
             <Link href="/writing/token-lifecycle" className="neo-card bg-[#fffaf0] p-6">
@@ -83,7 +122,7 @@ export default function ForcletterPage() {
           <Link href="/writing/ad-attribution-cohort" className="inline-block font-bold text-[#5b38b9] underline underline-offset-4">가입·활성화 측정의 기준과 한계 읽기 →</Link>
         </div>
         <footer className="mt-16 flex flex-wrap gap-6 border-t-2 border-[#17151c] pt-8 font-bold text-[#5b38b9]">
-          <Link href="/">← 다른 대표 사례 보기</Link>
+          <Link href="/works">← 전체 작업</Link>
           <a href="mailto:hello@todari.dev">hello@todari.dev ↗</a>
         </footer>
       </article>

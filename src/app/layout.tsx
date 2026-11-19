@@ -7,9 +7,9 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "포크레터의 기획·디자인·개발·운영, 앱·웹 버전 호환, AI 검색·CMS 연동과 릴스 제작 자동화. 제품과 운영의 병목을 해결하는 프로덕트 엔지니어 Todari의 구현 사례입니다.";
+  "기획·디자인에서 출발해 제품을 직접 만들고 운영하는 토다리의 포트폴리오입니다. 포크레터의 AI 운영 도구와 릴스 제작, AiBright의 AI 검색 분석, 이정표의 야구 티켓 정가 거래 설계를 살펴보세요.";
 const PAGE_TITLE =
-  "Todari | 제품과 운영의 병목을 푸는 프로덕트 엔지니어";
+  "Todari | 기획·디자인에서 출발한 프로덕트 엔지니어";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -174,7 +174,7 @@ export default function MakerProfile() {
           <p className="text-xs font-black text-[#5b38b9]">TEAMWORK · 행동대장</p>
           <h3 className="mt-3 text-xl font-black">리뷰에서 발견한 접근성 문제를 구현에 반영했습니다.</h3>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[#5d5565]">Carousel·BottomSheet의 키보드 접근성을 개선하던 중, 팀원이 슬라이드 변경을 스크린리더가 실제로 읽는지 질문했습니다. 기존 aria-label 방식의 한계를 확인하고 aria-live 안내 영역으로 수정했습니다. 포커스 애니메이션도 리뷰를 통해 제거하며 컴포넌트 간 동작을 통일했습니다.</p>
-          <a href="https://github.com/woowacourse-teams/2024-haeng-dong/pull/984#discussion_r1938219295" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">리뷰와 수정 기록 보기 ↗</a>
+          <Link href="/work/haengdong#accessibility" className="mt-4 inline-block text-sm font-black text-[#5b38b9] underline underline-offset-4">행동대장 작업 사례 읽기 →</Link>
         </article>
 
         <details className="mt-10 rounded-2xl border-2 border-[#17151c] p-5 md:p-7">

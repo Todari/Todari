@@ -362,6 +362,33 @@ function DispenserScene({
   );
 }
 
+function ProjectLinks({ service }: { service: Service }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      {service.url && (
+        <a
+          href={service.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("click_service_link", {
+              service_id: service.id,
+              service_title: service.title,
+              service_url: service.url ?? "private",
+            })
+          }
+          className="inline-flex items-center gap-1 py-2 text-xs font-bold text-[#5b38b9] underline underline-offset-4"
+        >
+          {service.linkLabel ?? "서비스 보기"} <ArrowIcon />
+        </a>
+      )}
+      <Link href={service.caseStudy} className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-3 py-2 text-xs font-black text-[#17151c] shadow-[3px_3px_0_#17151c]">
+        작업 보기 →
+      </Link>
+    </div>
+  );
+}
+
 function ArrowIcon() {
   return (
     <svg
@@ -473,7 +500,7 @@ function ProjectCard({
         <p className="mt-2 text-base font-black leading-7">{service.evidence[2].text}</p>
       </div>
 
-      <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-4">
         <div className="flex gap-2">
           <button
             type="button"
@@ -495,31 +522,7 @@ function ProjectCard({
           </button>
         </div>
 
-        {service.caseStudy ? (
-          <Link href={service.caseStudy} className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2.5 text-xs font-black text-[#17151c] shadow-[3px_3px_0_#17151c]">사례 읽기 →</Link>
-        ) : service.url ? (
-          <a
-            href={service.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              trackEvent("click_service_link", {
-                service_id: service.id,
-                service_title: service.title,
-                service_url: service.url ?? "private",
-              })
-            }
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-[#17151c] px-4 py-2.5 text-xs font-black text-[#17151c] shadow-[4px_4px_0_#17151c] transition-transform hover:translate-x-0.5 hover:translate-y-0.5 sm:text-sm"
-            style={{ backgroundColor: service.color }}
-          >
-            {service.linkLabel ?? "서비스 보기"}
-            <ArrowIcon />
-          </a>
-        ) : (
-          <span className="inline-flex items-center rounded-xl border-2 border-[#17151c] bg-[#17151c] px-3 py-2.5 font-mono text-[8px] font-black tracking-[0.1em] text-[#fffaf0] sm:text-[9px]">
-            PRIVATE WORK · 일부 비공개
-          </span>
-        )}
+        <ProjectLinks service={service} />
       </div>
     </article>
   );
@@ -621,7 +624,7 @@ function MobileProjectCard({
         </>
       ) : null}
 
-      <div className={`${expanded ? "mt-4" : "mt-3"} flex items-center justify-between gap-3`}>
+      <div className={`${expanded ? "mt-4" : "mt-3"} flex flex-wrap items-center justify-between gap-3`}>
         <div className="flex gap-2">
           <button
             type="button"
@@ -643,31 +646,7 @@ function MobileProjectCard({
           </button>
         </div>
 
-        {service.caseStudy ? (
-          <Link href={service.caseStudy} className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2.5 text-xs font-black text-[#17151c] shadow-[3px_3px_0_#17151c]">사례 읽기 →</Link>
-        ) : service.url ? (
-          <a
-            href={service.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              trackEvent("click_service_link", {
-                service_id: service.id,
-                service_title: service.title,
-                service_url: service.url ?? "private",
-              })
-            }
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-[#17151c] px-3.5 py-2 text-[11px] font-black text-[#17151c] shadow-[3px_3px_0_#17151c]"
-            style={{ backgroundColor: service.color }}
-          >
-            {service.linkLabel ?? "서비스 보기"}
-            <ArrowIcon />
-          </a>
-        ) : (
-          <span className="inline-flex items-center rounded-xl border-2 border-[#17151c] bg-[#17151c] px-3 py-2 font-mono text-[8px] font-black tracking-[0.08em] text-[#fffaf0]">
-            PRIVATE WORK
-          </span>
-        )}
+        <ProjectLinks service={service} />
       </div>
     </article>
   );

@@ -1,7 +1,8 @@
 # Todari
 
-Todari는 포크레터의 기획·디자인·개발·운영을 맡고 앱·웹 호환, AI 검색·CMS 연동,
-콘텐츠 제작 자동화를 구축한 Product Engineer입니다.
+토다리(Todari)는 기획과 디자인에서 출발해 제품을 직접 개발하고 운영하는 프로덕트 엔지니어입니다.
+포크레터의 크리에이터 운영 도구와 릴스 제작 자동화, AiBright의 AI 검색 분석, 이정표의 KBO 티켓 정가 거래를 설계했습니다.
+프로젝트별 담당 역할과 작업 기록은 https://todari.dev/works 에서 확인할 수 있습니다.
 
 ## Services and projects
 
