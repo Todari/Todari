@@ -5,8 +5,8 @@ import WorkExperiences from "@/components/WorkExperiences";
 import { H2, P } from "../../writing/shell";
 
 export const metadata: Metadata = {
-  title: "포크레터 · 지표 저장과 조회, AI 작업 실행 설계",
-  description: "미디어 지표의 최신 행 조회, AI 작업의 중복 실행 방지와 자동 DM 복구를 설계했습니다. 검색 유입과 릴스 제작 경험도 기록했습니다.",
+  title: "포크레터 · 채널 분석, AI 에이전트, 캠페인 정산과 모바일 앱",
+  description: "포크레터의 지표 조회 병목, 포키의 도구 호출 오류, 캠페인 목록 누락과 정산 재시도, 모바일 앱의 반복 로딩을 진단하고 검증한 기록입니다.",
   alternates: { canonical: "https://todari.dev/work/forcletter" },
 };
 
@@ -23,9 +23,10 @@ export default function ForcletterPage() {
             </Link>
             <h1 className="text-base font-semibold tracking-tight">포크레터</h1>
           </div>
-          <p className="mt-6 break-keep text-2xl font-bold leading-tight tracking-tight sm:text-[28px]">수천만 행의 채널 지표 조회와 AI 작업의 중복 실행 방지</p>
+          <p className="mt-6 break-keep text-2xl font-bold leading-tight tracking-tight sm:text-[28px]">포크레터의 채널 분석, AI 매니저, 캠페인 정산과 모바일 앱을 운영하며 고친 문제들</p>
           <p className="mt-3 break-keep text-sm leading-7 text-slate-700">크리에이터의 채널 리포트, 댓글 자동 DM, 브랜드 캠페인을 지원하는 Linkive 서비스입니다. 2025년 9월부터 1인 기획·디자인·풀스택 개발·운영과 AI 에이전트 설계를 맡았습니다.</p>
           <nav aria-label="포크레터 관련 링크" className="mt-4 flex flex-wrap gap-x-5 gap-y-3 text-sm">
+            <a href="#experiences" className={articleLink}>기술 작업과 검증 ↓</a>
             <a href="https://forcreator.co.kr" target="_blank" rel="noopener noreferrer" className={articleLink}>서비스 ↗</a>
             <a href="https://apps.apple.com/kr/app/id6758508512" target="_blank" rel="noopener noreferrer" className={articleLink}>App Store ↗</a>
             <Link href="/writing/snapshot-50m-rows" className={articleLink}>게시물 지표 쿼리 →</Link>
@@ -33,7 +34,6 @@ export default function ForcletterPage() {
             <Link href="/writing/auto-dm-recovery" className={articleLink}>댓글 DM 장애 대응 →</Link>
             <a href="#reels" className={articleLink}>댓글 자동 DM 릴스 ↓</a>
             <a href="#geo-loop" className={articleLink}>검색·AI 답변 개선 ↓</a>
-            <a href="#experiences" className={articleLink}>작업과 해결 과정 ↓</a>
           </nav>
         </header>
 
@@ -85,6 +85,10 @@ export default function ForcletterPage() {
           <p className="mt-2 break-keep leading-6 text-slate-700">2026년 10월 12일 운영 집계에서 직전 30일간 자동 DM은 약 4.3만 건, 활성 크리에이터는 2,700명 이상이었습니다.</p>
           <p className="mt-1 break-keep text-xs leading-5 text-slate-600">11월 5일 홈페이지에 표시한 13,847개 이상은 탈퇴를 제외한 누적 가입 계정 수입니다.</p>
         </section>
+
+        <div className="mt-12 rounded-[20px] border border-slate-200 bg-white p-5 md:p-7">
+          <WorkExperiences project="forcletter" />
+        </div>
 
         <section id="reels" aria-labelledby="reels-title" className="mt-12 scroll-mt-8 rounded-[20px] border border-slate-200 bg-white p-5 md:p-7">
           <h2 id="reels-title" className="break-keep text-2xl font-bold tracking-tight md:text-3xl">댓글 자동 DM 릴스와 제작 자동화</h2>
@@ -158,10 +162,6 @@ export default function ForcletterPage() {
             </div>
           </div>
         </section>
-
-        <div className="mt-12 rounded-[20px] border border-slate-200 bg-white p-5 md:p-7">
-          <WorkExperiences project="forcletter" />
-        </div>
 
         <footer className="mt-12 flex flex-wrap gap-6 border-t border-slate-200 pt-6 text-sm">
           <Link href="/works" className={articleLink}>← 전체 작업</Link>

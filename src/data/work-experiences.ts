@@ -1,3 +1,4 @@
+import { forcletterEngineeringCases } from "./forcletter-engineering";
 import { fanTradeDecision, haengdongAllocationDecision, haengdongBillDetailsDecision, recoveryDecision } from "./portfolio-decisions";
 
 export type DesignReasoning = {
@@ -230,6 +231,7 @@ export const workExperiences = {
         { label: "설계와 검증 · 포키 확인 카드의 실행 경계", href: "/work/forcletter#poki-action-execution" },
       ],
     },
+    ...forcletterEngineeringCases,
     {
       id: "admin-stats-cache",
       category: "통계 조회 · 캐시 갱신",

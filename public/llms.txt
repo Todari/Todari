@@ -60,6 +60,12 @@
 
 ## Portfolio case study and archive
 
+- 포크레터 기술 사례 · 채널 분석, AI 모델 전환, 캠페인 정산과 모바일 앱. https://todari.dev/#forcletter-engineering
+- 포키의 도구 호출과 대체 모델 선택. https://todari.dev/work/forcletter#poki-fallback-turn
+- 광고주의 중복 취소 요청과 크레딧 반환. https://todari.dev/work/forcletter#campaign-selection-cancellation
+- 같은 시각에 등록된 캠페인을 보존하는 커서. https://todari.dev/work/forcletter#campaign-pagination-precision
+- 모바일 앱의 반복 로딩과 WebView 복구. https://todari.dev/work/forcletter#webview-load-recovery
+
 - 기술 주제별 사례 · 통계 캐시, 배치 재시도, 쿼리·실시간 입력 부하, 프론트엔드 오류 처리, 배포 검증, 장애 모니터링. https://todari.dev/works#engineering
 - 포크레터 · 배포 직후 통계를 위한 Redis 캐시와 24시간을 넘긴 Instagram 수집 배치. https://todari.dev/work/forcletter#admin-stats-cache · https://todari.dev/work/forcletter#instagram-collection-cadence
 - AiBright · 대시보드 캐시 키와 데이터 버전 분리, 큐 등록 응답 유실 후 완료 ID를 이용한 중복 방지. https://todari.dev/work/geo-seo-automation#dashboard-publication-cache · https://todari.dev/work/geo-seo-automation#scheduled-enqueue-retry

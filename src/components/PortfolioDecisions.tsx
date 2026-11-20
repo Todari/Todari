@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { forcletterEngineeringCases } from "@/data/forcletter-engineering";
 import { aggregationDecision, haengdongAllocationDecision, metronomeSyncDecision } from "@/data/portfolio-decisions";
 
 const decisions = [
@@ -51,6 +52,24 @@ export default function PortfolioDecisions() {
           <p className="mt-3 text-xs text-slate-600">2026.10.01 쿼리 변경 기록</p>
         </figure>
       </article>
+
+      <section id="forcletter-engineering" aria-labelledby="forcletter-engineering-heading" className="mt-3 scroll-mt-4 rounded-[22px] border border-slate-900/5 bg-white/95 px-[18px] pt-2 pb-4 shadow-[0_3px_18px_#0f172a08] sm:px-5">
+        <div className="flex flex-wrap items-center justify-between gap-x-4">
+          <h3 id="forcletter-engineering-heading" className="py-2 text-xl font-bold tracking-tight">포크레터 기술 사례</h3>
+          <Link href="/work/forcletter#experiences" className={evidenceLink}>포크레터 작업 전체 <span aria-hidden="true">›</span></Link>
+        </div>
+        <ul className="grid gap-x-6 sm:grid-cols-2">
+          {forcletterEngineeringCases.map(({ id, category, title, preview }) => (
+            <li key={id} className="border-t border-slate-200">
+              <Link href={`/work/forcletter#${id}`} className="group block rounded-sm py-3 focus-visible:outline-2 focus-visible:outline-offset-2">
+                <p className="text-xs font-semibold text-[#2347b7]">{category}</p>
+                <h4 className="mt-1 break-keep text-base leading-6 font-bold tracking-tight group-hover:underline">{title} <span aria-hidden="true" className="text-[#2347b7]">›</span></h4>
+                <p className="mt-1 break-keep text-sm leading-6 text-slate-600">{preview}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <ul role="list" className="mt-3 divide-y divide-slate-900/8 rounded-[22px] border border-slate-900/5 bg-white/95 px-[18px] shadow-[0_3px_18px_#0f172a08] sm:px-5">
         {decisions.map(({ context, title, choice, result, href, linkLabel, related, more }) => (
