@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://todari.dev" title="포트폴리오"><img width="48" height="48" src="https://raw.githubusercontent.com/Todari/Todari/main/.github/profile/nav-portfolio.svg" alt="포트폴리오"></a>
   <a href="https://todari.dev/writing" title="기술 글"><img width="48" height="48" src="https://raw.githubusercontent.com/Todari/Todari/main/.github/profile/nav-writing.svg" alt="기술 글"></a>
-  <a href="https://youtu.be/_jlNYmb6NAU?t=818" title="우수타 EP2 · 창업과 밴드를 시작한 토다리 (13:38)"><img width="48" height="48" src="https://raw.githubusercontent.com/Todari/Todari/main/.github/profile/nav-woosuta.svg" alt="우수타 EP2 · 창업과 밴드를 시작한 토다리 (13:38)"></a>
+  <a href="https://youtu.be/_jlNYmb6NAU" title="우수타 EP2 · 그동안 어떻게 지냈나요?"><img width="48" height="48" src="https://raw.githubusercontent.com/Todari/Todari/main/.github/profile/nav-woosuta.svg" alt="우수타 EP2 · 그동안 어떻게 지냈나요?"></a>
   <a href="mailto:hello@todari.dev" title="이메일 · hello@todari.dev"><img width="48" height="48" src="https://raw.githubusercontent.com/Todari/Todari/main/.github/profile/nav-email.svg" alt="이메일 · hello@todari.dev"></a>
 </p>
 
