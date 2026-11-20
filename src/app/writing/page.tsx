@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { aggregationDecision, attributionDecision, recoveryDecision } from "@/data/portfolio-decisions";
+import { aggregationDecision, attributionDecision, forcletterDesignDecisions, recoveryDecision } from "@/data/portfolio-decisions";
 
 export const metadata: Metadata = {
   title: "Writing",
@@ -13,10 +13,16 @@ const posts = [
   {
     slug: "snapshot-50m-rows",
     label: "DATA AT SCALE · FORCLETTER",
-    title: "스냅샷 약 4,800만 행에서 게시물별 최신 지표 읽기",
+    title: "게시물 지표를 JSON에 담았다가 숫자 컬럼으로 옮긴 이유",
     description:
-      "게시물 12개의 지표를 위해 5,845행을 정렬한 쿼리의 실행계획을 추적했습니다. 최신 시각을 먼저 찾는 조인과 같은 시각의 일간 값이 섞이는 조건을 확인했습니다.",
+      "처음 검토한 세 가지 저장 방식, 기존 응답을 유지한 이관, 이력을 보존하면서 최신값만 읽도록 바꾼 쿼리를 살펴봅니다.",
   },
+  ...forcletterDesignDecisions.map(({ context, title, choice, slug }) => ({
+    slug,
+    label: context,
+    title,
+    description: choice,
+  })),
   {
     slug: "geo-aggregation-memory",
     label: "PERFORMANCE · GEO DASHBOARD",
@@ -52,13 +58,6 @@ const posts = [
       "일시적인 외부 API 장애와 사용자 연결 해제에 서로 다른 복구 경로를 둔 상태 머신. 제목의 4,800개는 2026-08 당시 규모입니다.",
   },
   {
-    slug: "bluegreen-on-one-ec2",
-    label: "ZERO-DOWNTIME OPS · FORCLETTER",
-    title: "단일 EC2에서 blue-green 무중단 배포 직접 만들기",
-    description:
-      "새 슬롯의 헬스체크와 Nginx 설정 검증을 통과한 뒤에만 트래픽을 전환합니다. 롤백에는 이전 이미지 태그와 같은 배포 절차를 사용합니다.",
-  },
-  {
     slug: "ec2-oom-incident",
     label: "INCIDENT RESPONSE · TODARI OPS",
     title: "새벽 3시의 OOM을 시스템으로 되돌리기",
@@ -91,7 +90,7 @@ export default function Page() {
           </Link>
           <h1 className="text-base font-semibold tracking-tight">기술 글</h1>
         </div>
-        <p className="mt-4 break-keep px-2 text-sm leading-7 text-slate-700">서비스에서 발견한 병목과 오류를 어떻게 좁혀 갔는지 기록했습니다. 각 글에 당시 구현과 수정 결과를 확인한 조건을 담았습니다.</p>
+        <p className="mt-4 break-keep px-2 text-sm leading-7 text-slate-700">서비스를 만들 때 어떤 선택지가 있었고 운영하면서 무엇을 다시 설계했는지 기록했습니다. 당시의 코드, 측정값과 그 수치로 답할 수 있는 범위를 함께 담았습니다.</p>
       </header>
       <ul className="divide-y divide-slate-200 rounded-[20px] border border-slate-200 bg-white">
         {posts.map((post) => (

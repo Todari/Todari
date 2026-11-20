@@ -6,7 +6,7 @@ import { H2, P } from "../../writing/shell";
 
 export const metadata: Metadata = {
   title: "포크레터 · 채널 분석, AI 에이전트, 캠페인 정산과 모바일 앱",
-  description: "포크레터의 지표 조회 병목, 포키의 도구 호출 오류, 캠페인 목록 누락과 정산 재시도, 모바일 앱의 반복 로딩을 진단하고 검증한 기록입니다.",
+  description: "채널 성과 지표의 저장 방식을 바꾼 이유, 크리에이터 광고 제안가의 평가 기준, 수집 워커를 분리한 뒤 달라진 배포 구조를 소개합니다.",
   alternates: { canonical: "https://todari.dev/work/forcletter" },
 };
 
@@ -23,13 +23,15 @@ export default function ForcletterPage() {
             </Link>
             <h1 className="text-base font-semibold tracking-tight">포크레터</h1>
           </div>
-          <p className="mt-6 break-keep text-2xl font-bold leading-tight tracking-tight sm:text-[28px]">포크레터의 채널 분석, AI 매니저, 캠페인 정산과 모바일 앱을 운영하며 고친 문제들</p>
+          <p className="mt-6 break-keep text-2xl font-bold leading-tight tracking-tight sm:text-[28px]">크리에이터의 성과를 어떻게 저장하고, 단가를 추정하고, 수집을 계속할까?</p>
           <p className="mt-3 break-keep text-sm leading-7 text-slate-700">크리에이터의 채널 리포트, 댓글 자동 DM, 브랜드 캠페인을 지원하는 Linkive 서비스입니다. 2025년 9월부터 1인 기획·디자인·풀스택 개발·운영과 AI 에이전트 설계를 맡았습니다.</p>
           <nav aria-label="포크레터 관련 링크" className="mt-4 flex flex-wrap gap-x-5 gap-y-3 text-sm">
             <a href="#experiences" className={articleLink}>기술 작업과 검증 ↓</a>
             <a href="https://forcreator.co.kr" target="_blank" rel="noopener noreferrer" className={articleLink}>서비스 ↗</a>
             <a href="https://apps.apple.com/kr/app/id6758508512" target="_blank" rel="noopener noreferrer" className={articleLink}>App Store ↗</a>
-            <Link href="/writing/snapshot-50m-rows" className={articleLink}>게시물 지표 쿼리 →</Link>
+            <Link href="/writing/snapshot-50m-rows" className={articleLink}>지표 저장과 조회 →</Link>
+            <Link href="/writing/creator-price-estimates" className={articleLink}>광고 제안가 추정과 평가 →</Link>
+            <Link href="/writing/bluegreen-on-one-ec2#collector-cutover" className={articleLink}>수집 워커의 배포 순서 →</Link>
             <a href="#poki-action-execution" className={articleLink}>AI 작업 실행 ↓</a>
             <Link href="/writing/auto-dm-recovery" className={articleLink}>댓글 DM 장애 대응 →</Link>
             <a href="#reels" className={articleLink}>댓글 자동 DM 릴스 ↓</a>
@@ -41,9 +43,9 @@ export default function ForcletterPage() {
           <h2 id="engineering-title" className="mb-2 px-2 text-sm font-semibold text-slate-600">설계와 검증</h2>
           <div className="divide-y divide-slate-200 rounded-[20px] border border-slate-200 bg-white px-4 sm:px-6">
             <section className="space-y-3 py-5">
-              <h3 className="break-keep text-lg font-semibold tracking-tight">최신 스냅샷 하나를 읽는 비용이 이력 길이와 함께 늘었습니다</h3>
-              <p className="break-keep text-sm leading-7 text-slate-700">게시물 ID를 모아 한 번에 조회해도 목록 한 페이지에서 5,845행을 정렬했습니다. 게시물별 최신 누적 시각을 먼저 찾고 본문을 유니크 키로 읽도록 바꾸자, 같은 12개 게시물을 조회한 변경 기록에 인덱스 항목 115개와 테이블 행 12개가 남았습니다.</p>
-              <Link href="/writing/snapshot-50m-rows" className={`${articleLink} inline-block text-sm`}>실행계획과 같은 시각의 일별 행을 구분한 SQL →</Link>
+              <h3 className="break-keep text-lg font-semibold tracking-tight">게시물 지표를 모으는 방식과 화면에서 읽는 방식은 따로 바뀌었습니다</h3>
+              <p className="break-keep text-sm leading-7 text-slate-700">처음에는 게시물마다 다른 지표를 JSON 한 행에 저장했습니다. 이후 SQL 집계를 위해 고정 지표를 숫자 컬럼으로 옮겼습니다. 그래도 목록 한 페이지에서 과거 값 5,845행을 정렬하는 비용은 남았습니다. 게시물별 최신 누적 시각을 먼저 찾고 본문을 유니크 키로 읽도록 바꾸자, 같은 12개 게시물을 조회한 변경 기록에 인덱스 항목 115개와 테이블 행 12개가 남았습니다.</p>
+              <Link href="/writing/snapshot-50m-rows" className={`${articleLink} inline-block text-sm`}>저장 방식 세 가지와 최신값 조회의 실행계획 →</Link>
             </section>
             <section id="poki-action-execution" aria-labelledby="poki-action-title" className="scroll-mt-8 space-y-3 py-5">
               <h3 id="poki-action-title" className="break-keep text-lg font-semibold tracking-tight">AI 작업이 성공했는데 결과 기록만 실패했을 때</h3>

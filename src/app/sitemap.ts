@@ -22,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://todari.dev/writing/creator-price-estimates",
+      lastModified: new Date("2026-11-20"),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
       url: "https://todari.dev/writing/auto-dm-recovery",
       lastModified: new Date("2026-11-20"),
       changeFrequency: "yearly",

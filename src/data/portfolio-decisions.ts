@@ -1,3 +1,18 @@
+export const forcletterDesignDecisions = [
+  {
+    context: "광고 단가 · 모델 평가",
+    title: "크리에이터가 적은 광고 단가로, 얼마를 제안해야 할지 알 수 있을까?",
+    choice: "크리에이터의 희망가로 학습한 모델과 실제 협상에 쓸 제안 범위를 분리했습니다. 같은 계정이 학습과 평가에 섞이지 않게 한 뒤에도, 팔로워가 많은 계정에 보여 주는 금액은 별도의 근거가 필요했습니다.",
+    slug: "creator-price-estimates",
+  },
+  {
+    context: "수집 인프라 · 장애 격리",
+    title: "수집 워커를 분리한 뒤, 배포 순서까지 바꾼 이유",
+    choice: "5분마다 시작한 댓글 수집 한 번이 약 25분 걸리며 화면 요청과 DB 연결을 다퉜습니다. 수집을 전용 워커로 옮기자 배포 때 스케줄러가 연결할 곳이 사라졌습니다. 새 워커가 준비된 뒤에만 스케줄러를 옮기도록 순서를 바꿨습니다.",
+    slug: "bluegreen-on-one-ec2",
+  },
+] as const;
+
 export const recoveryDecision = {
   context: "포크레터 · 댓글 자동 DM 운영",
   title: "밀린 DM을 더 천천히 복구하기로 했습니다",

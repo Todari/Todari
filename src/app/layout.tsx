@@ -8,7 +8,7 @@ import { services } from "@/data/services";
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "프로덕트 엔지니어 토다리의 포트폴리오. 포크레터의 MySQL 실행계획, AiBright의 75만 건 집계 메모리, 메트로놈들의 박자 동기화, 행동대장의 정산 트랜잭션을 코드와 회귀 실험으로 설명합니다.";
+  "프로덕트 엔지니어 토다리의 포트폴리오. 포크레터의 지표 저장 모델, 광고 단가 평가와 수집 인프라를 설계한 과정, AiBright의 집계 메모리와 메트로놈들의 박자 동기화를 실제 구현 기록으로 설명합니다.";
 const PAGE_TITLE =
   "Todari | 프로덕트 엔지니어의 설계와 검증";
 
