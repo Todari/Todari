@@ -67,6 +67,22 @@ export default function MakerProfile() {
           <a href="https://www.youtube.com/watch?v=6z_UKO8uWus">Figma 강의 ↗</a>
         </div>
       </section>
+      <section id="woosuta" aria-labelledby="woosuta-heading" className="scroll-mt-5 rounded-[20px] bg-white px-[18px] py-5 sm:px-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h2 id="woosuta-heading" className="text-[18px] font-bold">우수타 · 우리끼리 수다 타임</h2>
+          <a href="https://www.youtube.com/@우리끼리수다타임" className="inline-flex min-h-11 items-center text-sm font-semibold text-[#2347b7] hover:underline">채널 전체 보기 ↗</a>
+        </div>
+        <p className="mb-3 break-keep text-sm leading-6 text-slate-700">동료 개발자들과 부트캠프 이후의 경험을 나누는 팟캐스트를 기획하고 진행했습니다.</p>
+        <ul className="divide-y divide-slate-200 border-t border-slate-200">
+          {[
+            ["EP5. 부트캠프는 아직 유효한가?!", "https://youtu.be/k2JIKx44L5M"],
+            ["EP3. 우리에게 수다가 필요한 이유", "https://youtu.be/007QtdQTLBo"],
+            ["EP2. 그동안 어떻게 지냈나요?", "https://youtu.be/_jlNYmb6NAU"],
+          ].map(([title, href]) => (
+            <li key={href}><a href={href} className="flex min-h-11 items-center justify-between gap-3 py-2 text-sm font-semibold text-[#2347b7] hover:underline">{title}<span aria-hidden="true">↗</span></a></li>
+          ))}
+        </ul>
+      </section>
       <section id="contact" tabIndex={-1} aria-labelledby="contact-heading" className="flex scroll-mt-5 flex-wrap items-center justify-between gap-3 rounded-[20px] bg-white px-[18px] py-5 sm:px-6">
         <div>
           <h2 id="contact-heading" className="text-[18px] font-bold">연락</h2>
