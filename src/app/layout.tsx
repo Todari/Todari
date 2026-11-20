@@ -1,24 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import PortfolioNavigation from "@/components/PortfolioNavigation";
 import { services } from "@/data/services";
 
 const SITE_URL = "https://todari.dev";
 const SITE_NAME = "Todari";
 const DESCRIPTION =
-  "기획·디자인에서 출발해 제품을 직접 만들고 운영하는 토다리의 포트폴리오입니다. 포크레터의 AI 운영 도구와 릴스 제작, AiBright의 AI 검색 분석, 이정표의 야구 티켓 정가 거래 설계를 살펴보세요.";
+  "프로덕트 엔지니어 토다리의 포트폴리오. 포크레터의 MySQL 실행계획, AiBright의 75만 건 집계 메모리, 메트로놈들의 박자 동기화, 행동대장의 정산 트랜잭션을 코드와 회귀 실험으로 설명합니다.";
 const PAGE_TITLE =
-  "Todari | 기획·디자인에서 출발한 프로덕트 엔지니어";
+  "Todari | 프로덕트 엔지니어의 설계와 검증";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Lossless WOFF2 versions of the iOS app's Forc Sans. OFL notices are in public/fonts.
+const forcSans = localFont({
+  src: [
+    { path: "./fonts/forc-sans-400.woff2", weight: "400" },
+    { path: "./fonts/forc-sans-500.woff2", weight: "500" },
+    { path: "./fonts/forc-sans-600.woff2", weight: "600" },
+    { path: "./fonts/forc-sans-700.woff2", weight: "700" },
+  ],
+  variable: "--font-forc-sans",
+  adjustFontFallback: false,
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -81,7 +85,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Todari — 3D Project Dispenser와 AI Development Harness",
+        alt: "토다리 · 포크레터 게시물 12개의 최신 지표를 위해 5,845행을 읽던 쿼리",
       },
     ],
   },
@@ -109,9 +113,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#f8fafc",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 const jsonLd = {
@@ -142,6 +147,10 @@ const jsonLd = {
       email: "mailto:hello@todari.dev",
       url: SITE_URL,
       knowsAbout: [
+        "SQL Query Optimization",
+        "Memory Profiling",
+        "Distributed Clock Synchronization",
+        "Transactional Consistency",
         "Service Planning",
         "Product Management",
         "Product Operations",
@@ -197,7 +206,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${forcSans.variable} antialiased`}
     >
       <body>
         <script
@@ -205,6 +214,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <PortfolioNavigation />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}

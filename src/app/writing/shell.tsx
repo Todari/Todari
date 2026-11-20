@@ -1,13 +1,12 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/** 기술 글 공용 셸 — 사이트의 네오브루탈리즘 문법(paper·ink·mono 라벨)을 따른다. */
 export function ArticleShell({
   label,
   title,
   date,
   intro,
-  sourceNote = "이 글의 내용은 실제 운영 중인 코드와 프로덕션 데이터를 기준으로 작성했습니다. 궁금한 점은 편하게 연락 주세요.",
+  sourceNote,
   children,
 }: {
   label: string;
@@ -18,51 +17,28 @@ export function ArticleShell({
   children: ReactNode;
 }) {
   return (
-    <main
-      className="min-h-screen bg-[#fffaf0] px-5 py-16 text-[#17151c] md:px-10 md:py-24"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(23,21,28,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(23,21,28,.08) 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
-    >
-      <article className="mx-auto max-w-3xl">
-        <Link
-          href="/writing"
-          className="font-mono text-[11px] font-black tracking-[0.18em] text-[#5b38b9]"
-        >
-          ← WRITING
+    <main className="mx-auto min-h-screen max-w-4xl px-4 pt-3 pb-10 text-slate-900 sm:px-6">
+      <nav aria-label="글 탐색" className="relative mb-3 flex min-h-11 items-center justify-center">
+        <Link href="/writing" className="absolute left-0 inline-flex min-h-11 items-center gap-1 rounded-sm px-1 text-sm font-semibold text-[#2347b7]">
+          <span aria-hidden="true" className="text-xl">‹</span> 글 목록
         </Link>
-        <p className="mt-8 inline-flex rotate-[-1deg] items-center rounded-full border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 font-mono text-[10px] font-black tracking-[0.2em] shadow-[3px_3px_0_#17151c]">
-          {label}
-        </p>
-        <h1 className="mt-6 text-3xl font-black leading-[1.15] tracking-[-0.04em] md:text-5xl">
-          {title}
-        </h1>
-        <p className="mt-4 font-mono text-[11px] font-bold tracking-[0.14em] text-[#17151c]/50">
-          {date} · TODARI
-        </p>
-        <p className="mt-8 rounded-[1rem] border-[3px] border-[#17151c] bg-[#fffaf0] p-5 text-[15px] font-bold leading-7 shadow-[6px_6px_0_#17151c]">
-          {intro}
-        </p>
-        <div className="article-body mt-12 space-y-6">{children}</div>
-        <footer className="mt-16 border-t-[3px] border-[#17151c] pt-8">
-          <p className="text-sm leading-6 text-[#5d5565]">
-            {sourceNote}
-          </p>
-          <div className="mt-4 flex gap-3">
-            <a
-              href="https://todari.dev"
-              className="rounded-xl border-2 border-[#17151c] bg-[#dfff4f] px-4 py-2 text-sm font-black shadow-[3px_3px_0_#17151c]"
-            >
-              TODARI.DEV
-            </a>
-            <a
-              href="mailto:hello@todari.dev"
-              className="rounded-xl border-2 border-[#17151c] bg-[#fffaf0] px-4 py-2 text-sm font-black shadow-[3px_3px_0_#17151c]"
-            >
-              hello@todari.dev
-            </a>
+        <span className="text-base font-bold">기술 글</span>
+      </nav>
+      <article className="rounded-[20px] bg-white px-[18px] py-6 sm:p-9">
+        <header className="border-b border-slate-200 pb-5">
+          <p className="text-xs font-semibold tracking-wide text-slate-600">{label}</p>
+          <h1 className="mt-2 max-w-2xl break-keep text-[25px] font-bold leading-tight tracking-tight sm:text-[32px]">
+            {title}
+          </h1>
+          <p className="mt-4 text-sm text-slate-600">{date} · TODARI</p>
+          <p className="mt-4 break-keep text-base leading-7 text-slate-700">{intro}</p>
+        </header>
+        <div className="article-body mt-8 space-y-5 [&>h2]:mt-12 [&>a]:text-blue-700">{children}</div>
+        <footer className="mt-12 border-t border-slate-200 pt-6">
+          {sourceNote && <p className="text-sm leading-6 text-slate-600">{sourceNote}</p>}
+          <div className="mt-4 flex flex-wrap gap-5 text-sm font-semibold text-blue-700 underline-offset-4 [&>a]:underline">
+            <Link href="/">TODARI.DEV</Link>
+            <a href="mailto:hello@todari.dev">hello@todari.dev</a>
           </div>
         </footer>
       </article>
@@ -72,19 +48,19 @@ export function ArticleShell({
 
 export function H2({ children }: { children: ReactNode }) {
   return (
-    <h2 className="!mt-12 text-xl font-black tracking-[-0.02em] md:text-2xl">
+    <h2 className="break-keep text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
       {children}
     </h2>
   );
 }
 
 export function P({ children }: { children: ReactNode }) {
-  return <p className="text-[15px] leading-8 text-[#3d3745]">{children}</p>;
+  return <p className="break-keep text-base leading-8 text-slate-700">{children}</p>;
 }
 
 export function Code({ children }: { children: string }) {
   return (
-    <pre className="overflow-x-auto rounded-[1rem] border-[3px] border-[#17151c] bg-[#17151c] p-5 font-mono text-[12.5px] leading-6 text-[#dfff4f] shadow-[6px_6px_0_rgba(23,21,28,.25)]">
+    <pre className="overflow-x-auto rounded-xl bg-slate-900 p-5 font-mono text-xs leading-6 text-slate-50">
       <code>{children}</code>
     </pre>
   );
@@ -92,7 +68,7 @@ export function Code({ children }: { children: string }) {
 
 export function Callout({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-[1rem] border-[3px] border-[#17151c] bg-[#ffe9f4] p-5 text-[14px] font-bold leading-7 shadow-[5px_5px_0_#17151c]">
+    <div className="rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm font-semibold leading-7 text-slate-800">
       {children}
     </div>
   );

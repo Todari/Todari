@@ -1,0 +1,60 @@
+.cases {
+  display: grid;
+  grid-template: repeat(5, auto) / minmax(0, 1fr);
+}
+
+.panel {
+  grid-area: 1 / 1 / -1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
+}
+
+.sources {
+  display: grid;
+}
+
+.sourcePanel {
+  grid-area: 1 / 1;
+}
+
+/* Keep the shared tracks sized by every case while only exposing the selected content. */
+.panel,
+.sourcePanel {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel *,
+  .sourcePanel,
+  .sourcePanel * {
+    transition-property: none;
+  }
+}
+
+.deck:not(:has(.panel:target)) [data-case="forcletter"],
+.panel:target,
+.deck:has(.panel[data-case="forcletter"]:target) .sourcePanel[data-case="forcletter"],
+.deck:has(.panel[data-case="geo"]:target) .sourcePanel[data-case="geo"],
+.deck:has(.panel[data-case="metronomdeul"]:target) .sourcePanel[data-case="metronomdeul"],
+.deck:has(.panel[data-case="haengdong"]:target) .sourcePanel[data-case="haengdong"] {
+  visibility: visible;
+}
+
+.activeLabel {
+  display: none;
+}
+
+.deck:not(:has(.panel:target)) .selector[href="#forcletter-case"],
+.deck:has(.panel[data-case="forcletter"]:target) .selector[href="#forcletter-case"],
+.deck:has(.panel[data-case="geo"]:target) .selector[href="#geo-case"],
+.deck:has(.panel[data-case="metronomdeul"]:target) .selector[href="#metronomdeul-case"],
+.deck:has(.panel[data-case="haengdong"]:target) .selector[href="#haengdong-case"] {
+  color: #2347b7;
+  background: white;
+  box-shadow: 0 1px 3px rgb(15 23 42 / 13%);
+
+  .activeLabel {
+    display: block;
+  }
+}

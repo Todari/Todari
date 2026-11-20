@@ -1,123 +1,197 @@
-import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
-import { services, type Service } from "@/data/services";
 import { workExperiences } from "@/data/work-experiences";
-import { ExperienceSources } from "./WorkExperiences";
+import styles from "./SelectedWork.module.css";
 
-const spotlightProjects: Service["id"][] = ["haengdong", "metronomdeul", "pin-to-gather"];
+const cardClass = "min-w-0 rounded-[22px] border border-slate-900/5 bg-white/95 p-[18px] shadow-[0_3px_18px_#0f172a08] sm:p-6";
+const evidenceLink = "inline-flex min-h-11 w-fit items-center gap-1 rounded-sm text-sm font-semibold text-[#2347b7] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4";
 
-function Decision({ label, children }: { label: string; children: ReactNode }) {
-  return <div className="grid gap-1.5 sm:grid-cols-[5rem_1fr] sm:gap-4"><dt className="text-xs font-black leading-6">{label}</dt><dd className="text-sm leading-7 text-[#5d5565] [word-break:keep-all]">{children}</dd></div>;
+const reports = [
+  {
+    project: "forcletter",
+    id: "forcletter-case",
+    name: "포크레터",
+    label: "포크레터 · AI 에이전트 실행",
+    date: "2026-10-02",
+    dateLabel: "CI 검증",
+    sourceLabel: "비공개 PR #1094 검증 기록",
+    detail: "/work/forcletter#poki-action-execution",
+    evidenceTitle: "회귀 테스트",
+    summary: "포키가 작업을 적용한 뒤 완료 기록만 실패하면 같은 카드가 다시 실행될 수 있었습니다. 실행 선점을 유지하고 결과 저장만 재시도하도록 했습니다.",
+    steps: [
+      { label: "승인된 카드", value: "작업 호출 1회" },
+      { label: "완료 기록 실패", value: "결과 저장만 재시도" },
+      { label: "저장 계속 실패", value: "성공 응답 유지 · 이력은 대기" },
+    ],
+    verification: "병합 전 CI에서 모의 저장소에 오류를 주입했습니다. 실행이 먼저 선점하면 취소가 최신 상태를 반환하는지도 확인했습니다. 결과 저장이 세 번 실패하면 카드 이력이 나중에 만료될 수 있습니다.",
+  },
+  {
+    project: "geo",
+    id: "geo-case",
+    name: "AiBright",
+    label: "AiBright · AI 검색 답변 분석",
+    date: "2026-09-28",
+    dateLabel: "측정",
+    sourceLabel: "SQL과 객체 공유 검증",
+    detail: "/work/geo-seo-automation#aggregation-memory",
+    evidenceTitle: "로컬 PostgreSQL에서 확인한 객체 공유",
+    summary: "같은 멘션 값이 답변마다 별도 객체로 만들어졌습니다. 답변별 등장 횟수는 유지하고, 값이 같으면 객체 하나를 공유하도록 바꿨습니다.",
+    steps: [
+      { label: "입력", value: "답변 둘에 멘션 5개와 3개" },
+      { label: "AI 탭", value: "객체 5개 공유 · 등장 8건 유지" },
+      { label: "브리핑", value: "객체 3개 공유 · 등장 8건 유지" },
+    ],
+    verification: "당시 로더와 PostgreSQL 16에서 같은 입력을 읽어 등장 순서·중복 횟수·객체 참조를 검사했습니다. 쇼핑은 상품 ID까지 구분해 서로 다른 객체 5개를 유지했습니다.",
+  },
+  {
+    project: "metronomdeul",
+    id: "metronomdeul-case",
+    name: "메트로놈들",
+    label: "메트로놈들 · 합주 박자 동기화",
+    date: "2026-10-01",
+    dateLabel: "병합",
+    sourceLabel: "PR #12",
+    detail: "/work/metronomdeul#first-beat",
+    evidenceTitle: "첫 박 동기화 회귀 검사",
+    summary: "재생을 누른 기기의 첫 두 박 간격이 업로드 지연만큼 늘었습니다. 기기가 시작한 첫 박 시각을 서버 시계로 바꿔 전체 박자의 기준으로 삼았습니다.",
+    steps: [
+      { label: "120 BPM", value: "정상 박 간격 500ms" },
+      { label: "수정 전 재현", value: "재생 기기의 첫 두 박 간격 539ms" },
+      { label: "가상 시계", value: "첫 박부터 서버 박자 기준 ±2ms" },
+    ],
+    verification: "가상 시계에서 박의 누락과 중복도 검사했습니다. PR에 서버 테스트 24개 통과를 기록했습니다. 실기기와 블루투스 이어폰은 PR 검증 범위에 포함되지 않았습니다.",
+  },
+  {
+    project: "haengdong",
+    id: "haengdong-case",
+    name: "행동대장",
+    label: "행동대장 · 개인 포크의 정산 검증",
+    date: "2026-09-21",
+    dateLabel: "병합",
+    sourceLabel: "PR #8",
+    detail: "/work/haengdong#bill-member-boundary",
+    evidenceTitle: "회귀 테스트",
+    summary: "합계가 맞아도 다른 행사 멤버나 중복 멤버가 섞일 수 있었습니다. 생성과 수정 모두 같은 트랜잭션에서 멤버를 먼저 검사하도록 했습니다.",
+    steps: [
+      { label: "기존 정산", value: "청구 상세가 저장된 상태" },
+      { label: "상세 수정 요청", value: "합계 10,000원 일치 · 다른 행사 멤버 포함" },
+      { label: "검증 결과", value: "요청 거절 · 기존 상세 삭제 호출 0회" },
+    ],
+    verification: "생성과 수정에서 중복 멤버도 거절하고, 정상 요청은 저장과 같은 트랜잭션에서 멤버를 조회하는지 검사했습니다. 병합 PR에 서버 테스트 46개와 타입 검사 통과를 기록했습니다.",
+  },
+] as const;
+
+function Chevron() {
+  return <span aria-hidden="true" className="text-base leading-none">›</span>;
 }
 
 export default function SelectedWork() {
   return (
-    <section id="selected-work" tabIndex={-1} aria-labelledby="selected-heading" className="paper-grid scroll-mt-5 px-5 py-14 text-[#17151c] outline-none md:px-10 md:py-20">
-      <div className="mx-auto max-w-6xl">
-        <h2 id="selected-heading" className="text-3xl font-black leading-tight tracking-[-0.045em] md:text-4xl">대표 사례</h2>
-
-        <article id="forcletter-case" className="neo-card mt-7 grid scroll-mt-8 overflow-hidden bg-[#fffaf0] lg:grid-cols-[1.1fr_1fr]">
-          <div className="p-6 md:p-9">
-            <p className="text-sm font-black text-[#5b38b9]">포크레터 · 제품 설계와 운영</p>
-            <h3 className="mt-4 break-keep text-2xl font-black leading-snug tracking-[-0.045em] md:text-3xl">채널 리포트에서 자동 DM 설정까지 한곳에서</h3>
-            <dl className="mt-6 space-y-5">
-              <Decision label="내 역할">1인 기획·디자인·풀스택 개발·운영, AI 에이전트 설계</Decision>
-              <Decision label="설계 판단">인스타그램·유튜브 리포트를 사용자별로 묶고, 포키가 자동 DM이나 프로필 링크 설정을 바꾸기 전에 사용자 확인을 거치게 했습니다.</Decision>
-              <Decision label="운영 설계">채널 연결 해제와 일시적인 API 실패를 구분하고, 앱과 웹의 배포 순서가 달라도 탭과 버튼 배치를 유지하도록 했습니다.</Decision>
-            </dl>
-            <Link href="/work/forcletter" className="neo-button mt-7 inline-flex rounded-xl bg-[#dfff4f] px-5 py-3 text-sm font-black">포크레터 사례 읽기 →</Link>
-          </div>
-          <div className="flex flex-col justify-center border-t-[3px] border-[#17151c] bg-[#a78bfa] p-6 lg:border-t-0 lg:border-l-[3px] md:p-8">
-            <div className="flex items-start justify-center gap-4">
-              <Image src="/work/forcletter/product-1.jpg" width={221} height={480} sizes="(max-width: 600px) 36vw, 190px" alt="포크레터 자동 DM 설정을 소개하는 공개 앱 화면" className="h-auto w-[42%] max-w-[190px] rotate-[-3deg] rounded-2xl border-[3px] border-[#17151c] shadow-[5px_5px_0_#17151c]" />
-              <Image src="/work/forcletter/product-2.jpg" width={221} height={480} sizes="(max-width: 600px) 36vw, 190px" alt="포크레터 AI 멀티링크 제작을 소개하는 공개 앱 화면" className="mt-7 h-auto w-[42%] max-w-[190px] rotate-[3deg] rounded-2xl border-[3px] border-[#17151c] shadow-[5px_5px_0_#17151c]" />
-            </div>
-            <p className="mt-5 text-center text-[11px] font-bold leading-5">App Store 공개 소개 이미지 · 시연 데이터</p>
-            <div className="mt-6 rounded-xl border-2 border-[#17151c] bg-[#fffaf0] p-5">
-              <p className="text-2xl font-black">가입 계정 13,847+</p>
-              <p className="mt-2 text-xs leading-6 text-[#5d5565]">2026-11-05 공개 홈페이지 기준 · 탈퇴 계정 제외</p>
-              <a href="https://forcreator.co.kr" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block py-1 text-xs font-bold text-[#5b38b9] underline underline-offset-4">공개 출처 확인 ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <article id="geo-case" className="neo-card mt-8 grid scroll-mt-8 overflow-hidden bg-[#fffaf0] lg:grid-cols-[1fr_1.1fr]">
-          <div className="p-6 md:p-9 lg:col-start-2 lg:row-start-1">
-            <p className="text-sm font-black text-[#5b38b9]">AiBright · AI 검색 데이터와 콘텐츠 검수</p>
-            <h3 className="mt-4 break-keep text-2xl font-black leading-snug tracking-[-0.045em] md:text-3xl">AI 답변의 근거를 편집 작업으로</h3>
-            <dl className="mt-6 space-y-5">
-              <Decision label="내 역할">제품 흐름 설계, 풀스택 개발, 수집·콘텐츠 자동화</Decision>
-              <Decision label="설계 판단">수집 실패와 브랜드 미노출을 구분해 개선안에서 질문·답변 원문과 인용 출처를 확인할 수 있게 했습니다.</Decision>
-              <Decision label="확인 범위">고객 CMS에 초안·할 일을 전달하는 연동을 배포했습니다. 공개 사이트 반영과 검색 효과는 후속 검증 범위입니다.</Decision>
-            </dl>
-            <Link href="/work/geo-seo-automation" className="neo-button mt-7 inline-flex rounded-xl bg-[#67e8f9] px-5 py-3 text-sm font-black">AiBright 사례 읽기 →</Link>
-          </div>
-          <div className="grid content-center gap-4 border-t-[3px] border-[#17151c] bg-[#67e8f9] p-6 md:p-8 lg:col-start-1 lg:row-start-1 lg:border-t-0 lg:border-r-[3px]">
-            <div className="rounded-xl border-2 border-[#17151c] bg-[#17151c] p-5 text-[#fffaf0]">
-              <p className="text-xs font-black text-[#67e8f9]">AiBright → 고객 사이트 CMS</p>
-              <p className="mt-2 break-keep text-base font-black leading-snug">근거 질문에서 초안과 편집 할 일로</p>
-            </div>
-            <div className="rounded-xl border-2 border-[#17151c] bg-[#fffaf0] p-5 shadow-[4px_4px_0_#17151c]">
-              <p className="text-xs font-black text-[#5b38b9]">별도 미디어 CMS</p>
-              <p className="mt-2 break-keep text-base font-black leading-snug">생성 → 주장·출처 독립 검수 → 조건부 발행</p>
-            </div>
-          </div>
-        </article>
-
-        <article id="jeongpyo-case" className="neo-card mt-8 grid scroll-mt-8 overflow-hidden bg-[#fffaf0] lg:grid-cols-[1.1fr_1fr]">
-          <div className="p-6 md:p-9">
-            <p className="text-sm font-black text-[#5b38b9]">이정표 · KBO 티켓 정가 양도</p>
-            <h3 className="mt-4 break-keep text-2xl font-black leading-snug tracking-[-0.045em] md:text-3xl">티켓 양도에서 가격 입력을 없애다</h3>
-            <dl className="mt-6 space-y-5">
-              <Decision label="내 역할">제품 설계, 풀스택 개발, 거래 운영 흐름 설계</Decision>
-              <Decision label="설계 판단">가격 입력란을 없애 판매자가 웃돈을 붙일 수 없게 했습니다. 경기와 좌석 등급을 고르면 서버가 구단 판매가 기준으로 정가를 산정합니다.</Decision>
-              <Decision label="확인 범위">잠실 베타 알림을 받고 있습니다. 실제 팬 간 거래는 베타에서 검증할 예정입니다.</Decision>
-            </dl>
-            <Link href="/work/jeongpyo" className="neo-button mt-7 inline-flex rounded-xl bg-[#ffcae5] px-5 py-3 text-sm font-black">이정표 사례 읽기 →</Link>
-          </div>
-          <div className="grid content-center gap-4 border-t-[3px] border-[#17151c] bg-[#ffcae5] p-6 md:p-8 lg:border-t-0 lg:border-l-[3px]">
-            <ol aria-label="정가 산정 흐름" className="grid overflow-hidden rounded-xl border-2 border-[#17151c] bg-[#fffaf0] shadow-[4px_4px_0_#17151c] sm:grid-cols-2">
-              <li className="p-5">
-                <p className="text-xs font-black text-[#5b38b9]">판매자</p>
-                <p className="mt-2 font-black">경기·좌석 등급 선택</p>
-              </li>
-              <li className="border-t-2 border-[#17151c] bg-[#dfff4f] p-5 sm:border-t-0 sm:border-l-2">
-                <p className="text-xs font-black text-[#5b38b9]">서버</p>
-                <p className="mt-2 font-black">구단 판매가로 정가 산정</p>
-              </li>
-            </ol>
-            <a href="https://jeongpyo.com" target="_blank" rel="noopener noreferrer" className="justify-self-start py-2 text-xs font-black text-[#5b38b9] underline underline-offset-4">공개 양도 절차와 잠실 베타 ↗</a>
-          </div>
-        </article>
-
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
-          <h3 className="text-2xl font-black tracking-tight">팀과 개인 프로젝트에서 해결한 일</h3>
-          <Link href="/works" className="neo-button rounded-xl bg-[#dfff4f] px-4 py-2.5 text-sm font-black">{services.length}개 프로젝트 보기 →</Link>
+    <section id="selected-work" tabIndex={-1} aria-labelledby="selected-heading" className={`${styles.deck} mx-auto max-w-4xl scroll-mt-4 px-4 text-slate-900 outline-none sm:px-6`}>
+      <h2 id="selected-heading" className="mt-7 text-[22px] font-bold tracking-tight sm:mt-10 sm:text-[26px]">구현과 회귀 테스트</h2>
+      <nav aria-label="대표 사례 선택" className="py-2">
+        <div className="grid grid-cols-4 gap-0.5 rounded-2xl bg-slate-900/8 p-1 backdrop-blur-md">
+          {reports.map(({ id, name }) => (
+            <a key={id} href={`#${id}`} aria-controls={id} className={`${styles.selector} flex min-h-11 min-w-0 items-center justify-center rounded-xl px-1 text-center text-[13px] font-semibold text-slate-700 hover:bg-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2347b7] sm:text-sm`}>
+              {name}
+              <span className={`${styles.activeLabel} sr-only`}> · 선택됨</span>
+            </a>
+          ))}
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {spotlightProjects.map((id) => {
-            const project = services.find((service) => service.id === id);
-            if (!project) return null;
-            const [experience] = workExperiences[id];
+      </nav>
+
+      <div className={styles.cases}>
+        {reports.map(({ id, project, label, date, dateLabel, sourceLabel, detail, evidenceTitle, summary, steps, verification }) => {
+          const [experience] = workExperiences[project];
+          const [primary] = experience.sources;
+          const [first, second, outcome] = steps;
+
+          return (
+            <article id={id} key={id} data-case={project} tabIndex={-1} aria-labelledby={`${id}-heading`} className={`${styles.panel} ${cardClass} scroll-mt-20 outline-none`}>
+              <div>
+                <p className="text-xs font-semibold text-[#2347b7]">{label}</p>
+                <h3 id={`${id}-heading`} className="mt-2 break-keep text-[23px] leading-tight font-bold tracking-tight sm:text-[27px]">{experience.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-x-4">
+                <div className="flex flex-wrap gap-x-4">
+                  {primary.href.startsWith("/") ? (
+                    <Link href={primary.href} className={evidenceLink}>{sourceLabel} <Chevron /></Link>
+                  ) : (
+                    <a href={primary.href} className={evidenceLink}>{sourceLabel} <span aria-hidden="true">↗</span></a>
+                  )}
+                  {primary.href !== detail && <Link href={detail} className={evidenceLink}>프로젝트 사례 <Chevron /></Link>}
+                </div>
+                <p className="pb-2 text-xs text-slate-600 sm:pb-0"><time dateTime={date}>{date.replaceAll("-", ".")}</time> {dateLabel} · Todari 작성</p>
+              </div>
+
+              <p className="max-w-[66ch] break-keep text-sm leading-6 text-slate-700 sm:text-[15px]">{summary}</p>
+
+              <figure className="mt-4">
+                <figcaption className="mb-2 text-xs font-semibold text-slate-600">{evidenceTitle}</figcaption>
+                <ol role="list" className="grid gap-2 sm:grid-cols-[1fr_1fr_1.2fr]">
+                  {[first, second].map(({ label, value }) => (
+                    <li key={label} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-xl bg-slate-100/85 px-3 py-2.5 text-[13px] leading-5 sm:block sm:px-4 sm:py-3">
+                      <span className="font-semibold text-slate-600">{label}</span>
+                      <span className="block break-keep text-slate-800 sm:mt-1">{value}</span>
+                    </li>
+                  ))}
+                  <li className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-xl bg-[#e9f1ff] px-3 py-2.5 text-[13px] leading-5 text-[#163c91] sm:block sm:px-4 sm:py-3">
+                    <span className="font-semibold">{outcome.label}</span>
+                    <strong className="block break-keep font-bold sm:mt-1">{outcome.value}</strong>
+                  </li>
+                </ol>
+              </figure>
+
+              <dl className="mt-3 grid gap-1 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-3">
+                <dt className="text-[13px] leading-[22px] font-bold">검증 범위</dt>
+                <dd className="max-w-[72ch] break-keep text-[13px] leading-[22px] text-slate-700">{verification}</dd>
+              </dl>
+            </article>
+          );
+        })}
+      </div>
+
+      <details className="group mt-3 rounded-2xl border border-slate-900/5 bg-white/95 px-[18px] sm:px-6">
+        <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-sm text-sm font-semibold text-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2347b7] [&::-webkit-details-marker]:hidden">
+          판단과 출처
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-4 text-[#2347b7] group-open:rotate-180">
+            <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </summary>
+        <div className={styles.sources}>
+          {reports.map(({ project, label }) => {
+            const [experience] = workExperiences[project];
+            const [, ...sources] = experience.sources;
 
             return (
-              <article key={id} className="rounded-xl border-2 border-[#17151c] bg-[#fffaf0] p-5">
-                <p className="text-xs font-bold text-[#5b38b9]">{project.title} · {experience.category}</p>
-                <h4 className="mt-3 break-keep text-lg font-black leading-snug">
-                  <Link href={`${project.caseStudy}#${experience.id}`} className="underline-offset-4 hover:underline">{experience.title} →</Link>
-                </h4>
-                <ExperienceSources experience={experience} />
-              </article>
+              <section key={project} data-case={project} aria-label={`${label}의 판단과 출처`} className={styles.sourcePanel}>
+                <dl className="divide-y divide-slate-900/8 border-t border-slate-900/8">
+                  <div className="grid gap-1 py-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-3">
+                    <dt className="text-sm font-bold">문제</dt>
+                    <dd className="break-keep text-sm leading-6 text-slate-700">{experience.problem}</dd>
+                  </div>
+                  <div className="grid gap-1 py-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-3">
+                    <dt className="text-sm font-bold">판단</dt>
+                    <dd className="break-keep text-sm leading-6 text-slate-700">{experience.change}</dd>
+                  </div>
+                </dl>
+                {sources.length > 0 && (
+                  <div className="flex flex-wrap gap-x-5 border-t border-slate-900/8 pb-2">
+                    {sources.map(({ label, href }) => href.startsWith("/") ? (
+                      <Link key={href} href={href} className={evidenceLink}>{label} <Chevron /></Link>
+                    ) : (
+                      <a key={href} href={href} className={evidenceLink}>{label} <span aria-hidden="true">↗</span></a>
+                    ))}
+                  </div>
+                )}
+              </section>
             );
           })}
         </div>
+      </details>
 
-        <nav aria-label="관련 기술 글" className="mt-8 flex flex-wrap gap-x-5 gap-y-1 border-t border-[#17151c]/20 pt-4 text-sm font-bold text-[#5b38b9] [&_a]:py-2 [&_a]:underline [&_a]:underline-offset-4">
-          <Link href="/writing/native-web-layout-compatibility">앱·웹 호환 설계 →</Link>
-          <Link href="/writing/marketing-reels-pipeline">릴스 제작 파이프라인 →</Link>
-          <Link href="/writing">모든 기술 글 →</Link>
-        </nav>
+      <div className="mt-1 flex justify-end">
+        <Link href="/works" className={evidenceLink}>전체 작업 보기 <Chevron /></Link>
       </div>
     </section>
   );

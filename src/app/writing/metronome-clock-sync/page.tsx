@@ -1,88 +1,80 @@
 import type { Metadata } from "next";
+import { CasePrinciple } from "@/components/WorkExperiences";
 import { ArticleShell, Code, H2, P } from "../shell";
 
+const title = "120 BPM에서 첫 두 박만 늦어진 이유";
 export const metadata: Metadata = {
-  title: "떨어져 있는 기기들의 박자를 하나로 맞추기",
-  description:
-    "합주용 실시간 메트로놈을 만들며 겪은 시계 동기화 문제. RTT 중앙값으로 오프셋을 추정하고 Web Audio에 50ms 앞서 예약하는 방식으로 풀었습니다.",
+  title,
+  description: "실제 메트로놈 클라이언트에 가상 시계와 네트워크 지연을 주고, 첫 두 박의 간격을 수정 전후로 비교했습니다. 박의 기준 시각, 오프셋 추정, Web Audio 예약의 역할을 설명합니다.",
+  alternates: { canonical: "/writing/metronome-clock-sync" },
 };
 
 export default function Page() {
   return (
     <ArticleShell
-      label="REALTIME SYNC · 메트로놈들"
-      title="떨어져 있는 기기들의 박자를 하나로 맞추기"
-      date="2026.08"
-      intro="메트로놈들은 여러 연주자가 각자의 이어폰으로 같은 클릭을 듣는 합주용 메트로놈입니다. 요구사항은 '모두에게 같은 박자' 한 문장인데, 그 밑에는 서로 다른 시계 세 개와 네트워크 지연이 숨어 있었습니다."
+      label="메트로놈들 · 실시간 오디오 동기화"
+      title={title}
+      date="2026.10 수정 · 2026.11 재현"
+      intro="합주에서 재생을 누른 사람에게 첫 클릭은 즉시 들려야 합니다. 그런데 첫 두 박 사이만 늘어졌습니다. 120 BPM으로 고정하고 업로드에 40ms가 걸리게 하자 첫 간격은 539ms, 그다음부터는 정확히 500ms였습니다."
     >
-      <H2>시계가 세 개다</H2>
+      <H2>첫 박과 두 번째 박의 출발점이 달랐습니다</H2>
       <P>
-        기기마다 벽시계(Date.now)가 다르고, 서버의 시계도 다르고, 실제로
-        소리를 내는 Web Audio의 하드웨어 클록은 그 둘과 또 다릅니다. 여기에
-        네트워크 지연까지 얹히면, 서버가 지금 틱을 보냈다는 정보만으로는 같은
-        순간에 소리를 낼 수 없습니다.
+        시작 기기는 자체 시계로 첫 박을 예약합니다. 서버는 시작 요청을 받은 시각을 방의 첫 박으로 기록하고 다른 기기에 전파했습니다.
+        시작 기기마저 두 번째 박부터 그 기준으로 옮겨가면서 첫 구간에만 전송 시간이 더해졌습니다. 타이머를 더 자주 실행해도 두 기준점 사이의 차이는 그대로입니다.
       </P>
       <P>
-        그래서 문제를 둘로 쪼갰습니다. 먼저 서버 시각과 내 시각의
-        차이(오프셋)를 알아내고, 그다음 알아낸 시각에 정확히 소리를 냅니다.
-        판단은 벽시계로 하고 재생은 오디오 클록으로 합니다. 두 세계를 섞지
-        않는 게 이 설계의 뼈대입니다.
+        모든 기기가 서버 응답을 기다리면 기준을 하나로 만들 수 있지만, 재생을 누른 사람도 왕복 지연을 기다려야 합니다.
+        로컬 재생을 유지하고, 시작 기기가 사용한 첫 박의 기준 시각을 서버 시계로 환산해 요청에 실었습니다.
+        서버는 제안값과 수신 시각의 차이가 1초 이내면 제안을 채택합니다. 값이 없거나 범위를 벗어나면 수신 시각을 사용합니다. 크게 어긋난 기기 한 대가 방 전체의 기준을 옮기는 범위를 이렇게 제한했습니다.
       </P>
 
-      <H2>오프셋 추정, 평균이 아니라 중앙값</H2>
+      <H2>업로드만 바꿔 수정 전후를 비교했습니다</H2>
       <P>
-        오프셋 추정은 NTP의 축소판입니다. 클라이언트가 자기 시각을 실어 핑을
-        보내면 서버가 자기 시각을 실어 돌려주고, 왕복 시간의 절반만큼 보정해서
-        차이를 계산합니다.
+        PR #12의 가상 시계에서 수정 직전과 병합 시점의 실제 클라이언트를 각각 실행했습니다. 템포는 120 BPM, 다운로드는 30ms, 서버와 로컬 시계 차이는 37ms로 고정했습니다.
+        Web Audio의 오실레이터에 전달한 예약 시각을 읽어 첫 두 클릭의 간격을 구했습니다.
       </P>
-      <Code>{`// 5회 측정, 200ms 간격
-const rtt = clientReceiveTime - data.clientSendTime;
-const offset = data.serverTime - (data.clientSendTime + rtt / 2);
-offsets.push(offset);
-
-// 다섯 표본을 정렬해 중앙값을 채택한다
-offsets.sort((a, b) => a - b);
-clockOffsetRef.current = offsets[Math.floor(offsets.length / 2)];`}</Code>
+      <table className="w-full table-fixed border-collapse text-left text-sm tabular-nums">
+        <caption className="pb-2 text-left font-semibold">업로드 지연에 따른 첫 두 박의 예약 간격</caption>
+        <thead className="border-y border-slate-200 bg-slate-50">
+          <tr><th scope="col" className="p-2.5">업로드 지연</th><th scope="col" className="p-2.5">수정 전</th><th scope="col" className="p-2.5">수정 후</th></tr>
+        </thead>
+        <tbody className="divide-y divide-slate-200 border-b border-slate-200">
+          {[[0, 499, 500], [40, 539, 500], [120, 619, 500]].map(([upload, before, after]) => (
+            <tr key={upload}><th scope="row" className="p-2.5 font-medium">{upload}ms</th><td className="p-2.5">{before}ms</td><td className="p-2.5 font-bold text-[#2347b7]">{after}ms</td></tr>
+          ))}
+        </tbody>
+      </table>
       <P>
-        중요한 판단은 마지막 두 줄입니다. 평균 대신 중앙값을 씁니다. 와이파이
-        RTT는 정규분포가 아니라서 가끔 수백 ms짜리 스파이크가 섞입니다.
-        평균을 쓰면 그 스파이크 한 방이 오프셋 전체를 끌고 가는데, 중앙값은
-        다섯 표본 중 두 개가 튀어도 흔들리지 않습니다. 접속 중에도 주기적으로
-        재동기화해서 시계가 흘러가는 것(drift)을 따라잡습니다.
+        로컬 첫 클릭은 시작 기준보다 1ms 뒤에 예약됩니다. 수정 전 업로드가 0ms여도 첫 간격이 499ms였던 이유입니다.
+        수정 후 기본 조건에서 7개 클릭은 서버 기준 1, 501, 1001ms부터 3001ms까지 이어졌습니다. 테스트는 박의 누락·중복과 각 예약 시각의 ±2ms 범위를 검사합니다.
+        측정 대상은 시작 기기의 예약 시각입니다. 실제 기기 간 소리 차이를 알려면 각 출력 장치의 지연까지 측정해야 합니다.
       </P>
+      <a href="https://github.com/Todari/metro-nomedeul/blob/1d2edeefa3ad43fa9528e4c4a6f9876bc2b9d003/scripts/metronome-sync-check.mjs" className="font-semibold underline underline-offset-4">가상 시계와 클릭 누락·중복 회귀 검사 ↗</a>
 
-      <H2>재생, setTimeout이 아니라 50ms 선행 예약</H2>
+      <H2>서버 시각을 추정하고, 오디오 시계에 예약합니다</H2>
       <P>
-        오프셋을 알았으니 서버 기준 T 시각을 로컬 시각으로 환산할 수
-        있습니다. 그런데 그 시각에 setTimeout으로 소리를 내면 다시
-        어긋납니다. 자바스크립트 타이머는 메인 스레드 사정에 따라 수십 ms씩
-        밀리기 때문입니다. 그래서 Web Audio의 표준 패턴인 선행
-        스케줄링(lookahead)을 씁니다.
+        방에 들어오는 기기에는 서버와의 시계 차이를 이미 알고 있다는 실험 조건이 없습니다. 핑을 보내고 응답을 받은 중간 시각을 서버가 응답한 순간으로 추정합니다.
+        200ms 간격으로 다섯 번 표본을 모아 계산한 오프셋의 중앙값을 씁니다.
       </P>
-      <Code>{`private readonly scheduleAheadSec = 0.05; // 50ms 앞서 예약
-
-// 짧은 주기로 돌면서, 50ms 안에 도래할 노트를
-// 오디오 클록의 절대 시각으로 미리 예약해 둔다
-while (this.nextNoteTimeSec <= nowAudio + this.scheduleAheadSec) {
-  this.scheduleClick(this.nextNoteTimeSec);
-  this.advanceToNextNote();
-}`}</Code>
+      <Code>{`왕복 시간 = 수신 시각 − 송신 시각
+추정 오프셋 = 서버 응답 시각 − (송신 시각 + 왕복 시간 / 2)
+로컬 박 기준 = 서버 박 기준 − 추정 오프셋`}</Code>
       <P>
-        타이머는 예약을 거는 일만 하고, 실제 발음 시각은 오디오 하드웨어
-        클록이 지킵니다. 타이머가 10ms 밀려도 예약은 이미 50ms 앞서 걸려
-        있으니 소리는 정시에 납니다. 네트워크의 불확실성은 오프셋 추정에서
-        흡수하고, 런타임의 불확실성은 선행 예약에서 흡수합니다.
+        중앙값은 일시적으로 늦은 응답의 영향을 줄입니다. 매번 가는 데 40ms, 돌아오는 데 30ms가 걸리면 추정에는 여전히 약 5ms의 편향이 남습니다.
+        위 실험에서는 시계 차이를 고정해 이 오차와 첫 박의 기준을 잘못 잡은 효과를 따로 볼 수 있었습니다.
+      </P>
+      <P>
+        기기는 보정된 시각을 Web Audio 시계로 옮깁니다. 화면 프레임마다 앞으로 50ms 안에 올 클릭을 찾아 오디오 엔진에 절대 시각으로 예약합니다.
+        한 프레임이 늦어도 이미 예약한 박은 제 시각을 유지합니다. 메인 스레드가 50ms보다 오래 멈추면 아직 예약하지 못한 박까지 지킬 수는 없습니다.
       </P>
 
-      <H2>남는 건 iOS와 재접속</H2>
+      <H2>오디오가 시작되지 않아도 다음 시도를 허용합니다</H2>
       <P>
-        설계가 끝나도 현실이 남습니다. iOS는 사용자 제스처 없이 오디오를
-        시작할 수 없어서 활성화 흐름을 따로 만들어야 했고, 재접속할 때는 방
-        상태 동기화와 시간 동기화가 경합합니다. 이 경합은 이벤트가 어떤
-        순서로 와도 같은 상태에 도달하도록 상태 전이를 정리해서 풀었습니다.
-        끊겼다 돌아온 연주자는 다시 5회 핑부터 시작해서 조용히 박자에
-        합류합니다.
+        iOS에서는 사용자 제스처 밖에서 요청한 오디오 재개가 끝나지 않을 수 있습니다. 재개를 무기한 기다리면 시작 중 플래그가 남아 재생 버튼을 다시 눌러도 동작하지 않습니다.
+        제스처 안에서 오디오 컨텍스트를 먼저 깨우고 재개 대기에 상한을 뒀습니다. 회귀 검사에서는 끝나지 않는 Promise를 주입해 시작 호출이 반환되고 플래그가 풀리는지 확인합니다.
       </P>
+      <a href="https://github.com/Todari/metro-nomedeul/pull/12" className="font-semibold underline underline-offset-4">시작 시각 전달과 iOS 재시도 수정 · PR #12 ↗</a>
+      <CasePrinciple project="metronomdeul" />
     </ArticleShell>
   );
 }

@@ -1,22 +1,20 @@
 "use client";
 
-import { Edges } from "@react-three/drei";
 import { useMemo, type ReactNode } from "react";
 import * as THREE from "three";
 
-const INK = "#17151c";
-const PAPER = "#fffaf0";
-const LIME = "#dfff4f";
-const PINK = "#ff79bd";
-const CYAN = "#67e8f9";
-const TICKET_BLUE = "#3150ff";
-const TOKSAI_YELLOW = "#ffcd38";
-const TOKSAI_CORAL = "#ff647c";
-const PIN_MINT = "#4be0b5";
-const PIN_BLUE = "#3558f4";
-const PIN_BUTTER = "#ffe36e";
-const GEO_BLUE = "#36d6e7";
-const GEO_NAVY = "#3150ff";
+const PAPER = "#f5f8ff";
+const MINT = "#65c9b5";
+const PINK = "#e782a6";
+const CYAN = "#65aee1";
+const TICKET_BLUE = "#335bc5";
+const TOKSAI_YELLOW = "#edb84e";
+const TOKSAI_CORAL = "#e57278";
+const PIN_MINT = "#6bc4a8";
+const PIN_BLUE = "#3c64ce";
+const PIN_BUTTER = "#eeca6b";
+const GEO_BLUE = "#55b5d5";
+const GEO_NAVY = "#335bc5";
 
 type Vec3 = [number, number, number];
 
@@ -36,8 +34,7 @@ function ToyMesh({
   return (
     <mesh position={position} rotation={rotation} scale={scale}>
       {children}
-      <meshToonMaterial color={color} />
-      <Edges color={INK} lineWidth={1.1} threshold={12} />
+      <meshStandardMaterial color={color} />
     </mesh>
   );
 }
@@ -48,7 +45,7 @@ function DataToy({ color }: { color: string }) {
       {[1.3, 2.2, 3].map((height, index) => (
         <ToyMesh
           key={height}
-          color={index === 2 ? LIME : color}
+          color={index === 2 ? MINT : color}
           position={[-1.25 + index * 1.25, height / 2 - 0.4, 0]}
           rotation={[0, index * 0.08, index % 2 ? 0.04 : -0.04]}
         >
@@ -57,7 +54,7 @@ function DataToy({ color }: { color: string }) {
       ))}
       <mesh rotation={[Math.PI / 2.7, 0.15, 0]} position={[0, 1, 0]}>
         <torusGeometry args={[2.35, 0.08, 8, 64]} />
-        <meshBasicMaterial color={PINK} />
+        <meshStandardMaterial color={PINK} />
       </mesh>
     </group>
   );
@@ -79,7 +76,7 @@ function CoinToy({ color }: { color: string }) {
               key={`${stack.x}-${coinIndex}`}
               color={
                 coinIndex === stack.count - 1
-                  ? LIME
+                  ? MINT
                   : stackIndex === 1 && coinIndex % 2 === 0
                     ? PAPER
                     : color
@@ -104,7 +101,7 @@ function FlameToy({ color }: { color: string }) {
       <ToyMesh color={color} position={[0.1, 0.5, 0.65]} rotation={[0.1, 0, -0.05]}>
         <coneGeometry args={[1, 2.3, 7]} />
       </ToyMesh>
-      <ToyMesh color={LIME} position={[-0.05, 0.55, 1]} rotation={[0.1, 0, 0.08]}>
+      <ToyMesh color={MINT} position={[-0.05, 0.55, 1]} rotation={[0.1, 0, 0.08]}>
         <coneGeometry args={[0.45, 1.2, 7]} />
       </ToyMesh>
     </group>
@@ -126,7 +123,7 @@ function PixelToy({ color }: { color: string }) {
       {blocks.map((position, index) => (
         <ToyMesh
           key={position.join("-")}
-          color={[color, PINK, LIME, CYAN][index % 4]}
+          color={[color, PINK, MINT, CYAN][index % 4]}
           position={position}
         >
           <boxGeometry args={[1.08, 1.08, 1.08]} />
@@ -142,8 +139,7 @@ function BeatToy({ color }: { color: string }) {
       {[0.85, 1.45, 2.05].map((radius, index) => (
         <mesh key={radius} rotation={[Math.PI / 2, index * 0.18, 0]}>
           <torusGeometry args={[radius, 0.15 - index * 0.025, 8, 64]} />
-          <meshToonMaterial color={[LIME, color, PINK][index]} />
-          <Edges threshold={12} color={INK} />
+          <meshStandardMaterial color={[MINT, color, PINK][index]} />
         </mesh>
       ))}
       <ToyMesh color={PAPER}>
@@ -159,7 +155,7 @@ function TowerToy({ color }: { color: string }) {
       {[2.4, 1.6, 2.9, 2].map((height, index) => (
         <ToyMesh
           key={`${height}-${index}`}
-          color={index === 2 ? LIME : color}
+          color={index === 2 ? MINT : color}
           position={[-1.5 + index, height / 2 - 0.55, index % 2 ? 0.35 : -0.1]}
           rotation={[0, index * 0.09, index % 2 ? -0.03 : 0.03]}
         >
@@ -168,7 +164,7 @@ function TowerToy({ color }: { color: string }) {
       ))}
       <mesh rotation={[Math.PI / 2.4, 0, 0.25]} position={[0, 0.7, 0]}>
         <torusGeometry args={[2.55, 0.08, 8, 64]} />
-        <meshBasicMaterial color={PINK} />
+        <meshStandardMaterial color={PINK} />
       </mesh>
     </group>
   );
@@ -201,10 +197,9 @@ function HeartToy({ color }: { color: string }) {
     <group rotation={[0.08, -0.25, 0.05]} scale={0.85}>
       <mesh>
         <extrudeGeometry args={[shape, options]} />
-        <meshToonMaterial color={color} />
-        <Edges threshold={12} color={INK} />
+        <meshStandardMaterial color={color} />
       </mesh>
-      <ToyMesh color={LIME} position={[0.8, 1.9, 0.3]} scale={0.42}>
+      <ToyMesh color={MINT} position={[0.8, 1.9, 0.3]} scale={0.42}>
         <sphereGeometry args={[0.7, 20, 20]} />
       </ToyMesh>
     </group>
@@ -232,9 +227,9 @@ function MatchToy({ color }: { color: string }) {
       </group>
       <mesh position={[0, 1.7, 0.1]}>
         <torusGeometry args={[1.05, 0.09, 8, 48, Math.PI]} />
-        <meshBasicMaterial color={PINK} />
+        <meshStandardMaterial color={PINK} />
       </mesh>
-      <ToyMesh color={LIME} position={[0, 2.15, 0.2]} scale={0.34}>
+      <ToyMesh color={MINT} position={[0, 2.15, 0.2]} scale={0.34}>
         <octahedronGeometry args={[1, 0]} />
       </ToyMesh>
     </group>
@@ -262,7 +257,7 @@ function TicketToy({ color }: { color: string }) {
       </group>
       <mesh rotation={[Math.PI / 2.25, 0.08, 0.1]} position={[0, 0.35, 0.1]}>
         <torusGeometry args={[2.15, 0.08, 8, 64]} />
-        <meshBasicMaterial color={LIME} />
+        <meshStandardMaterial color={MINT} />
       </mesh>
     </group>
   );
@@ -359,7 +354,7 @@ function GeoDashboardToy() {
       {[0.58, 1.05, 1.48].map((height, index) => (
         <ToyMesh
           key={height}
-          color={[GEO_BLUE, LIME, PINK][index]}
+          color={[GEO_BLUE, MINT, PINK][index]}
           position={[-0.86 + index * 0.82, height / 2 - 0.12, 0.26]}
         >
           <boxGeometry args={[0.44, height, 0.2]} />
@@ -367,10 +362,10 @@ function GeoDashboardToy() {
       ))}
       <mesh position={[0, 0.6, 0.5]} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[1.9, 0.07, 8, 64]} />
-        <meshBasicMaterial color={GEO_BLUE} />
+        <meshStandardMaterial color={GEO_BLUE} />
       </mesh>
       <ToyMesh
-        color={LIME}
+        color={MINT}
         position={[1.45, 1.95, 0.45]}
         rotation={[0.1, 0.2, 0.08]}
         scale={0.36}

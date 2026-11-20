@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --portfolio-background: #f8fafc;
+  --portfolio-tabbar-clearance: calc(5.25rem + env(safe-area-inset-bottom));
   --bg-primary: #17151c;
   --bg-secondary: #252130;
   --glass-bg: rgba(255, 255, 255, 0.05);
@@ -21,8 +23,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-forc-sans), system-ui, sans-serif;
 }
 
 * {
@@ -32,18 +33,44 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-block-end: var(--portfolio-tabbar-clearance);
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--portfolio-background);
+  color: #0f172a;
   font-family: var(--font-sans, system-ui, sans-serif);
-  overflow-x: hidden;
+  isolation: isolate;
+  overflow-x: clip;
+  padding-block: env(safe-area-inset-top) var(--portfolio-tabbar-clearance);
+  padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle max(22.5rem, 38vw) at 10% 5%, rgb(51 107 240 / 30%), transparent),
+    radial-gradient(circle max(18.75rem, 30vw) at 95% 30%, rgb(168 85 247 / 22%), transparent),
+    radial-gradient(circle max(22.5rem, 36vw) at 25% 92%, rgb(20 184 166 / 18%), transparent);
+  pointer-events: none;
+}
+
+@media (min-width: 900px) and (min-height: 460px) {
+  :root {
+    --portfolio-tabbar-clearance: 0px;
+  }
+
+  body {
+    padding-inline-end: max(5.75rem, calc(4.5rem + env(safe-area-inset-right)));
+  }
 }
 
 ::selection {
-  background: var(--accent-lime);
-  color: var(--ink);
+  background: #dbe7ff;
+  color: #0f172a;
 }
 
 /* Todari's playful neo-brutalist visual system */

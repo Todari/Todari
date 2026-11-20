@@ -31,35 +31,43 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
+const linkClass = "rounded-sm font-semibold text-[#2347b7] hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-4";
+
 export default async function ProjectWorkPage({ params }: ProjectPageProps) {
   const service = await getProject(params);
 
   return (
-    <main className="min-h-screen bg-[#fffaf0] text-[#17151c]">
-      <header className="paper-grid border-b-2 border-[#17151c] px-5 py-10 md:px-10 md:py-14">
-        <div className="mx-auto max-w-4xl">
-          <Link href="/works" className="text-sm font-bold text-[#5b38b9] underline-offset-4 hover:underline">
-            ← 전체 작업
+    <main className="mx-auto min-h-screen max-w-4xl px-4 pb-16 pt-4 text-slate-900 sm:px-6">
+      <header className="pb-5">
+        <div className="grid grid-cols-[1fr_minmax(0,auto)_1fr] items-center gap-2 border-b border-slate-200 pb-2">
+          <Link href="/works" className="inline-flex min-h-11 w-fit items-center gap-1 rounded-full px-2 text-sm font-semibold text-[#2347b7] hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2">
+            <span aria-hidden="true">‹</span> <span className="whitespace-nowrap">전체 작업</span>
           </Link>
-          <p className="mt-8 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5d5565]">
-            <span className="rounded-full border border-[#17151c] bg-[#fffaf0] px-2.5 py-1">{service.status}</span>
-            <span>{service.period}</span>
-          </p>
-          <h1 className="mt-4 [overflow-wrap:anywhere] text-4xl font-black tracking-tight md:text-6xl">{service.title}</h1>
-          <p className="mt-4 max-w-2xl break-keep text-lg leading-7">{service.description}</p>
-          <p className="mt-4 break-keep text-sm leading-6 text-[#5d5565]">
-            <span className="font-black text-[#17151c]">맡은 역할</span> · {service.role}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-[#5b38b9]">
-            {service.url && <a href={service.url} className="underline underline-offset-4">{service.linkLabel ?? "서비스 보기"} ↗</a>}
+          <h1 className="text-center text-base font-semibold tracking-tight [overflow-wrap:anywhere]">{service.title}</h1>
+        </div>
+        <div className="mt-4 max-w-2xl px-2">
+          <p className="text-sm text-slate-600">{service.status} · {service.period}</p>
+          <p className="mt-2 break-keep text-base leading-7 text-slate-800">{service.description}</p>
+          <dl className="mt-3 break-keep text-sm leading-6">
+            <dt className="font-semibold">담당 역할</dt>
+            <dd className="text-slate-700">{service.role}</dd>
+          </dl>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            {service.url && (
+              <a href={service.url} className={linkClass}>
+                {service.linkLabel ?? "서비스 보기"} <span aria-hidden="true">↗</span>
+              </a>
+            )}
             {service.publicRepository && service.publicRepository !== service.url && (
-              <a href={service.publicRepository} className="underline underline-offset-4">공개 코드 ↗</a>
+              <a href={service.publicRepository} className={linkClass}>
+                공개 코드 <span aria-hidden="true">↗</span>
+              </a>
             )}
           </div>
         </div>
       </header>
-      <div className="mx-auto box-content max-w-4xl px-5 py-10 md:px-10 md:py-14">
-        <WorkExperiences experiences={workExperiences[service.id]} />
+      <div className="rounded-[20px] border border-slate-200 bg-white px-4 py-5 sm:px-5">
+        <WorkExperiences project={service.id} />
       </div>
     </main>
   );
