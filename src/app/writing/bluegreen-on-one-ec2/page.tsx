@@ -15,7 +15,6 @@ export default function Page() {
       title="수집 워커를 분리한 뒤, 배포 순서까지 바꾼 이유"
       date="2026.07–11"
       intro="포크레터는 화면 API를 블루그린으로 배포해도 수집 작업이 끊길 수 있었습니다. 외부 API 수집을 한 번 분리하고 나니, 새 수집 워커가 준비되기 전에 기존 워커를 내리는 순서가 문제였습니다. 화면 요청은 Nginx에서 전환하고, 수집 요청은 스케줄러가 바라보는 주소를 바꿨습니다."
-      sourceNote="비공개 포크레터 저장소의 7월 변경 d0febefa5 (apps/api/src/instagram/comment-poller.service.ts), 10월 변경 70689b9b6 (docker-compose.prod.bluegreen.yml, services/scheduler/src/collector-routing.ts), 11월 변경 d9c8aee7e (scripts/deploy-bluegreen.sh, scripts/deploy-local-images.test.mjs)의 구현·운영 기록을 대조했습니다."
     >
       <H2>화면 API부터 블루그린으로 전환했습니다</H2>
       <P>

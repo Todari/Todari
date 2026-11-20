@@ -6,14 +6,12 @@ export function ArticleShell({
   title,
   date,
   intro,
-  sourceNote,
   children,
 }: {
   label: string;
   title: string;
   date: string;
   intro: string;
-  sourceNote?: string;
   children: ReactNode;
 }) {
   return (
@@ -34,12 +32,9 @@ export function ArticleShell({
           <p className="mt-4 break-keep text-base leading-7 text-slate-700">{intro}</p>
         </header>
         <div className="article-body mt-8 space-y-5 [&>h2]:mt-12 [&>a]:text-blue-700">{children}</div>
-        <footer className="mt-12 border-t border-slate-200 pt-6">
-          {sourceNote && <p className="text-sm leading-6 text-slate-600">{sourceNote}</p>}
-          <div className="mt-4 flex flex-wrap gap-5 text-sm font-semibold text-blue-700 underline-offset-4 [&>a]:underline">
-            <Link href="/">TODARI.DEV</Link>
-            <a href="mailto:hello@todari.dev">hello@todari.dev</a>
-          </div>
+        <footer className="mt-12 flex flex-wrap gap-5 border-t border-slate-200 pt-6 text-sm font-semibold text-blue-700 underline-offset-4 [&>a]:underline">
+          <Link href="/">TODARI.DEV</Link>
+          <a href="mailto:hello@todari.dev">hello@todari.dev</a>
         </footer>
       </article>
     </main>
