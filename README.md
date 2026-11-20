@@ -51,7 +51,7 @@
 
 </details>
 
-<details>
+<details open>
 <summary>기술 스택과 GitHub 활동</summary>
 
 <div align="center">
