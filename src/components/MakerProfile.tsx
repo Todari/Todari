@@ -75,6 +75,7 @@ export default function MakerProfile() {
         <p className="mb-3 break-keep text-sm leading-6 text-slate-700">동료 개발자들과 부트캠프 이후의 경험을 나누는 팟캐스트를 기획하고 진행했습니다.</p>
         <ul className="divide-y divide-slate-200 border-t border-slate-200">
           {[
+            ["EP9. 신입 개발자 생존기", "https://youtu.be/k1yPXmv8H6o"],
             ["EP5. 부트캠프는 아직 유효한가?!", "https://youtu.be/k2JIKx44L5M"],
             ["EP3. 우리에게 수다가 필요한 이유", "https://youtu.be/007QtdQTLBo"],
             ["EP2. 그동안 어떻게 지냈나요?", "https://youtu.be/_jlNYmb6NAU"],

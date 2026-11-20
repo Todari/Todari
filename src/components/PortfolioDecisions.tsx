@@ -4,10 +4,12 @@ import { aggregationDecision, haengdongAllocationDecision, metronomeSyncDecision
 const decisions = [
   {
     ...aggregationDecision,
+    more: { href: "/work/geo-seo-automation#scheduled-enqueue-retry", label: "큐 등록 응답이 사라졌을 때의 재시도" },
     related: { href: "/work/geo-seo-automation#comparable-answer-kpis", label: "질문 구성이 바뀐 두 기간의 노출률 비교" },
   },
   {
     ...metronomeSyncDecision,
+    more: { href: "/work/metronomdeul#tempo-event-budget", label: "연주자별 템포 변경 한도" },
     related: { href: "/work/metronomdeul#live-tempo-phase", label: "2025년 첫 서버부터 재생 중 템포 변경까지" },
   },
   {
@@ -16,6 +18,7 @@ const decisions = [
     choice: "멤버를 지우면 분담 내역도 함께 지워졌습니다. 삭제 전에 영향받는 청구를 찾아 같은 트랜잭션에서 청구 총액을 남은 사람에게 다시 배분하고, 마지막 참여자가 빠진 청구를 삭제했습니다.",
     result: "모의 DB에서 수정 전에는 10,001원 중 6,000원만 남았습니다. 수정 후 두 사람은 5,000원과 5,001원을 부담합니다. 이때 기존에 고정한 분담액도 다시 계산됩니다.",
     href: "/work/haengdong#member-removal-settlement",
+    more: { href: "/work/haengdong#query-error-boundaries", label: "조회·저장 실패 시 화면 복구" },
     linkLabel: "삭제 순서와 정산 합계 검증",
     related: { href: haengdongAllocationDecision.href, label: "원팀에서 구현한 고정 분담액 계산" },
   },
@@ -35,6 +38,7 @@ export default function PortfolioDecisions() {
           <div className="flex flex-wrap gap-x-4">
             <Link href="/writing/snapshot-50m-rows" className={evidenceLink}>조회 계획과 SQL 검증 <span aria-hidden="true">›</span></Link>
             <Link href="/work/forcletter#poki-action-execution" className={evidenceLink}>AI 작업의 중복 실행 방지 <span aria-hidden="true">›</span></Link>
+            <Link href="/work/forcletter#admin-stats-cache" className={evidenceLink}>배포 직후 통계 캐시 복구 <span aria-hidden="true">›</span></Link>
           </div>
         </div>
         <figure className="my-3 rounded-xl bg-[#eef3ff] px-4 py-3.5 text-[#183775]">
@@ -49,7 +53,7 @@ export default function PortfolioDecisions() {
       </article>
 
       <ul role="list" className="mt-3 divide-y divide-slate-900/8 rounded-[22px] border border-slate-900/5 bg-white/95 px-[18px] shadow-[0_3px_18px_#0f172a08] sm:px-5">
-        {decisions.map(({ context, title, choice, result, href, linkLabel, related }) => (
+        {decisions.map(({ context, title, choice, result, href, linkLabel, related, more }) => (
           <li key={href}>
             <article className="grid gap-x-6 gap-y-2 pt-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)] md:pt-5">
               <header>
@@ -62,6 +66,7 @@ export default function PortfolioDecisions() {
                 <div className="flex flex-wrap gap-x-4">
                   <Link href={href} className={evidenceLink}>{linkLabel} <span aria-hidden="true">›</span></Link>
                   <Link href={related.href} className={evidenceLink}>{related.label} <span aria-hidden="true">›</span></Link>
+                  <Link href={more.href} className={evidenceLink}>{more.label} <span aria-hidden="true">›</span></Link>
                 </div>
               </div>
             </article>

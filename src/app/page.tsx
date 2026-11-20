@@ -30,6 +30,7 @@ export default function Home() {
           포크레터와 AiBright에서 데이터 수집부터 사용자가 보는 리포트까지 개발합니다. 최신 지표 하나를 읽는 데 과거 데이터가 얼마나 필요한지, 메모리를 줄여도 집계 결과가 같은지 직접 확인하며 병목을 고쳤습니다.
         </p>
         <div className="flex flex-wrap items-center gap-x-6">
+          <Link href="/works#engineering" className="inline-flex min-h-11 items-center rounded-sm text-sm font-semibold text-[#2347b7] underline-offset-4 hover:underline focus-visible:outline-2">기술 주제별 사례 <span className="ml-1" aria-hidden="true">›</span></Link>
           <Link href="/writing" className="inline-flex min-h-11 items-center rounded-sm text-sm font-semibold text-[#2347b7] underline-offset-4 hover:underline focus-visible:outline-2">기술 글 모아보기 <span className="ml-1" aria-hidden="true">›</span></Link>
           <Link href="/works#history" className="inline-flex min-h-11 items-center rounded-sm text-sm font-semibold text-[#2347b7] underline-offset-4 hover:underline focus-visible:outline-2">2022–2026 개발 기록 <span className="ml-1" aria-hidden="true">›</span></Link>
         </div>

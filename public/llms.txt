@@ -60,6 +60,11 @@
 
 ## Portfolio case study and archive
 
+- 기술 주제별 사례 · 통계 캐시, 배치 재시도, 쿼리·실시간 입력 부하, 프론트엔드 오류 처리, 배포 검증, 장애 모니터링. https://todari.dev/works#engineering
+- 포크레터 · 배포 직후 통계를 위한 Redis 캐시와 24시간을 넘긴 Instagram 수집 배치. https://todari.dev/work/forcletter#admin-stats-cache · https://todari.dev/work/forcletter#instagram-collection-cadence
+- AiBright · 대시보드 캐시 키와 데이터 버전 분리, 큐 등록 응답 유실 후 완료 ID를 이용한 중복 방지. https://todari.dev/work/geo-seo-automation#dashboard-publication-cache · https://todari.dev/work/geo-seo-automation#scheduled-enqueue-retry
+- 메트로놈들 · 실시간 템포 변경과 시계 동기화에 별도 요청 한도 적용. https://todari.dev/work/metronomdeul#tempo-event-budget
+- 행동대장 · TanStack Query의 조회·저장 오류를 토스트와 오류 경계로 전달한 원팀 PR. https://todari.dev/work/haengdong#query-error-boundaries
 - 포크레터 · 스토어 구독의 현재 권한과 해지 이력 분리. https://todari.dev/work/forcletter#store-subscription-history
 - 포크레터 · 부분 성공한 DB 마이그레이션의 재실행과 트래픽 전환 조건. https://todari.dev/work/forcletter#schema-before-deploy
 - 포크레터 · 한국과 일본의 원고료 지급일 계산과 기존 약속 보존. https://todari.dev/work/forcletter#campaign-payout-calendar
